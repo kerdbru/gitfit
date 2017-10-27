@@ -261,7 +261,7 @@
             </objects>
             <point key="canvasLocation" x="-143" y="1676"/>
         </scene>
-        <!--User-->
+        <!--Profile-->
         <scene sceneID="7Zm-z8-kEz">
             <objects>
                 <viewController id="nyX-LC-EGu" customClass="ProfileViewController" customModule="GitFit" customModuleProvider="target" sceneMemberID="viewController">
@@ -353,7 +353,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZVw-ed-qlF"/>
                     </view>
-                    <navigationItem key="navigationItem" title="User" id="dve-gS-rDG">
+                    <navigationItem key="navigationItem" title="Profile" id="dve-gS-rDG">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="pWt-Fi-K9Q">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bpM-0v-dQf">
                                 <rect key="frame" x="311" y="7" width="48" height="30"/>

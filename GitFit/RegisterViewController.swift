@@ -14,6 +14,7 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
     let registerModel = RegisterModel()
     let imagePicker = UIImagePickerController();
 
+    @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var emailAddress: UITextField!
@@ -37,6 +38,10 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            img.contentMode = .scaleAspectFill
+            img.layer.cornerRadius = img.frame.height / 2
+            img.layer.masksToBounds = false
+            img.clipsToBounds = true
             img.image = pickedImage
         }
         
@@ -80,11 +85,7 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.title = "Register"
-        registerModel.delegate = self
+    func setTextFieldColor() {
         firstName.layer.borderColor = fitBlue.cgColor
         firstName.layer.borderWidth = 1.0
         
@@ -99,6 +100,18 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
         
         verifyPassword.layer.borderColor = fitBlue.cgColor
         verifyPassword.layer.borderWidth = 1.0
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = "Register"
+        registerModel.delegate = self
+        setTextFieldColor()
+        
+        registerButton.layer.cornerRadius = registerButton.frame.height / 2
+        registerButton.clipsToBounds = true
+        registerButton.backgroundColor = fitBlue
         
         imagePicker.delegate = self
         
@@ -126,21 +139,4 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
             print("NOPE")
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

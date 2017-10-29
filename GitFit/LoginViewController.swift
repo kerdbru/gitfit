@@ -11,6 +11,8 @@ class LoginViewController: UIViewController, HomeModelDelegate {
 
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
     
     @IBAction func login(_ sender: Any) {
         let email = userEmail.text ?? ""
@@ -56,6 +58,15 @@ class LoginViewController: UIViewController, HomeModelDelegate {
         
         userPassword.layer.borderColor = fitBlue.cgColor
         userPassword.layer.borderWidth = 1.0
+        
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2
+        loginButton.clipsToBounds = true
+        loginButton.backgroundColor = fitBlue
+        
+        registerButton.layer.cornerRadius = registerButton.frame.height / 2
+        registerButton.clipsToBounds = true
+        registerButton.backgroundColor = fitGray
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 

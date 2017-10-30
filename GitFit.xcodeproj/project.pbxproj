@@ -15,6 +15,7 @@
 		1E484E011F85AB40000DEB04 /* GitFitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E484E001F85AB40000DEB04 /* GitFitTests.swift */; };
 		1E484E0C1F85AB40000DEB04 /* GitFitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E484E0B1F85AB40000DEB04 /* GitFitUITests.swift */; };
 		93358FDD1FA6823D0091278D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93358FDC1FA6823D0091278D /* EditProfileViewController.swift */; };
+		933F1A5B1FA7D74700C2857D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933F1A5A1FA7D74700C2857D /* Profile.storyboard */; };
 		C68336561F8C0B6F00E6134D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68336551F8C0B6F00E6134D /* RegisterViewController.swift */; };
 		C68336581F8C0B8200E6134D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68336571F8C0B8200E6134D /* ProfileViewController.swift */; };
 		C683365C1F8C122400E6134D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683365B1F8C122400E6134D /* LoginModel.swift */; };
@@ -54,6 +55,7 @@
 		1E484E0B1F85AB40000DEB04 /* GitFitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitFitUITests.swift; sourceTree = "<group>"; };
 		1E484E0D1F85AB40000DEB04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93358FDC1FA6823D0091278D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		933F1A5A1FA7D74700C2857D /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		C68336551F8C0B6F00E6134D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C68336571F8C0B8200E6134D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C683365B1F8C122400E6134D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -109,18 +111,15 @@
 		1E484DEA1F85AB40000DEB04 /* GitFit */ = {
 			isa = PBXGroup;
 			children = (
-				1E484DEB1F85AB40000DEB04 /* AppDelegate.swift */,
-				1E484DED1F85AB40000DEB04 /* LoginViewController.swift */,
-				C68336551F8C0B6F00E6134D /* RegisterViewController.swift */,
-				C68336571F8C0B8200E6134D /* ProfileViewController.swift */,
+				933F1A5D1FA7D86100C2857D /* LoginRegister */,
+				933F1A591FA7D72800C2857D /* Profile */,
+				933F1A5C1FA7D83B00C2857D /* Models */,
+				933F1A5E1FA7D87900C2857D /* Utility */,
 				1E484DEF1F85AB40000DEB04 /* Main.storyboard */,
+				1E484DEB1F85AB40000DEB04 /* AppDelegate.swift */,
 				1E484DF21F85AB40000DEB04 /* Assets.xcassets */,
 				1E484DF41F85AB40000DEB04 /* LaunchScreen.storyboard */,
 				1E484DF71F85AB40000DEB04 /* Info.plist */,
-				C6F9BDD61F96A385001F5077 /* RegisterModel.swift */,
-				C683365B1F8C122400E6134D /* LoginModel.swift */,
-				C683365D1F8C190500E6134D /* Profile.swift */,
-				93358FDC1FA6823D0091278D /* EditProfileViewController.swift */,
 			);
 			path = GitFit;
 			sourceTree = "<group>";
@@ -141,6 +140,42 @@
 				1E484E0D1F85AB40000DEB04 /* Info.plist */,
 			);
 			path = GitFitUITests;
+			sourceTree = "<group>";
+		};
+		933F1A591FA7D72800C2857D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				933F1A5A1FA7D74700C2857D /* Profile.storyboard */,
+				C68336571F8C0B8200E6134D /* ProfileViewController.swift */,
+				93358FDC1FA6823D0091278D /* EditProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		933F1A5C1FA7D83B00C2857D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C6F9BDD61F96A385001F5077 /* RegisterModel.swift */,
+				C683365B1F8C122400E6134D /* LoginModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		933F1A5D1FA7D86100C2857D /* LoginRegister */ = {
+			isa = PBXGroup;
+			children = (
+				1E484DED1F85AB40000DEB04 /* LoginViewController.swift */,
+				C68336551F8C0B6F00E6134D /* RegisterViewController.swift */,
+			);
+			path = LoginRegister;
+			sourceTree = "<group>";
+		};
+		933F1A5E1FA7D87900C2857D /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				C683365D1F8C190500E6134D /* Profile.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +287,7 @@
 			files = (
 				1E484DF61F85AB40000DEB04 /* LaunchScreen.storyboard in Resources */,
 				1E484DF31F85AB40000DEB04 /* Assets.xcassets in Resources */,
+				933F1A5B1FA7D74700C2857D /* Profile.storyboard in Resources */,
 				1E484DF11F85AB40000DEB04 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

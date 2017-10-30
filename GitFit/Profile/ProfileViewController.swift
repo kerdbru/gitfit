@@ -11,6 +11,14 @@ class ProfileViewController: UIViewController {
         performSegue(withIdentifier: "editProfile", sender: self)
     }
     
+    @IBAction func logout(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as UIViewController
+        
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editProfile" {
             let dest = segue.destination as! EditProfileViewController

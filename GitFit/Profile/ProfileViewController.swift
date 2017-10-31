@@ -14,8 +14,8 @@ class ProfileViewController: UIViewController {
     @IBAction func logout(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as UIViewController
-        
-        self.present(controller, animated: true, completion: nil)
+        let navController = UINavigationController(rootViewController: controller)
+        self.present(navController, animated: true, completion: nil)
     }
     
     

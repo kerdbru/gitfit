@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yPM-LF-kP7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pf8-7R-4fo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,7 +62,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AeR-fx-f2s"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="9tw-qI-Neh"/>
                     <navigationItem key="navigationItem" title="Profile" id="mJN-36-pFi">
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="UJ1-DW-aGH">
                             <connections>
@@ -87,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09Z-t0-LQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1372" y="935.98200899550227"/>
+            <point key="canvasLocation" x="1711.2" y="935.98200899550227"/>
         </scene>
         <!--Profile-->
         <scene sceneID="SGs-v3-xmU">
@@ -201,29 +200,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fFK-dL-KE7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2134" y="937"/>
+            <point key="canvasLocation" x="2472.8000000000002" y="936.88155922038993"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="o9t-ix-2is">
+        <!--Profile-->
+        <scene sceneID="HjV-UN-Ujy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yPM-LF-kP7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="HYb-h5-Hsi"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pf8-7R-4fo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="user_group_man_woman" selectedImage="user_group_man_woman" id="vEQ-Xb-CfQ">
+                        <color key="badgeColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                    </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rf9-VM-G4p">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ymi-bk-u56">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vb5-Lf-KAB" kind="relationship" relationship="rootViewController" id="OKV-DO-dn3"/>
+                        <segue destination="vb5-Lf-KAB" kind="relationship" relationship="rootViewController" id="u3h-j4-JXq"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bvs-Ny-brb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yab-Nq-k1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644.79999999999995" y="936.4317841079461"/>
+            <point key="canvasLocation" x="967" y="936"/>
         </scene>
     </scenes>
     <resources>
         <image name="profile_pic_placeholder" width="158" height="158"/>
+        <image name="user_group_man_woman" width="30" height="30"/>
     </resources>
 </document>

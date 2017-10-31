@@ -88,7 +88,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="b7U-9H-zia"/>
+                    <navigationItem key="navigationItem" title="Login" id="b7U-9H-zia"/>
                     <connections>
                         <outlet property="loginButton" destination="gDN-zJ-5TT" id="gKI-Lz-Zxl"/>
                         <outlet property="registerButton" destination="uzf-58-xig" id="zp3-FH-Lbf"/>

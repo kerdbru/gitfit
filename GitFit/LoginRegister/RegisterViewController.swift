@@ -1,11 +1,3 @@
-//
-//  RegisterViewController.swift
-//  GitFit
-//
-//  Created by Ubicomp3 on 10/9/17.
-//  Copyright © 2017 Team3. All rights reserved.
-//
-
 import UIKit
 
 class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -129,6 +121,7 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
     func createdProfile(profile: Profile?) {
         if profile != nil {
             DispatchQueue.main.async {
+                self.registerModel.uploadImage(String(describing: profile!.id!), self.img.image!)
                 let login = self.navigationController?.childViewControllers[0] as! LoginViewController
                 login.user = profile
                 login.fromRegister = true
@@ -136,7 +129,7 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
             }
         }
         else {
-            print("NOPE")
+            print("NO PROFILE RETURNED")
         }
     }
 }

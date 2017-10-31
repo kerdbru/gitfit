@@ -108,7 +108,6 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Register"
         registerModel.delegate = self
         imagePicker.delegate = self
         setTextFieldStyle()

@@ -1,8 +1,7 @@
 import UIKit
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    var user: Profile?
+
     var profileImage = #imageLiteral(resourceName: "profile_pic_placeholder")
     let imagePicker = UIImagePickerController()
     
@@ -11,7 +10,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var saveButton: UIButton!
-    
     
     @IBAction func save(_ sender: Any) {
     }
@@ -49,22 +47,29 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         email.layer.borderWidth = 1.0
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setTextFieldStyle()
-        setButtonStyle()
-        loadTextField()
-        
+    fileprivate func setProfilePic() {
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
         profileImageView.layer.masksToBounds = false
         profileImageView.clipsToBounds = true
         profileImageView.image = profileImage
-        
-        imagePicker.delegate = self
+    }
+    
+    fileprivate func addGestureToProfilePic() {
+
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         profileImageView.addGestureRecognizer(tapRecognizer)
         profileImageView.isUserInteractionEnabled = true
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imagePicker.delegate = self
+        setTextFieldStyle()
+        setButtonStyle()
+        loadTextField()
+        setProfilePic()
+        addGestureToProfilePic()
     }
     
     @objc func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
@@ -72,7 +77,4 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
-    
 }
-
-

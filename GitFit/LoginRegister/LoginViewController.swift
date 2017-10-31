@@ -2,11 +2,9 @@ import UIKit
 
 let fitBlue = UIColor(displayP3Red: 24/256, green: 184/256, blue: 215/256, alpha: 1)
 let fitGray = UIColor(displayP3Red: 188/256, green: 186/256, blue: 190/256, alpha: 1)
+var user: Profile?
 
 class LoginViewController: UIViewController, HomeModelDelegate {
-    
-    var user: Profile?
-    var fromRegister: Bool?
     let loginModel = LoginModel()
 
     @IBOutlet weak var userEmail: UITextField!
@@ -41,24 +39,7 @@ class LoginViewController: UIViewController, HomeModelDelegate {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "loginToHome") {
-            let tabs = segue.destination as! UITabBarController
-            let nav = tabs.childViewControllers[0] as! UINavigationController
-            let profileView = nav.childViewControllers[0] as! ProfileViewController
-            profileView.user = user
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        loginModel.delegate = self
-        userEmail.layer.borderColor = fitBlue.cgColor
-        userEmail.layer.borderWidth = 1.0
-        
-        userPassword.layer.borderColor = fitBlue.cgColor
-        userPassword.layer.borderWidth = 1.0
-        
+    fileprivate func setButtonStyle() {
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
         loginButton.clipsToBounds = true
         loginButton.backgroundColor = fitBlue
@@ -66,21 +47,28 @@ class LoginViewController: UIViewController, HomeModelDelegate {
         registerButton.layer.cornerRadius = registerButton.frame.height / 2
         registerButton.clipsToBounds = true
         registerButton.backgroundColor = fitGray
+    }
+    
+    fileprivate func setTextFieldStyle() {
+        userEmail.layer.borderColor = fitBlue.cgColor
+        userEmail.layer.borderWidth = 1.0
         
-        // Do any additional setup after loading the view, typically from a nib.
+        userPassword.layer.borderColor = fitBlue.cgColor
+        userPassword.layer.borderWidth = 1.0
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loginModel.delegate = self
+        setTextFieldStyle()
+        setButtonStyle()
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        if let value = fromRegister {
-            if value {
-                performSegue(withIdentifier: "loginToHome", sender: self)
-            }
+        if user != nil {
+            performSegue(withIdentifier: "loginToHome", sender: self)
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 

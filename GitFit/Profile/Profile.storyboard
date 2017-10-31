@@ -77,7 +77,6 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="changePassword" destination="3KH-e6-dtF" id="6Fa-5j-R1b"/>
                         <outlet property="email" destination="opp-dp-OzG" id="ut3-ud-xkX"/>
                         <outlet property="name" destination="dnF-Lp-RXS" id="n1b-GG-N2R"/>
                         <outlet property="profilePic" destination="5XZ-LA-TLs" id="bvC-Mb-HXY"/>

@@ -1,7 +1,6 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    var user: Profile?
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var email: UILabel!
@@ -15,19 +14,17 @@ class ProfileViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as UIViewController
         let navController = UINavigationController(rootViewController: controller)
+        user = nil
         self.present(navController, animated: true, completion: nil)
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editProfile" {
             let dest = segue.destination as! EditProfileViewController
-            dest.user = user
             dest.profileImage = profilePic.image!
         }
     }
     
-    @IBOutlet weak var changePassword: UIButton!
     func loadProfileImage() {
         profilePic.image = #imageLiteral(resourceName: "profile_pic_placeholder")
         let requestURL = URL(string: "http://54.197.29.213/fitness/uploads/account/\(user!.id!)")
@@ -37,7 +34,10 @@ class ProfileViewController: UIViewController {
         URLSession.shared.dataTask(with: request) {
             data, response, error in
             
-            guard let data = data, error == nil, response != nil else { return }
+            guard let data = data, error == nil, response != nil else {
+                print("No image")
+                return
+            }
             
             if let myImage = UIImage(data: data) {
                 DispatchQueue.main.async(execute: {

@@ -77,7 +77,7 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
         
     }
     
-    func setTextFieldColor() {
+    func setTextFieldStyle() {
         firstName.layer.borderColor = fitBlue.cgColor
         firstName.layer.borderWidth = 1.0
         
@@ -94,22 +94,26 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
         verifyPassword.layer.borderWidth = 1.0
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.title = "Register"
-        registerModel.delegate = self
-        setTextFieldColor()
-        
+    fileprivate func setButtonStyle() {
         registerButton.layer.cornerRadius = registerButton.frame.height / 2
         registerButton.clipsToBounds = true
         registerButton.backgroundColor = fitBlue
-        
-        imagePicker.delegate = self
-        
+    }
+    
+    fileprivate func addGestureToProfilePic() {
         img.isUserInteractionEnabled = true
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         img.addGestureRecognizer(tapRecognizer)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Register"
+        registerModel.delegate = self
+        imagePicker.delegate = self
+        setTextFieldStyle()
+        setButtonStyle()
+        addGestureToProfilePic()
     }
     
     @objc func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
@@ -118,14 +122,17 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
         present(imagePicker, animated: true, completion: nil)
     }
     
+    func profilePicUploaded() {
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     func createdProfile(profile: Profile?) {
         if profile != nil {
             DispatchQueue.main.async {
                 self.registerModel.uploadImage(String(describing: profile!.id!), self.img.image!)
-                let login = self.navigationController?.childViewControllers[0] as! LoginViewController
-                login.user = profile
-                login.fromRegister = true
-                self.navigationController?.popViewController(animated: true)
+                user = profile
             }
         }
         else {

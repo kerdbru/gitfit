@@ -2,6 +2,7 @@ import UIKit
 
 protocol RegisterModelDelegate {
     func createdProfile(profile: Profile?)
+    func profilePicUploaded()
 }
 
 extension NSMutableData {
@@ -93,6 +94,7 @@ class RegisterModel: NSObject {
             
             let message = String(data: data, encoding: String.Encoding.utf8)
             print(message!)
+            self.delegate?.profilePicUploaded()
         }.resume()
     }
     

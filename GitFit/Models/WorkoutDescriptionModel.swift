@@ -7,10 +7,10 @@ protocol WorkoutDescriptionModelDelegate {
 class WorkoutDescriptionModel: NSObject {
     var delegate: WorkoutDescriptionModelDelegate?
     
-    let URL_LOAD_PROFILE = "http://54.197.29.213/fitness/api/getworkoutdescriptions.php"
+    let URL_LOAD_WORKOUTS = "http://54.197.29.213/fitness/api/getworkoutdescriptions.php"
     
     func loadWorkouts() {
-        let requestUrl = URL(string: URL_LOAD_PROFILE)
+        let requestUrl = URL(string: URL_LOAD_WORKOUTS)
         var request = URLRequest(url: requestUrl!)
         
         request.httpMethod = "GET"
@@ -31,12 +31,6 @@ class WorkoutDescriptionModel: NSObject {
                 }
             }
         }.resume()
-    }
-    
-    func dispatchEmptyList() {
-        DispatchQueue.main.async {
-            self.delegate?.workoutsLoaded(workouts: [])
-        }
     }
     
     func parseJson(data: Data) -> [WorkoutDescription]? {

@@ -1,14 +1,15 @@
 import UIKit
 
-class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModelDelegate {
-    var workouts: [WorkoutDescription] = []
-    let workoutDescriptionModel = WorkoutDescriptionModel()
-    var workout: WorkoutDescription?
+class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDelegate {
+    var exercises: [ExerciseOrder] = []
+    var exerciseOrderModel = ExerciseOrderModel()
+    var workoutId: Int?
+    var accountId: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        workoutDescriptionModel.delegate = self
-        workoutDescriptionModel.loadWorkouts()
+        exerciseOrderModel.delegate = self
+        exerciseOrderModel.loadWorkouts(workoutId!, accountId!)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -16,12 +17,17 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
-    func workoutsLoaded(workouts: [WorkoutDescription]) {
+
+    func exerciseLoaded(exercise: [ExerciseOrder]) {
         DispatchQueue.main.async {
-            self.workouts = workouts
+            self.exercises = exercise
             self.tableView.reloadData()
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -33,52 +39,33 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return workouts.count
+        return exercises.count
     }
 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "workout", for: indexPath)
-        let workout = workouts[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "exercise", for: indexPath)
+        let exercise = exercises[indexPath.row]
         
-        let name = cell.viewWithTag(1) as! UILabel
-        name.text = workout.name
-        let type = cell.viewWithTag(2) as! UILabel
-        type.text = workout.type
-        let review = cell.viewWithTag(8) as! UILabel
-        review.text = "(\(workout.ratingCount ?? 0))"
         
-        var tag = 3
-        var stars: Double = 0.0
-        if workout.ratingCount! != 0 {
-            stars = Double(workout.ratingSum!) / Double(workout.ratingCount!)
-            stars.round()
+        let order = cell.viewWithTag(1) as! UILabel
+        order.text = "\(exercise.position!)"
+        
+        let name = cell.viewWithTag(2) as! UILabel
+        name.text = exercise.name!
+        
+        let weight = cell.viewWithTag(3) as! UILabel
+        if let lbs = exercise.weight {
+            weight.text = "(\(lbs) lbs)"
         }
         
-        while stars > 0 {
-            let star = cell.viewWithTag(tag) as! UIImageView
-            star.image = #imageLiteral(resourceName: "full_star")
-            stars -= 1
-            tag += 1
-        }
-        while tag < 8 {
-            let star = cell.viewWithTag(tag) as! UIImageView
-            star.image = #imageLiteral(resourceName: "empty_star")
-            tag += 1
-        }
+        let label = cell.viewWithTag(4) as! UILabel
+        label.text = "\(exercise.amount!) \(exercise.label!)"
         
-
+        let sets = cell.viewWithTag(5) as! UILabel
+        sets.text = "\(exercise.sets!) sets"
+        
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        workout = workouts[indexPath.row]
-        performSegue(withIdentifier: "workoutToExercises", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dest = segue.destination as! ExercisesTableViewController
-        dest.accountId = workout?.accountId
-        dest.workoutId = workout?.id
     }
 
     /*

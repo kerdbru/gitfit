@@ -19,6 +19,9 @@
 		935FCD701FA9740F00DECA6D /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935FCD6F1FA9740F00DECA6D /* WorkoutTableViewController.swift */; };
 		93BDDE981FA9616600D2FB68 /* WorkoutDescriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDDE971FA9616600D2FB68 /* WorkoutDescriptions.swift */; };
 		93BDDE9A1FA963BF00D2FB68 /* WorkoutDescriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDDE991FA963BF00D2FB68 /* WorkoutDescriptionModel.swift */; };
+		C64169061FAA68E4006D847D /* ExercisesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64169051FAA68E4006D847D /* ExercisesTableViewController.swift */; };
+		C64169081FAA6C3A006D847D /* ExerciseOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64169071FAA6C3A006D847D /* ExerciseOrder.swift */; };
+		C641690A1FAA7251006D847D /* ExerciseOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64169091FAA7251006D847D /* ExerciseOrderModel.swift */; };
 		C672F7E41FA92B75009FC588 /* ChangePasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C672F7E31FA92B75009FC588 /* ChangePasswordModel.swift */; };
 		C68336561F8C0B6F00E6134D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68336551F8C0B6F00E6134D /* RegisterViewController.swift */; };
 		C68336581F8C0B8200E6134D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68336571F8C0B8200E6134D /* ProfileViewController.swift */; };
@@ -65,6 +68,9 @@
 		935FCD6F1FA9740F00DECA6D /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewController.swift; sourceTree = "<group>"; };
 		93BDDE971FA9616600D2FB68 /* WorkoutDescriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDescriptions.swift; sourceTree = "<group>"; };
 		93BDDE991FA963BF00D2FB68 /* WorkoutDescriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDescriptionModel.swift; sourceTree = "<group>"; };
+		C64169051FAA68E4006D847D /* ExercisesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewController.swift; sourceTree = "<group>"; };
+		C64169071FAA6C3A006D847D /* ExerciseOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseOrder.swift; sourceTree = "<group>"; };
+		C64169091FAA7251006D847D /* ExerciseOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseOrderModel.swift; sourceTree = "<group>"; };
 		C672F7E31FA92B75009FC588 /* ChangePasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordModel.swift; sourceTree = "<group>"; };
 		C68336551F8C0B6F00E6134D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C68336571F8C0B8200E6134D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -173,6 +179,7 @@
 				C683365B1F8C122400E6134D /* LoginModel.swift */,
 				C672F7E31FA92B75009FC588 /* ChangePasswordModel.swift */,
 				93BDDE991FA963BF00D2FB68 /* WorkoutDescriptionModel.swift */,
+				C64169091FAA7251006D847D /* ExerciseOrderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +198,7 @@
 			children = (
 				C683365D1F8C190500E6134D /* Profile.swift */,
 				93BDDE971FA9616600D2FB68 /* WorkoutDescriptions.swift */,
+				C64169071FAA6C3A006D847D /* ExerciseOrder.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -200,6 +208,7 @@
 			children = (
 				C6C9AC181FA91AC300F3F762 /* WorkoutList.storyboard */,
 				935FCD6F1FA9740F00DECA6D /* WorkoutTableViewController.swift */,
+				C64169051FAA68E4006D847D /* ExercisesTableViewController.swift */,
 			);
 			path = WorkoutList;
 			sourceTree = "<group>";
@@ -343,15 +352,18 @@
 				C672F7E41FA92B75009FC588 /* ChangePasswordModel.swift in Sources */,
 				93358FDD1FA6823D0091278D /* EditProfileViewController.swift in Sources */,
 				C683365C1F8C122400E6134D /* LoginModel.swift in Sources */,
+				C64169061FAA68E4006D847D /* ExercisesTableViewController.swift in Sources */,
 				C6F9BDD71F96A385001F5077 /* RegisterModel.swift in Sources */,
 				C6C9AC1D1FA928C800F3F762 /* ChangePasswordViewController.swift in Sources */,
 				C683365E1F8C190500E6134D /* Profile.swift in Sources */,
 				C68336561F8C0B6F00E6134D /* RegisterViewController.swift in Sources */,
+				C641690A1FAA7251006D847D /* ExerciseOrderModel.swift in Sources */,
 				1E484DEE1F85AB40000DEB04 /* LoginViewController.swift in Sources */,
 				93BDDE9A1FA963BF00D2FB68 /* WorkoutDescriptionModel.swift in Sources */,
 				C68336581F8C0B8200E6134D /* ProfileViewController.swift in Sources */,
 				93BDDE981FA9616600D2FB68 /* WorkoutDescriptions.swift in Sources */,
 				1E484DEC1F85AB40000DEB04 /* AppDelegate.swift in Sources */,
+				C64169081FAA6C3A006D847D /* ExerciseOrder.swift in Sources */,
 				935FCD701FA9740F00DECA6D /* WorkoutTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

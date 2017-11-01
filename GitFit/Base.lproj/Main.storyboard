@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -224,10 +224,10 @@
             </objects>
             <point key="canvasLocation" x="1302" y="920"/>
         </scene>
-        <!--Favorite-->
+        <!--WorkoutList-->
         <scene sceneID="X7J-Ts-1UW">
             <objects>
-                <viewControllerPlaceholder storyboardName="Favorite" id="I8I-70-OH6" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="WorkoutList" id="I8I-70-OH6" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Qcy-tz-Y2k"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iaC-QI-5LU" userLabel="First Responder" sceneMemberID="firstResponder"/>

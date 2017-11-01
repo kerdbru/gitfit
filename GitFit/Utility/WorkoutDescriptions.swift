@@ -12,7 +12,7 @@ struct WorkoutDescription : Codable {
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
         case ratingSum = "rating_sum"
-        case name:
+        case name
         case id
         case type
         case accountId = "account_id"

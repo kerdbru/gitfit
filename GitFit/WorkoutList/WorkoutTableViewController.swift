@@ -47,9 +47,10 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         review.text = "(\(workout.ratingCount ?? 0))"
         
         var tag = 3
-        var stars = 0
+        var stars: Double = 0.0
         if workout.ratingCount! != 0 {
-            stars = workout.ratingSum! / workout.ratingCount!
+            stars = Double(workout.ratingSum!) / Double(workout.ratingCount!)
+            stars.round()
         }
         
         while stars > 0 {

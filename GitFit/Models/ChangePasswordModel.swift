@@ -15,7 +15,6 @@ protocol ChangePasswordModelDelegate {
 class ChangePasswordModel: NSObject {
     var delegate: ChangePasswordModelDelegate?
 
-    
     let URL_UPDATE_PROFILE = "http://54.197.29.213/fitness/api/updateaccount.php"
 
     func changePassword(id: Int, firstName: String, lastName: String, emailAddress: String, password: String) {

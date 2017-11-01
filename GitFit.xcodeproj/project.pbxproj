@@ -16,6 +16,7 @@
 		1E484E0C1F85AB40000DEB04 /* GitFitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E484E0B1F85AB40000DEB04 /* GitFitUITests.swift */; };
 		93358FDD1FA6823D0091278D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93358FDC1FA6823D0091278D /* EditProfileViewController.swift */; };
 		933F1A5B1FA7D74700C2857D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933F1A5A1FA7D74700C2857D /* Profile.storyboard */; };
+		93BDDE981FA9616600D2FB68 /* WorkoutDescriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDDE971FA9616600D2FB68 /* WorkoutDescriptions.swift */; };
 		C672F7E41FA92B75009FC588 /* ChangePasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C672F7E31FA92B75009FC588 /* ChangePasswordModel.swift */; };
 		C68336561F8C0B6F00E6134D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68336551F8C0B6F00E6134D /* RegisterViewController.swift */; };
 		C68336581F8C0B8200E6134D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68336571F8C0B8200E6134D /* ProfileViewController.swift */; };
@@ -59,6 +60,7 @@
 		1E484E0D1F85AB40000DEB04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93358FDC1FA6823D0091278D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		933F1A5A1FA7D74700C2857D /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		93BDDE971FA9616600D2FB68 /* WorkoutDescriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDescriptions.swift; sourceTree = "<group>"; };
 		C672F7E31FA92B75009FC588 /* ChangePasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordModel.swift; sourceTree = "<group>"; };
 		C68336551F8C0B6F00E6134D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C68336571F8C0B8200E6134D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				C683365D1F8C190500E6134D /* Profile.swift */,
+				93BDDE971FA9616600D2FB68 /* WorkoutDescriptions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				C68336561F8C0B6F00E6134D /* RegisterViewController.swift in Sources */,
 				1E484DEE1F85AB40000DEB04 /* LoginViewController.swift in Sources */,
 				C68336581F8C0B8200E6134D /* ProfileViewController.swift in Sources */,
+				93BDDE981FA9616600D2FB68 /* WorkoutDescriptions.swift in Sources */,
 				1E484DEC1F85AB40000DEB04 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,17 +1,13 @@
-//
-//  WorkoutTableViewController.swift
-//  GitFit
-//
-//  Created by Keith Erdbruegger on 10/31/17.
-//  Copyright © 2017 Team3. All rights reserved.
-//
-
 import UIKit
 
-class WorkoutTableViewController: UITableViewController {
-
+class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModelDelegate {
+    var workouts: [WorkoutDescription] = []
+    let workoutDescriptionModel = WorkoutDescriptionModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        workoutDescriptionModel.delegate = self
+        workoutDescriptionModel.loadWorkouts()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -19,33 +15,58 @@ class WorkoutTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func workoutsLoaded(workouts: [WorkoutDescription]) {
+        DispatchQueue.main.async {
+            self.workouts = workouts
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return workouts.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "workout", for: indexPath)
+        let workout = workouts[indexPath.row]
+        
+        let name = cell.viewWithTag(1) as! UILabel
+        name.text = workout.name
+        let type = cell.viewWithTag(2) as! UILabel
+        type.text = workout.type
+        let review = cell.viewWithTag(8) as! UILabel
+        review.text = "(\(workout.ratingCount ?? 0))"
+        
+        var tag = 3
+        var stars = 0
+        if workout.ratingCount! != 0 {
+            stars = workout.ratingSum! / workout.ratingCount!
+        }
+        
+        while stars > 0 {
+            let star = cell.viewWithTag(tag) as! UIImageView
+            star.image = #imageLiteral(resourceName: "full_star")
+            stars -= 1
+            tag += 1
+        }
+        while tag < 8 {
+            let star = cell.viewWithTag(tag) as! UIImageView
+            star.image = #imageLiteral(resourceName: "empty_star")
+            tag += 1
+        }
+        
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

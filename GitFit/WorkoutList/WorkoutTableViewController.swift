@@ -9,6 +9,7 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         super.viewDidLoad()
         workoutDescriptionModel.delegate = self
         workoutDescriptionModel.loadWorkouts()
+        tableView.tableFooterView = UIView()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -79,6 +80,7 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         let dest = segue.destination as! ExercisesTableViewController
         dest.accountId = workout?.accountId
         dest.workoutId = workout?.id
+        dest.name = workout?.name
     }
 
     /*

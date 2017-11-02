@@ -4,13 +4,28 @@ let fitBlue = UIColor(displayP3Red: 24/256, green: 184/256, blue: 215/256, alpha
 let fitGray = UIColor(displayP3Red: 188/256, green: 186/256, blue: 190/256, alpha: 1)
 var user: Profile?
 
-class LoginViewController: UIViewController, HomeModelDelegate {
+class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDelegate {
     let loginModel = LoginModel()
 
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loginModel.delegate = self
+        setTextFieldStyle()
+        setButtonStyle()
+        
+        userEmail.delegate = self
+        userPassword.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     @IBAction func login(_ sender: Any) {
         let email = userEmail.text ?? ""
@@ -55,20 +70,17 @@ class LoginViewController: UIViewController, HomeModelDelegate {
         
         userPassword.layer.borderColor = fitBlue.cgColor
         userPassword.layer.borderWidth = 1.0
-        
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        loginModel.delegate = self
-        setTextFieldStyle()
-        setButtonStyle()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         if user != nil {
             performSegue(withIdentifier: "loginToHome", sender: self)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        userEmail.text! = ""
+        userPassword.text! = ""
     }
 }
 

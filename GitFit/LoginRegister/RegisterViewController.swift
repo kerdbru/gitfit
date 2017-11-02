@@ -1,6 +1,6 @@
 import UIKit
 
-class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     var newUser: Profile?
     let registerModel = RegisterModel()
@@ -13,6 +13,26 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var verifyPassword: UITextField!
     @IBOutlet weak var img: UIImageView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        registerModel.delegate = self
+        imagePicker.delegate = self
+        setTextFieldStyle()
+        setButtonStyle()
+        addGestureToProfilePic()
+        
+        firstName.delegate = self
+        lastName.delegate = self
+        emailAddress.delegate = self
+        password.delegate = self
+        verifyPassword.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     func showError(){
         let alert = UIAlertController(title: "Error", message: "Please enter all required fields", preferredStyle: .alert)
@@ -104,15 +124,6 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
         img.isUserInteractionEnabled = true
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         img.addGestureRecognizer(tapRecognizer)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        registerModel.delegate = self
-        imagePicker.delegate = self
-        setTextFieldStyle()
-        setButtonStyle()
-        addGestureToProfilePic()
     }
     
     @objc func imageTapped(gestureRecognizer: UITapGestureRecognizer) {

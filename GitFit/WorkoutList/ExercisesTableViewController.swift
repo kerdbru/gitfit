@@ -5,11 +5,14 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     var exerciseOrderModel = ExerciseOrderModel()
     var workoutId: Int?
     var accountId: Int?
+    var name: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         exerciseOrderModel.delegate = self
         exerciseOrderModel.loadWorkouts(workoutId!, accountId!)
+        tableView.tableFooterView = UIView()
+        self.title = name
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -47,25 +50,27 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "exercise", for: indexPath)
         let exercise = exercises[indexPath.row]
         
+        let name = cell.viewWithTag(1) as! UILabel
+        name.text! = "\(exercise.position!)) \(exercise.name!)"
         
-        let order = cell.viewWithTag(1) as! UILabel
-        order.text = "\(exercise.position!)"
-        
-        let name = cell.viewWithTag(2) as! UILabel
-        name.text = exercise.name!
-        
-        let weight = cell.viewWithTag(3) as! UILabel
+        var weight = ""
         if let lbs = exercise.weight {
-            weight.text = "(\(lbs) lbs)"
+            weight = "\n\(lbs) lbs"
+        }
+        let label = "\(exercise.amount!) \(exercise.label!)"
+        var set = "\(exercise.sets!) set"
+        if exercise.sets! > 1 {
+            set = set + "s"
         }
         
-        let label = cell.viewWithTag(4) as! UILabel
-        label.text = "\(exercise.amount!) \(exercise.label!)"
-        
-        let sets = cell.viewWithTag(5) as! UILabel
-        sets.text = "\(exercise.sets!) sets"
+        let detail = cell.viewWithTag(2) as! UILabel
+        detail.text! = "\(label)\n\(set)\(weight)"
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75.0
     }
 
     /*

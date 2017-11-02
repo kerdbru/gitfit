@@ -27,9 +27,13 @@ class ChangePasswordViewController: UIViewController {
     }
     
     func setButtonStyle() {
-        submitButton.layer.cornerRadius = submitButton.frame.height / 2
-        submitButton.clipsToBounds = true
-        submitButton.backgroundColor = fitBlue
+        setDefaultButtonStyle(submitButton, fitBlue)
+    }
+    
+    func setTextFieldStyle() {
+        setDefaultTextFieldStyle(currPass, fitBlue)
+        setDefaultTextFieldStyle(newPass, fitBlue)
+        setDefaultTextFieldStyle(verifyPass, fitBlue)
     }
 
     func loadValues() {
@@ -44,6 +48,7 @@ class ChangePasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTextFieldStyle()
         setButtonStyle()
 
         // Do any additional setup after loading the view.

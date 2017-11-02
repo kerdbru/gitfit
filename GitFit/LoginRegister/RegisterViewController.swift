@@ -98,26 +98,15 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
     }
     
     func setTextFieldStyle() {
-        firstName.layer.borderColor = fitBlue.cgColor
-        firstName.layer.borderWidth = 1.0
-        
-        lastName.layer.borderColor = fitBlue.cgColor
-        lastName.layer.borderWidth = 1.0
-        
-        emailAddress.layer.borderColor = fitBlue.cgColor
-        emailAddress.layer.borderWidth = 1.0
-        
-        password.layer.borderColor = fitBlue.cgColor
-        password.layer.borderWidth = 1.0
-        
-        verifyPassword.layer.borderColor = fitBlue.cgColor
-        verifyPassword.layer.borderWidth = 1.0
+        setDefaultTextFieldStyle(firstName, fitBlue)
+        setDefaultTextFieldStyle(lastName, fitBlue)
+        setDefaultTextFieldStyle(emailAddress, fitBlue)
+        setDefaultTextFieldStyle(password, fitBlue)
+        setDefaultTextFieldStyle(verifyPassword, fitBlue)
     }
     
     fileprivate func setButtonStyle() {
-        registerButton.layer.cornerRadius = registerButton.frame.height / 2
-        registerButton.clipsToBounds = true
-        registerButton.backgroundColor = fitBlue
+        setDefaultButtonStyle(registerButton, fitBlue)
     }
     
     fileprivate func addGestureToProfilePic() {
@@ -148,5 +137,16 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
         else {
             print("NO PROFILE RETURNED")
         }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil, completion: {
+            _ in
+            self.img.contentMode = .scaleAspectFill
+            self.img.layer.cornerRadius = self.img.frame.height / 2
+            self.img.layer.masksToBounds = false
+            self.img.clipsToBounds = true
+        })
     }
 }

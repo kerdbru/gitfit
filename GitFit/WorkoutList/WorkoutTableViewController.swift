@@ -82,6 +82,10 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         dest.workoutId = workout?.id
         dest.name = workout?.name
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44.0
+    }
 
     /*
     // Override to support conditional editing of the table view.

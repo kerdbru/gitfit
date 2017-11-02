@@ -27,9 +27,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func setButtonStyle() {
-        saveButton.layer.cornerRadius = saveButton.frame.height / 2
-        saveButton.clipsToBounds = true
-        saveButton.backgroundColor = fitBlue
+        setDefaultButtonStyle(saveButton, fitBlue)
     }
     
     func loadTextField() {
@@ -39,12 +37,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func setTextFieldStyle() {
-        firstName.layer.borderColor = fitBlue.cgColor
-        firstName.layer.borderWidth = 1.0
-        lastName.layer.borderColor = fitBlue.cgColor
-        lastName.layer.borderWidth = 1.0
-        email.layer.borderColor = fitBlue.cgColor
-        email.layer.borderWidth = 1.0
+        setDefaultTextFieldStyle(firstName, fitBlue)
+        setDefaultTextFieldStyle(lastName, fitBlue)
+        setDefaultTextFieldStyle(email, fitBlue)
     }
     
     fileprivate func setProfilePic() {
@@ -68,13 +63,28 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         setTextFieldStyle()
         setButtonStyle()
         loadTextField()
-        setProfilePic()
         addGestureToProfilePic()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setProfilePic()
     }
     
     @objc func imageTapped(gestureRecognizer: UITapGestureRecognizer) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil, completion: {
+            _ in
+            self.profileImageView.contentMode = .scaleAspectFill
+            self.profileImageView.layer.cornerRadius = self.profileImageView.frame.height / 2
+            self.profileImageView.layer.masksToBounds = false
+            self.profileImageView.clipsToBounds = true
+        })
     }
 }

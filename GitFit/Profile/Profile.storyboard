@@ -213,29 +213,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gR6-7w-Sy3">
-                                <rect key="frame" x="100.5" y="243.5" width="174" height="180"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gR6-7w-Sy3">
+                                <rect key="frame" x="50" y="251" width="275" height="165"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Current Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mzE-PR-DdA">
-                                        <rect key="frame" x="0.0" y="0.0" width="174" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zv9-zM-UzV">
-                                        <rect key="frame" x="0.0" y="50" width="174" height="30"/>
+                                        <rect key="frame" x="0.0" y="45" width="275" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verify New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HSc-MC-VtN">
-                                        <rect key="frame" x="0.0" y="100" width="174" height="30"/>
+                                        <rect key="frame" x="0.0" y="90" width="275" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ho-6B-wua">
-                                        <rect key="frame" x="0.0" y="150" width="174" height="30"/>
+                                        <rect key="frame" x="0.0" y="135" width="275" height="30"/>
                                         <state key="normal" title="Save">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -248,8 +248,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="gR6-7w-Sy3" firstAttribute="centerX" secondItem="NB9-tW-BeT" secondAttribute="centerX" id="0nu-Ow-4Dl"/>
-                            <constraint firstItem="gR6-7w-Sy3" firstAttribute="centerY" secondItem="NB9-tW-BeT" secondAttribute="centerY" id="95p-Hf-VD6"/>
+                            <constraint firstItem="4Th-cI-Kix" firstAttribute="trailing" secondItem="gR6-7w-Sy3" secondAttribute="trailing" constant="50" id="LiB-o9-zot"/>
+                            <constraint firstItem="gR6-7w-Sy3" firstAttribute="leading" secondItem="4Th-cI-Kix" secondAttribute="leading" constant="50" id="wcG-do-3dI"/>
+                            <constraint firstItem="gR6-7w-Sy3" firstAttribute="centerY" secondItem="NB9-tW-BeT" secondAttribute="centerY" id="zuQ-32-sqY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Th-cI-Kix"/>
                     </view>

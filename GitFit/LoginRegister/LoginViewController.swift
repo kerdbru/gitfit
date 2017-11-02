@@ -1,9 +1,5 @@
 import UIKit
 
-let fitBlue = UIColor(displayP3Red: 24/256, green: 184/256, blue: 215/256, alpha: 1)
-let fitGray = UIColor(displayP3Red: 188/256, green: 186/256, blue: 190/256, alpha: 1)
-var user: Profile?
-
 class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDelegate {
     let loginModel = LoginModel()
 
@@ -55,21 +51,13 @@ class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDeleg
     }
     
     fileprivate func setButtonStyle() {
-        loginButton.layer.cornerRadius = loginButton.frame.height / 2
-        loginButton.clipsToBounds = true
-        loginButton.backgroundColor = fitBlue
-        
-        registerButton.layer.cornerRadius = registerButton.frame.height / 2
-        registerButton.clipsToBounds = true
-        registerButton.backgroundColor = fitGray
+        setDefaultButtonStyle(loginButton, fitBlue)
+        setDefaultButtonStyle(registerButton, fitGray)
     }
     
     fileprivate func setTextFieldStyle() {
-        userEmail.layer.borderColor = fitBlue.cgColor
-        userEmail.layer.borderWidth = 1.0
-        
-        userPassword.layer.borderColor = fitBlue.cgColor
-        userPassword.layer.borderWidth = 1.0
+        setDefaultTextFieldStyle(userEmail, fitBlue)
+        setDefaultTextFieldStyle(userPassword, fitBlue)
     }
 
     override func viewDidAppear(_ animated: Bool) {

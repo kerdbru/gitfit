@@ -16,6 +16,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.profileImage = pickedImage
             profileImageView.contentMode = .scaleAspectFill
             profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
             profileImageView.layer.masksToBounds = false
@@ -51,7 +52,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     fileprivate func addGestureToProfilePic() {
-
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         profileImageView.addGestureRecognizer(tapRecognizer)
         profileImageView.isUserInteractionEnabled = true

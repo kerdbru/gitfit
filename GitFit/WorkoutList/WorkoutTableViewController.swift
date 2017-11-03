@@ -84,7 +84,7 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44.0
+        return 55.0
     }
 
     /*

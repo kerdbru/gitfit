@@ -64,13 +64,13 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
         }
         
         let detail = cell.viewWithTag(2) as! UILabel
-        detail.text! = "\(label)\n\(set)\(weight)"
+        detail.text! = "\(label) / \(set)\(weight)"
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75.0
+        return 55.0
     }
 
     /*

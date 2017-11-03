@@ -13,5 +13,4 @@ func setDefaultButtonStyle(_ button: UIButton, _ color: UIColor) {
 
 func setDefaultTextFieldStyle(_ text: UITextField, _ color: UIColor) {
     text.borderStyle = .roundedRect
-    text.layer.borderColor = color.cgColor
 }

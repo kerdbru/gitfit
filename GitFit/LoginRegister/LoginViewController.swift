@@ -45,7 +45,6 @@ class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDeleg
         }
         else{
             showError()
-            userEmail.text! = ""
             userPassword.text! = ""
         }
     }

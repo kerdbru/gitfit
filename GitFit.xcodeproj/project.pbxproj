@@ -17,6 +17,7 @@
 		93358FDD1FA6823D0091278D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93358FDC1FA6823D0091278D /* EditProfileViewController.swift */; };
 		933F1A5B1FA7D74700C2857D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933F1A5A1FA7D74700C2857D /* Profile.storyboard */; };
 		935FCD701FA9740F00DECA6D /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935FCD6F1FA9740F00DECA6D /* WorkoutTableViewController.swift */; };
+		93A457C51FAC12C6003D9A61 /* FitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A457C41FAC12C6003D9A61 /* FitTextField.swift */; };
 		93BDDE981FA9616600D2FB68 /* WorkoutDescriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDDE971FA9616600D2FB68 /* WorkoutDescriptions.swift */; };
 		93BDDE9A1FA963BF00D2FB68 /* WorkoutDescriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDDE991FA963BF00D2FB68 /* WorkoutDescriptionModel.swift */; };
 		93F5A4821FAB8A0800704CE0 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5A4811FAB8A0800704CE0 /* Globals.swift */; };
@@ -67,6 +68,7 @@
 		93358FDC1FA6823D0091278D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		933F1A5A1FA7D74700C2857D /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		935FCD6F1FA9740F00DECA6D /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewController.swift; sourceTree = "<group>"; };
+		93A457C41FAC12C6003D9A61 /* FitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitTextField.swift; sourceTree = "<group>"; };
 		93BDDE971FA9616600D2FB68 /* WorkoutDescriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDescriptions.swift; sourceTree = "<group>"; };
 		93BDDE991FA963BF00D2FB68 /* WorkoutDescriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDescriptionModel.swift; sourceTree = "<group>"; };
 		93F5A4811FAB8A0800704CE0 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				93BDDE971FA9616600D2FB68 /* WorkoutDescriptions.swift */,
 				C64169071FAA6C3A006D847D /* ExerciseOrder.swift */,
 				93F5A4811FAB8A0800704CE0 /* Globals.swift */,
+				93A457C41FAC12C6003D9A61 /* FitTextField.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				93BDDE9A1FA963BF00D2FB68 /* WorkoutDescriptionModel.swift in Sources */,
 				C68336581F8C0B8200E6134D /* ProfileViewController.swift in Sources */,
 				93BDDE981FA9616600D2FB68 /* WorkoutDescriptions.swift in Sources */,
+				93A457C51FAC12C6003D9A61 /* FitTextField.swift in Sources */,
 				1E484DEC1F85AB40000DEB04 /* AppDelegate.swift in Sources */,
 				C64169081FAA6C3A006D847D /* ExerciseOrder.swift in Sources */,
 				93F5A4821FAB8A0800704CE0 /* Globals.swift in Sources */,
@@ -536,7 +540,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K43DD22JAQ;
+				DEVELOPMENT_TEAM = ZWCU4C2TFP;
 				INFOPLIST_FILE = GitFit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tabs.GitFit;
@@ -553,7 +557,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K43DD22JAQ;
+				DEVELOPMENT_TEAM = ZWCU4C2TFP;
 				INFOPLIST_FILE = GitFit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tabs.GitFit;

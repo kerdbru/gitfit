@@ -98,11 +98,11 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
     }
     
     func setTextFieldStyle() {
-        setDefaultTextFieldStyle(firstName, fitBlue)
-        setDefaultTextFieldStyle(lastName, fitBlue)
-        setDefaultTextFieldStyle(emailAddress, fitBlue)
-        setDefaultTextFieldStyle(password, fitBlue)
-        setDefaultTextFieldStyle(verifyPassword, fitBlue)
+        setDefaultTextFieldStyle(firstName, fitGray)
+        setDefaultTextFieldStyle(lastName, fitGray)
+        setDefaultTextFieldStyle(emailAddress, fitGray)
+        setDefaultTextFieldStyle(password, fitGray)
+        setDefaultTextFieldStyle(verifyPassword, fitGray)
     }
     
     fileprivate func setButtonStyle() {

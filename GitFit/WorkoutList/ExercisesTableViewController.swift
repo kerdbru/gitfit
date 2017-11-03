@@ -58,13 +58,13 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
             weight = "\n\(lbs) lbs"
         }
         let label = "\(exercise.amount!) \(exercise.label!)"
-        var set = "\(exercise.sets!) set"
+        var set = ""
         if exercise.sets! > 1 {
-            set = set + "s"
+            set = " / \(exercise.sets!) sets"
         }
         
         let detail = cell.viewWithTag(2) as! UILabel
-        detail.text! = "\(label) / \(set)\(weight)"
+        detail.text! = "\(label)\(set)\(weight)"
         
         return cell
     }

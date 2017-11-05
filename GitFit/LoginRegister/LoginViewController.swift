@@ -18,7 +18,7 @@ class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDeleg
         userEmail.delegate = self
         userEmail.returnKeyType = .next
         userPassword.delegate = self
-        userPassword.returnKeyType = .done
+        userPassword.returnKeyType = .go
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -27,6 +27,7 @@ class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDeleg
             userPassword.becomeFirstResponder()
         default:
             textField.resignFirstResponder()
+            loginUser()
         }
         
         return true
@@ -35,8 +36,8 @@ class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDeleg
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let textPos = (textField.superview?.superview?.frame.origin.y)! + (textField.superview?.frame.origin.y)! + textField.frame.origin.y
         let halfScreen = UIScreen.main.bounds.height / 2
-        if halfScreen < (textPos + 100) {
-            move = 100 + textPos - halfScreen
+        if halfScreen < (textPos + 50) {
+            move = 50 + textPos - halfScreen
             moveTextField(textField: textField, distance: -move)
         }
     }
@@ -58,11 +59,15 @@ class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDeleg
         UIView.commitAnimations()
     }
     
-    @IBAction func login(_ sender: Any) {
+    fileprivate func loginUser() {
         let email = userEmail.text ?? ""
         let password = userPassword.text ?? ""
         
         loginModel.loadProfile(email: email, password: password)
+    }
+    
+    @IBAction func login(_ sender: Any) {
+        loginUser()
     }
     
     func showError(){
@@ -101,8 +106,13 @@ class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDeleg
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        view.endEditing(true)
         userEmail.text! = ""
         userPassword.text! = ""
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        view.endEditing(true)
     }
 }
 

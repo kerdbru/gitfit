@@ -1,9 +1,10 @@
 import UIKit
 
-class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     var profileImage = #imageLiteral(resourceName: "profile_pic_placeholder")
     let imagePicker = UIImagePickerController()
+    var move: CGFloat = 0
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var firstName: UITextField!
@@ -64,6 +65,41 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         setButtonStyle()
         loadTextField()
         addGestureToProfilePic()
+        
+        firstName.delegate = self
+        lastName.delegate = self
+        email.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let textPos = (textField.superview?.superview?.superview?.superview?.frame.origin.y)! + textField.frame.origin.y
+        let halfScreen = UIScreen.main.bounds.height / 2
+        if halfScreen < (textPos + 50) {
+            move = 50 + textPos - halfScreen
+            moveTextField(textField: textField, distance: -move)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if move != 0 {
+            moveTextField(textField: textField, distance: move)
+            move = 0
+        }
+    }
+    
+    func moveTextField(textField: UITextField, distance: CGFloat) {
+        let moveDuration = 0.3
+        
+        UIView.beginAnimations("animageTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: distance)
+        UIView.commitAnimations()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,9 +112,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         present(imagePicker, animated: true, completion: nil)
     }
     
-    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
+        view.endEditing(true)
         coordinator.animate(alongsideTransition: nil, completion: {
             _ in
             self.profileImageView.contentMode = .scaleAspectFill

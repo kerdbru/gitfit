@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Ti1-ew-4ej">
-                                <rect key="frame" x="67" y="162" width="240" height="342"/>
+                                <rect key="frame" x="67.5" y="162.5" width="240" height="342"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GitFit-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ua9-Ys-fpK">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -112,10 +112,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="bwf-SL-HZh">
-                                <rect key="frame" x="112" y="89" width="150" height="150"/>
+                                <rect key="frame" x="112.5" y="89" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="Aub-3d-1z1"/>
-                                    <constraint firstAttribute="width" constant="150" id="kH1-dS-JMn"/>
+                                    <constraint firstAttribute="height" constant="150" id="Aub-3d-1z1">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="100"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="150" id="kH1-dS-JMn">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="100"/>
+                                    </constraint>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mCp-FN-wWl">
@@ -177,15 +181,24 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <variation key="heightClass=compact-widthClass=compact" spacing="2"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mCp-FN-wWl" firstAttribute="leading" secondItem="1l5-ea-3eP" secondAttribute="leading" constant="25" id="CV9-yF-Y8g"/>
+                            <constraint firstItem="mCp-FN-wWl" firstAttribute="leading" secondItem="1l5-ea-3eP" secondAttribute="leading" constant="25" id="CV9-yF-Y8g">
+                                <variation key="heightClass=compact-widthClass=compact" constant="100"/>
+                            </constraint>
                             <constraint firstItem="bwf-SL-HZh" firstAttribute="centerX" secondItem="i2T-75-gur" secondAttribute="centerX" id="IJ9-Te-x6D"/>
-                            <constraint firstItem="bwf-SL-HZh" firstAttribute="top" secondItem="1l5-ea-3eP" secondAttribute="top" constant="25" id="M0y-mN-cfm"/>
-                            <constraint firstItem="1l5-ea-3eP" firstAttribute="trailing" secondItem="mCp-FN-wWl" secondAttribute="trailing" constant="25" id="b1m-Vv-6Pm"/>
-                            <constraint firstItem="mCp-FN-wWl" firstAttribute="top" secondItem="bwf-SL-HZh" secondAttribute="bottom" constant="10" id="dde-Fu-mTa"/>
+                            <constraint firstItem="bwf-SL-HZh" firstAttribute="top" secondItem="1l5-ea-3eP" secondAttribute="top" constant="25" id="M0y-mN-cfm">
+                                <variation key="heightClass=compact-widthClass=compact" constant="2"/>
+                            </constraint>
+                            <constraint firstItem="1l5-ea-3eP" firstAttribute="trailing" secondItem="mCp-FN-wWl" secondAttribute="trailing" constant="25" id="b1m-Vv-6Pm">
+                                <variation key="heightClass=compact-widthClass=compact" constant="100"/>
+                            </constraint>
+                            <constraint firstItem="mCp-FN-wWl" firstAttribute="top" secondItem="bwf-SL-HZh" secondAttribute="bottom" constant="10" id="dde-Fu-mTa">
+                                <variation key="heightClass=compact-widthClass=compact" constant="2"/>
+                            </constraint>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1l5-ea-3eP"/>
                     </view>

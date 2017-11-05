@@ -32,7 +32,7 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
         password.delegate = self
         password.returnKeyType = .next
         verifyPassword.delegate = self
-        verifyPassword.returnKeyType = .done
+        verifyPassword.returnKeyType = .go
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -47,6 +47,7 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
             verifyPassword.becomeFirstResponder()
         default:
             textField.resignFirstResponder()
+            registerUser()
         }
     
         return true
@@ -55,8 +56,8 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
     func textFieldDidBeginEditing(_ textField: UITextField) {
         let textPos = (textField.superview?.frame.origin.y)! + textField.frame.origin.y
         let halfScreen = UIScreen.main.bounds.height / 2
-        if halfScreen < (textPos + 100) {
-            move = 100 + textPos - halfScreen
+        if halfScreen < (textPos + 50) {
+            move = 50 + textPos - halfScreen
             moveTextField(textField: textField, distance: -move)
         }
     }
@@ -104,7 +105,7 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func register(_ sender: Any) {
+    fileprivate func registerUser() {
         var valid = true
         reset()
         if firstName.text! == "" {
@@ -131,14 +132,17 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
             valid = false
             // separate error
         }
-            
+        
         if valid {
             registerModel.createProfile(firstName: firstName.text!, lastName: lastName.text!, emailAddress: emailAddress.text!, password: password.text!)
         }
         else {
             showError()
         }
-        
+    }
+    
+    @IBAction func register(_ sender: Any) {
+        registerUser()
     }
     
     func setTextFieldStyle() {
@@ -185,6 +189,7 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
+        view.endEditing(true)
         coordinator.animate(alongsideTransition: nil, completion: {
             _ in
             self.img.contentMode = .scaleAspectFill

@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        view.endEditing(true)
         if segue.identifier == "editProfile" {
             let dest = segue.destination as! EditProfileViewController
             dest.profileImage = profilePic.image!

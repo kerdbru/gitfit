@@ -2,9 +2,8 @@ import UIKit
 
 class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDelegate {
     let loginModel = LoginModel()
-    var currentOffset: CGFloat = 0
+    var move: CGFloat = 0
     
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -28,25 +27,35 @@ class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDeleg
             userPassword.becomeFirstResponder()
         default:
             textField.resignFirstResponder()
-            scrollView.setContentOffset(CGPoint(x: 0, y: currentOffset), animated: true)
         }
         
         return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        currentOffset = scrollView.contentOffset.y
-        print((textField.superview?.superview?.frame.origin.y)! + (textField.superview?.frame.origin.y)!  + textField.frame.origin.y)
-                print(scrollView.frame.height)
         let textPos = (textField.superview?.superview?.frame.origin.y)! + (textField.superview?.frame.origin.y)! + textField.frame.origin.y
-        let halfScreen = scrollView.frame.height / 2
+        let halfScreen = UIScreen.main.bounds.height / 2
         if halfScreen < (textPos + 100) {
-            scrollView.setContentOffset(CGPoint(x: 0, y: 100 + textPos - halfScreen), animated: true)
+            move = 100 + textPos - halfScreen
+            moveTextField(textField: textField, distance: -move)
         }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        scrollView.setContentOffset(CGPoint(x: 0, y: 0)  , animated: true)
+        if move != 0 {
+            moveTextField(textField: textField, distance: move)
+            move = 0
+        }
+    }
+    
+    func moveTextField(textField: UITextField, distance: CGFloat) {
+        let moveDuration = 0.3
+        
+        UIView.beginAnimations("animageTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: distance)
+        UIView.commitAnimations()
     }
     
     @IBAction func login(_ sender: Any) {

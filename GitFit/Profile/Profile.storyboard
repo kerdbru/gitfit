@@ -103,18 +103,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="9dF-jD-bdB">
-                                <rect key="frame" x="112.5" y="89" width="150" height="150"/>
+                                <rect key="frame" x="112" y="89" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="g0R-zT-6iW">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="100"/>
-                                    </constraint>
-                                    <constraint firstAttribute="height" constant="150" id="sFq-cc-8vh">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="100"/>
-                                    </constraint>
+                                    <constraint firstAttribute="width" constant="150" id="U8n-6U-7pn"/>
+                                    <constraint firstAttribute="height" constant="150" id="gHo-Qb-9bz"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6x4-7h-LXe">
-                                <rect key="frame" x="25" y="254" width="325" height="161"/>
+                                <rect key="frame" x="25" y="249" width="325" height="161"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="f4j-bQ-lMs">
                                         <rect key="frame" x="0.0" y="0.0" width="325" height="106"/>
@@ -188,18 +184,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6x4-7h-LXe" firstAttribute="centerX" secondItem="y43-5O-weR" secondAttribute="centerX" id="C8Q-CK-avq"/>
-                            <constraint firstItem="9dF-jD-bdB" firstAttribute="centerX" secondItem="y43-5O-weR" secondAttribute="centerX" id="P4Z-wl-8Ph"/>
-                            <constraint firstItem="uTw-Tb-sKI" firstAttribute="trailing" secondItem="6x4-7h-LXe" secondAttribute="trailing" constant="25" id="SzQ-hn-Mlu">
-                                <variation key="heightClass=compact-widthClass=compact" constant="100"/>
-                            </constraint>
-                            <constraint firstItem="9dF-jD-bdB" firstAttribute="top" secondItem="uTw-Tb-sKI" secondAttribute="top" constant="25" id="akJ-li-M8e">
-                                <variation key="heightClass=compact-widthClass=compact" constant="5"/>
-                            </constraint>
-                            <constraint firstItem="6x4-7h-LXe" firstAttribute="leading" secondItem="uTw-Tb-sKI" secondAttribute="leading" constant="25" id="gGV-BH-jJF">
-                                <variation key="heightClass=compact-widthClass=compact" constant="100"/>
-                            </constraint>
-                            <constraint firstItem="6x4-7h-LXe" firstAttribute="top" secondItem="9dF-jD-bdB" secondAttribute="bottom" constant="15" id="ldT-UX-qJS"/>
+                            <constraint firstItem="6x4-7h-LXe" firstAttribute="top" secondItem="9dF-jD-bdB" secondAttribute="bottom" constant="10" id="DrK-Hf-OAl"/>
+                            <constraint firstItem="6x4-7h-LXe" firstAttribute="leading" secondItem="uTw-Tb-sKI" secondAttribute="leading" constant="25" id="Grc-hV-rvZ"/>
+                            <constraint firstItem="uTw-Tb-sKI" firstAttribute="trailing" secondItem="6x4-7h-LXe" secondAttribute="trailing" constant="25" id="IDh-eV-X0x"/>
+                            <constraint firstItem="9dF-jD-bdB" firstAttribute="top" secondItem="uTw-Tb-sKI" secondAttribute="top" constant="25" id="WLC-fb-4Xf"/>
+                            <constraint firstItem="9dF-jD-bdB" firstAttribute="centerX" secondItem="y43-5O-weR" secondAttribute="centerX" id="dIt-tx-N4k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uTw-Tb-sKI"/>
                     </view>

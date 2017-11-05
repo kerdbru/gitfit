@@ -5,7 +5,9 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
     var newUser: Profile?
     let registerModel = RegisterModel()
     let imagePicker = UIImagePickerController();
+    var currentOffset: CGFloat = 0
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
@@ -23,15 +25,48 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
         addGestureToProfilePic()
         
         firstName.delegate = self
+        firstName.returnKeyType = .next
         lastName.delegate = self
+        lastName.returnKeyType = .next
         emailAddress.delegate = self
+        emailAddress.returnKeyType = .next
         password.delegate = self
+        password.returnKeyType = .next
         verifyPassword.delegate = self
+        verifyPassword.returnKeyType = .done
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        switch textField {
+        case firstName:
+            lastName.becomeFirstResponder()
+        case lastName:
+            emailAddress.becomeFirstResponder()
+        case emailAddress:
+            password.becomeFirstResponder()
+        case password:
+            verifyPassword.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+            scrollView.setContentOffset(CGPoint(x: 0, y: currentOffset), animated: true)
+        }
+    
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        currentOffset = scrollView.contentOffset.y
+//        print((textField.superview?.frame.origin.y)! + textField.frame.origin.y)
+//        print(scrollView.frame.height)
+        let textPos = (textField.superview?.frame.origin.y)! + textField.frame.origin.y
+        let halfScreen = scrollView.frame.height / 2
+        if halfScreen < (textPos + 100) {
+            scrollView.setContentOffset(CGPoint(x: 0, y: 100 + textPos - halfScreen), animated: true)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0)  , animated: true)
     }
     
     func showError(){

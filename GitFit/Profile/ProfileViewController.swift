@@ -26,7 +26,6 @@ class ProfileViewController: UIViewController {
     }
     
     func loadProfileImage() {
-        profilePic.image = #imageLiteral(resourceName: "profile_pic_placeholder")
         let requestURL = URL(string: "http://54.197.29.213/fitness/uploads/account/\(user!.id!)")
         var request = URLRequest(url: requestURL!)
         request.httpMethod = "GET"
@@ -63,6 +62,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadLabelData()
-        loadProfileImage()
+        profilePic.image = #imageLiteral(resourceName: "profile_pic_placeholder")
+        // loadProfileImage()
     }
 }

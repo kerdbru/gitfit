@@ -2,7 +2,9 @@ import UIKit
 
 class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDelegate {
     let loginModel = LoginModel()
-
+    var currentOffset: CGFloat = 0
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -15,12 +17,36 @@ class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDeleg
         setButtonStyle()
         
         userEmail.delegate = self
+        userEmail.returnKeyType = .next
         userPassword.delegate = self
+        userPassword.returnKeyType = .done
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        switch textField {
+        case userEmail:
+            userPassword.becomeFirstResponder()
+        default:
+            textField.resignFirstResponder()
+            scrollView.setContentOffset(CGPoint(x: 0, y: currentOffset), animated: true)
+        }
+        
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        currentOffset = scrollView.contentOffset.y
+        print((textField.superview?.superview?.frame.origin.y)! + (textField.superview?.frame.origin.y)!  + textField.frame.origin.y)
+                print(scrollView.frame.height)
+        let textPos = (textField.superview?.superview?.frame.origin.y)! + (textField.superview?.frame.origin.y)! + textField.frame.origin.y
+        let halfScreen = scrollView.frame.height / 2
+        if halfScreen < (textPos + 100) {
+            scrollView.setContentOffset(CGPoint(x: 0, y: 100 + textPos - halfScreen), animated: true)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0)  , animated: true)
     }
     
     @IBAction func login(_ sender: Any) {

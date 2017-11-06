@@ -41,9 +41,9 @@ class ChangePasswordModel: NSObject {
             else {
                 self.dispatchNoProfile()
             }
-            }.resume()
-        
+        }.resume()
     }
+    
     func dispatchNoProfile() {
         DispatchQueue.main.async {
             self.delegate?.passwordChanged(profile: nil)

@@ -1,12 +1,13 @@
 import UIKit
 
-class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDelegate {
+class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDelegate, RatingModelDelegate {
     var exercises: [ExerciseOrder] = []
     var exerciseOrderModel = ExerciseOrderModel()
     var workoutId: Int?
     var accountId: Int?
     var name: String?
     var starViews: [UIImageView] = []
+    let ratingModel = RatingModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,6 +15,7 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
         exerciseOrderModel.loadWorkouts(workoutId!, accountId!)
         tableView.tableFooterView = UIView()
         self.title = name
+        ratingModel.delegate = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -21,11 +23,16 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    func ratingLoaded(_ rating: Int) {
+        self.setRating(rating)
+    }
 
     func exerciseLoaded(exercise: [ExerciseOrder]) {
         DispatchQueue.main.async {
             self.exercises = exercise
             self.exercises.append(ExerciseOrder())
+            self.ratingModel.getRating(user!.id!, self.workoutId!)
             self.tableView.reloadData()
         }
     }
@@ -91,14 +98,23 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
         return cell
     }
     
-    @objc func imageTapped(sender: UITapGestureRecognizer) {
-        let rating = (sender.view?.tag)! - 1
+    fileprivate func setRating(_ rating: Int) {
+        if rating < 1 || rating > 5 {
+            return
+        }
+        let rate = rating - 1
         for i in 0...4 {
             starViews[i].image = #imageLiteral(resourceName: "empty_star_bigger")
         }
-        for i in 0...rating {
+        for i in 0...rate {
             starViews[i].image = #imageLiteral(resourceName: "full_star_bigger")
         }
+    }
+    
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
+        let rating = (sender.view?.tag)!
+        setRating(rating)
+        ratingModel.rateWorkout(user!.id!, workoutId!, rating)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

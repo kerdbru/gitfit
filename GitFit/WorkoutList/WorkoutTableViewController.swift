@@ -18,6 +18,10 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        workoutDescriptionModel.loadWorkouts()
+    }
+    
     func workoutsLoaded(workouts: [WorkoutDescription]) {
         DispatchQueue.main.async {
             self.workouts = workouts
@@ -121,15 +125,4 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

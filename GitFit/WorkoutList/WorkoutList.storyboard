@@ -154,6 +154,60 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rating" id="SOx-SU-TyG">
+                                <rect key="frame" x="0.0" y="83" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SOx-SU-TyG" id="zD9-1S-fJn">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Eoe-Pp-YX4">
+                                            <rect key="frame" x="97" y="6.5" width="180" height="30"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9KT-XA-5EN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="32" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Awi-ae-OiR"/>
+                                                        <constraint firstAttribute="width" constant="32" id="c6n-Y3-xL6"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CVR-fv-bIz">
+                                                    <rect key="frame" x="37" y="0.0" width="32" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Haa-QP-PIB"/>
+                                                        <constraint firstAttribute="width" constant="32" id="cR0-ef-2Oy"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4BD-0U-pJz">
+                                                    <rect key="frame" x="74" y="0.0" width="32" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="32" id="5KC-M0-1eS"/>
+                                                        <constraint firstAttribute="height" constant="30" id="ynT-aV-RZQ"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dey-tF-VjB">
+                                                    <rect key="frame" x="111" y="0.0" width="32" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="9Mp-6e-Xmd"/>
+                                                        <constraint firstAttribute="width" constant="32" id="uZb-Zu-EE0"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AJO-9Z-y3h">
+                                                    <rect key="frame" x="148" y="0.0" width="32" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="fJc-sz-6bH"/>
+                                                        <constraint firstAttribute="width" constant="32" id="jh6-Kj-pkm"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Eoe-Pp-YX4" firstAttribute="centerY" secondItem="zD9-1S-fJn" secondAttribute="centerY" id="1NN-O0-FHL"/>
+                                        <constraint firstItem="Eoe-Pp-YX4" firstAttribute="centerX" secondItem="zD9-1S-fJn" secondAttribute="centerX" id="wPe-9j-7Xd"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="LfQ-bl-V8d" id="6hw-0w-zPi"/>

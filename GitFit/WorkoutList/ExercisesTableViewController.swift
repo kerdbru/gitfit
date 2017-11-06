@@ -6,6 +6,7 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     var workoutId: Int?
     var accountId: Int?
     var name: String?
+    var starViews: [UIImageView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     func exerciseLoaded(exercise: [ExerciseOrder]) {
         DispatchQueue.main.async {
             self.exercises = exercise
+            self.exercises.append(ExerciseOrder())
             self.tableView.reloadData()
         }
     }
@@ -47,26 +49,56 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "exercise", for: indexPath)
-        let exercise = exercises[indexPath.row]
+        var cell: UITableViewCell
+        if indexPath.row != exercises.count - 1 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "exercise", for: indexPath)
+            let exercise = exercises[indexPath.row]
         
-        let name = cell.viewWithTag(1) as! UILabel
-        name.text! = "\(exercise.position!)) \(exercise.name!)"
+            let name = cell.viewWithTag(1) as! UILabel
+            name.text! = "\(indexPath.row + 1)) \(exercise.name!)"
         
-        var weight = ""
-        if let lbs = exercise.weight {
-            weight = "\n\(lbs) lbs"
+            var weight = ""
+            if let lbs = exercise.weight {
+                weight = "\n\(lbs) lbs"
+            }
+            let label = "\(exercise.amount!) \(exercise.label!)"
+            var set = ""
+            if exercise.sets! > 1 {
+                set = " / \(exercise.sets!) sets"
+            }
+        
+            let detail = cell.viewWithTag(2) as! UILabel
+            detail.text! = "\(label)\(set)\(weight)"
         }
-        let label = "\(exercise.amount!) \(exercise.label!)"
-        var set = ""
-        if exercise.sets! > 1 {
-            set = " / \(exercise.sets!) sets"
+        else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "rating", for: indexPath)
+            cell.selectionStyle = .none
+            
+            for i in 1...5 {
+                let star = cell.viewWithTag(i) as! UIImageView
+                star.isUserInteractionEnabled = true
+                let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+                star.addGestureRecognizer(tapRecognizer)
+                starViews.append(star)
+            }
+            
+            for i in 1...5 {
+                let star = cell.viewWithTag(i) as! UIImageView
+                star.image = #imageLiteral(resourceName: "empty_star_bigger")
+            }
         }
-        
-        let detail = cell.viewWithTag(2) as! UILabel
-        detail.text! = "\(label)\(set)\(weight)"
         
         return cell
+    }
+    
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
+        let rating = (sender.view?.tag)! - 1
+        for i in 0...4 {
+            starViews[i].image = #imageLiteral(resourceName: "empty_star_bigger")
+        }
+        for i in 0...rating {
+            starViews[i].image = #imageLiteral(resourceName: "full_star_bigger")
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

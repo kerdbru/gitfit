@@ -61,6 +61,7 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.layer.borderColor = fitBlue.cgColor
         let textPos = (textField.superview?.frame.origin.y)! + textField.frame.origin.y
         let halfScreen = UIScreen.main.bounds.height / 2
         if halfScreen < (textPos + 50) {
@@ -70,6 +71,7 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.layer.borderColor = fitGray.cgColor
         if move != 0 {
             moveTextField(textField: textField, distance: move)
             move = 0

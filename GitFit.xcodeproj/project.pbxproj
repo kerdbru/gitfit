@@ -21,6 +21,9 @@
 		93B164901FAFEC18004DBDF8 /* RatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B1648F1FAFEC18004DBDF8 /* RatingModel.swift */; };
 		93BDDE981FA9616600D2FB68 /* WorkoutDescriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDDE971FA9616600D2FB68 /* WorkoutDescriptions.swift */; };
 		93BDDE9A1FA963BF00D2FB68 /* WorkoutDescriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDDE991FA963BF00D2FB68 /* WorkoutDescriptionModel.swift */; };
+		93E7F3441FB0E4B400BDE950 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E7F3431FB0E4B400BDE950 /* Favorites.storyboard */; };
+		93E7F3461FB0E57200BDE950 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7F3451FB0E57200BDE950 /* FavoritesTableViewController.swift */; };
+		93E7F3481FB0E6CD00BDE950 /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7F3471FB0E6CD00BDE950 /* FavoriteModel.swift */; };
 		93F5A4821FAB8A0800704CE0 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5A4811FAB8A0800704CE0 /* Globals.swift */; };
 		C64169061FAA68E4006D847D /* ExercisesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64169051FAA68E4006D847D /* ExercisesTableViewController.swift */; };
 		C64169081FAA6C3A006D847D /* ExerciseOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64169071FAA6C3A006D847D /* ExerciseOrder.swift */; };
@@ -73,6 +76,9 @@
 		93B1648F1FAFEC18004DBDF8 /* RatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingModel.swift; sourceTree = "<group>"; };
 		93BDDE971FA9616600D2FB68 /* WorkoutDescriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDescriptions.swift; sourceTree = "<group>"; };
 		93BDDE991FA963BF00D2FB68 /* WorkoutDescriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDescriptionModel.swift; sourceTree = "<group>"; };
+		93E7F3431FB0E4B400BDE950 /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
+		93E7F3451FB0E57200BDE950 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
+		93E7F3471FB0E6CD00BDE950 /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
 		93F5A4811FAB8A0800704CE0 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		C64169051FAA68E4006D847D /* ExercisesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewController.swift; sourceTree = "<group>"; };
 		C64169071FAA6C3A006D847D /* ExerciseOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseOrder.swift; sourceTree = "<group>"; };
@@ -135,6 +141,7 @@
 		1E484DEA1F85AB40000DEB04 /* GitFit */ = {
 			isa = PBXGroup;
 			children = (
+				93E7F3421FB0E48D00BDE950 /* Favorites */,
 				C6C9AC171FA91AAC00F3F762 /* WorkoutList */,
 				933F1A5D1FA7D86100C2857D /* LoginRegister */,
 				933F1A591FA7D72800C2857D /* Profile */,
@@ -187,6 +194,7 @@
 				C672F7E31FA92B75009FC588 /* ChangePasswordModel.swift */,
 				93BDDE991FA963BF00D2FB68 /* WorkoutDescriptionModel.swift */,
 				C64169091FAA7251006D847D /* ExerciseOrderModel.swift */,
+				93E7F3471FB0E6CD00BDE950 /* FavoriteModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,6 +218,15 @@
 				93A457C41FAC12C6003D9A61 /* FitTextField.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		93E7F3421FB0E48D00BDE950 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				93E7F3431FB0E4B400BDE950 /* Favorites.storyboard */,
+				93E7F3451FB0E57200BDE950 /* FavoritesTableViewController.swift */,
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		C6C9AC171FA91AAC00F3F762 /* WorkoutList */ = {
@@ -331,6 +348,7 @@
 			files = (
 				1E484DF61F85AB40000DEB04 /* LaunchScreen.storyboard in Resources */,
 				1E484DF31F85AB40000DEB04 /* Assets.xcassets in Resources */,
+				93E7F3441FB0E4B400BDE950 /* Favorites.storyboard in Resources */,
 				933F1A5B1FA7D74700C2857D /* Profile.storyboard in Resources */,
 				C6C9AC191FA91AC300F3F762 /* WorkoutList.storyboard in Resources */,
 				1E484DF11F85AB40000DEB04 /* Main.storyboard in Resources */,
@@ -361,6 +379,8 @@
 				C672F7E41FA92B75009FC588 /* ChangePasswordModel.swift in Sources */,
 				93358FDD1FA6823D0091278D /* EditProfileViewController.swift in Sources */,
 				C683365C1F8C122400E6134D /* LoginModel.swift in Sources */,
+				93E7F3481FB0E6CD00BDE950 /* FavoriteModel.swift in Sources */,
+				93E7F3461FB0E57200BDE950 /* FavoritesTableViewController.swift in Sources */,
 				C64169061FAA68E4006D847D /* ExercisesTableViewController.swift in Sources */,
 				C6F9BDD71F96A385001F5077 /* RegisterModel.swift in Sources */,
 				C6C9AC1D1FA928C800F3F762 /* ChangePasswordViewController.swift in Sources */,

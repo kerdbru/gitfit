@@ -19,3 +19,9 @@ struct WorkoutDescription : Codable {
         case ratingCount = "rating_count"
     }
 }
+
+struct Favorite : Codable {
+    var id: Int?
+    var name: String?
+    var type: String?
+}

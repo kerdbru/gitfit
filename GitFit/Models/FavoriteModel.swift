@@ -1,7 +1,8 @@
 import UIKit
 
-protocol FavoriteModelDelegate {
-    func favoritesLoaded(favorites: [Favorite])
+@objc protocol FavoriteModelDelegate {
+    @objc optional func favoritesLoaded(favorites: [Favorite])
+    @objc optional func isFavorite(favorite: Int)
 }
 
 class FavoriteModel: NSObject {
@@ -10,6 +11,7 @@ class FavoriteModel: NSObject {
     let URL_FAVORITES = "http://54.197.29.213/fitness/api/getfavorites.php"
     let URL_ADD_FAVORITE = "http://54.197.29.213/fitness/api/addfavorite.php"
     let URL_REMOVE_FAVORITE = "http://54.197.29.213/fitness/api/removefavorite.php"
+    let URL_CHECK_FAVORITE = "http://54.197.29.213/fitness/api/checkfavorite.php"
     
     func loadWorkouts(_ accountId: Int) {
         let params = "accountId=\(accountId)"
@@ -23,14 +25,14 @@ class FavoriteModel: NSObject {
             guard let data = data, error == nil, response != nil else {
                 print("error in url session")
                 DispatchQueue.main.async {
-                    self.delegate?.favoritesLoaded(favorites: [])
+                    self.delegate?.favoritesLoaded!(favorites: [])
                 }
                 return
             }
             
             if let favorites = self.parseJson(data: data) {
                 DispatchQueue.main.async {
-                    self.delegate?.favoritesLoaded(favorites: favorites)
+                    self.delegate?.favoritesLoaded!(favorites: favorites)
                 }
             }
         }.resume()
@@ -82,6 +84,31 @@ class FavoriteModel: NSObject {
             }
             
             print("Removed: \(String(data: data, encoding: .utf8) ?? "")")
+        }.resume()
+    }
+    
+    func loadWorkouts(_ accountId: Int, _ workoutId: Int) {
+        let params = "accountId=\(accountId)&workoutId=\(workoutId)"
+        let requestUrl = URL(string: URL_CHECK_FAVORITE + "?" + params)
+        var request = URLRequest(url: requestUrl!)
+        
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) {
+            data, response, error in
+            guard let data = data, error == nil, response != nil else {
+                print("error in url session")
+                DispatchQueue.main.async {
+                    self.delegate?.isFavorite!(favorite: -1)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let val = String(data: data, encoding: .utf8) ?? "0"
+                let flag = Int(val)
+                self.delegate?.isFavorite!(favorite: flag!)
+            }
         }.resume()
     }
 }

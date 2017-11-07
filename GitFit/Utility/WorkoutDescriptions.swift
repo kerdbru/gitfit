@@ -20,7 +20,7 @@ struct WorkoutDescription : Codable {
     }
 }
 
-struct Favorite : Codable {
+class Favorite : NSObject, Codable {
     var id: Int?
     var name: String?
     var type: String?

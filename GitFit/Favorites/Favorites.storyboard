@@ -55,10 +55,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Favorites" id="EWv-xk-Ou1"/>
+                    <connections>
+                        <segue destination="HaX-Jg-szc" kind="show" identifier="favoriteToExercises" id="7ts-8J-eWC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J6l-f8-k7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="420" y="140.77961019490255"/>
+        </scene>
+        <!--Exercise-->
+        <scene sceneID="6nx-AQ-DHZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Exercise" id="HaX-Jg-szc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IYP-lH-gvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1116" y="66"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0EF-q3-B5I">

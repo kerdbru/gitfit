@@ -11,6 +11,7 @@ import UIKit
 class FavoritesTableViewController: UITableViewController, FavoriteModelDelegate {
     var favoriteModel = FavoriteModel()
     var workouts: [Favorite] = []
+    var workout: Favorite?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,18 @@ class FavoritesTableViewController: UITableViewController, FavoriteModelDelegate
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55.0
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        workout = workouts[indexPath.row]
+        performSegue(withIdentifier: "favoriteToExercises", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dest = segue.destination as! ExercisesTableViewController
+        dest.accountId = user!.id!
+        dest.workoutId = workout?.id
+        dest.name = workout?.name
     }
 
     /*

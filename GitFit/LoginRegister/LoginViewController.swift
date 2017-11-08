@@ -86,7 +86,10 @@ class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDeleg
             }
         }
         else{
+            view.endEditing(true)
             showError()
+            userEmail.layer.borderColor = fitRed.cgColor
+            userPassword.layer.borderColor = fitRed.cgColor
             userPassword.text! = ""
         }
     }
@@ -109,6 +112,8 @@ class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDeleg
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         view.endEditing(true)
+        userEmail.layer.borderColor = fitGray.cgColor
+        userPassword.layer.borderColor = fitGray.cgColor
         userEmail.text! = ""
         userPassword.text! = ""
     }

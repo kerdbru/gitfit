@@ -61,13 +61,13 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         
         while stars > 0 {
             let star = cell.viewWithTag(tag) as! UIImageView
-            star.image = #imageLiteral(resourceName: "full_star")
+            star.image = #imageLiteral(resourceName: "blue_full_star")
             stars -= 1
             tag += 1
         }
         while tag < 8 {
             let star = cell.viewWithTag(tag) as! UIImageView
-            star.image = #imageLiteral(resourceName: "empty_star")
+            star.image = #imageLiteral(resourceName: "blue_empty_star")
             tag += 1
         }
         

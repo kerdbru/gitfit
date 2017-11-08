@@ -24,26 +24,37 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     var oldPass: String?
     let changePasswordModel = ChangePasswordModel()
     
-    @IBAction func submit(_ sender: Any) {
+    fileprivate func changePassword() {
         loadValues()
         if oldPass! == user?.password && password! == verifyPassword! {
             changePasswordModel.changePassword(id: id!, firstName: firstName!, lastName: lastName!, emailAddress: email!, password: password!)
+            user!.password = newPass.text
+            self.navigationController?.popViewController(animated: true)
         }
         else {
             showError()
+            currPass.layer.borderColor = fitRed.cgColor
+            newPass.layer.borderColor = fitRed.cgColor
+            verifyPass.layer.borderColor = fitRed.cgColor
             currPass.text! = ""
             newPass.text! = ""
             verifyPass.text! = ""
         }
     }
     
+    @IBAction func submit(_ sender: Any) {
+        changePassword()
+    }
+    
     func showError(){
         if oldPass! != user?.password {
+            view.endEditing(true)
             let alert = UIAlertController(title: "Error", message: "Current password does not match the existing password", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion:nil)
         }
         else {
+            view.endEditing(true)
             let alert = UIAlertController(title: "Error", message: "New password and verify password does not match", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion:nil)
@@ -68,7 +79,6 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
         password = newPass.text!
         verifyPassword = verifyPass.text!
         oldPass = currPass.text!
-        //      user?.password = newPass.text!
     }
     
     override func viewDidLoad() {
@@ -76,12 +86,24 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
         setTextFieldStyle()
         setButtonStyle()
         currPass.delegate = self
+        currPass.returnKeyType = .next
         newPass.delegate = self
+        newPass.returnKeyType = .next
         verifyPass.delegate = self
+        verifyPass.returnKeyType = .go
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        switch textField {
+        case currPass:
+            newPass.becomeFirstResponder()
+        case newPass:
+            verifyPass.becomeFirstResponder()
+        case verifyPass:
+            changePassword()
+        default:
+            textField.resignFirstResponder()
+        }
         return true
     }
     

@@ -81,13 +81,13 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
         UIView.commitAnimations()
     }
     
-    func showError(){
-        let alert = UIAlertController(title: "Error", message: "Please enter all required fields", preferredStyle: .alert)
+    func showError(string: String) {
+        let alert = UIAlertController(title: "Error", message: string, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion:nil)
     }
     
-    func reset(){
+    func reset() {
         firstName.layer.borderColor = fitBlue.cgColor
         lastName.layer.borderColor = fitBlue.cgColor
         emailAddress.layer.borderColor = fitBlue.cgColor
@@ -109,6 +109,8 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
     
     fileprivate func registerUser() {
         var valid = true
+        var errorMessage = "Please enter all required fields"
+        view.endEditing(true)
         reset()
         if firstName.text! == "" {
             firstName.layer.borderColor = UIColor.red.cgColor
@@ -132,14 +134,14 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
         }
         if verifyPassword.text! != password.text! {
             valid = false
-            // separate error
+            errorMessage = "Passwords don't match"
         }
         
         if valid {
             registerModel.createProfile(firstName: firstName.text!, lastName: lastName.text!, emailAddress: emailAddress.text!, password: password.text!)
         }
         else {
-            showError()
+            showError(string: errorMessage)
         }
     }
     

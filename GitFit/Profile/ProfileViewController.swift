@@ -61,8 +61,11 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadLabelData()
         profilePic.image = #imageLiteral(resourceName: "profile_pic_placeholder")
         // loadProfileImage()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadLabelData()
     }
 }

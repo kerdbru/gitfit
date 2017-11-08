@@ -22,6 +22,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         loadValues()
         if firstName.text! != "" && lastName.text! != "" && email.text! != "" {
             changePasswordModel.changePassword(id: id!, firstName: fName!, lastName: lName!, emailAddress: emailAddr!, password: password!)
+            user!.firstName = firstName.text!
+            user!.lastName = lastName.text!
+            user!.email = email.text!
+            self.navigationController?.popViewController(animated: true)
         }
         else {
             showError()
@@ -37,12 +41,21 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func showError(){
-        if firstName.text! != "" || lastName.text! != "" || email.text! != "" {
-            let alert = UIAlertController(title: "Error", message: "Cannot leave fields empty", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alert, animated: true, completion:nil)
+        view.endEditing(true)
+        
+        if firstName.text! == "" {
+            firstName.layer.borderColor = fitRed.cgColor
+        }
+        if lastName.text! == "" {
+            lastName.layer.borderColor = fitRed.cgColor
+        }
+        if email.text! == "" {
+            email.layer.borderColor = fitRed.cgColor
         }
 
+        let alert = UIAlertController(title: "Error", message: "Cannot leave fields empty", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion:nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

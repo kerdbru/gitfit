@@ -49,12 +49,12 @@ class FavoriteModel: NSObject {
         }
     }
     
-    func addFavorite(_ accountId: Int, _ workoutId: Int) {
+    func addFavorite(_ accountId: Int, _ workoutId: Int, _ originalAccountId: Int) {
         let requestUrl = URL(string: URL_ADD_FAVORITE)
         var request = URLRequest(url: requestUrl!)
         
         request.httpMethod = "POST"
-        let postParameters = "accountId=\(accountId)&workoutId=\(workoutId)"
+        let postParameters = "accountId=\(accountId)&workoutId=\(workoutId)&originalAccountId=\(originalAccountId)"
         request.httpBody = postParameters.data(using: String.Encoding.utf8)
         
         URLSession.shared.dataTask(with: request) {
@@ -87,7 +87,7 @@ class FavoriteModel: NSObject {
         }.resume()
     }
     
-    func loadWorkouts(_ accountId: Int, _ workoutId: Int) {
+    func checkFavorite(_ accountId: Int, _ workoutId: Int) {
         let params = "accountId=\(accountId)&workoutId=\(workoutId)"
         let requestUrl = URL(string: URL_CHECK_FAVORITE + "?" + params)
         var request = URLRequest(url: requestUrl!)

@@ -11,8 +11,38 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var saveButton: UIButton!
-    
+    var id: Int?
+    var fName: String?
+    var lName: String?
+    var emailAddr: String?
+    var password: String?
+    let changePasswordModel = ChangePasswordModel()
+
     @IBAction func save(_ sender: Any) {
+        loadValues()
+        if firstName.text! != "" && lastName.text! != "" && email.text! != "" {
+            changePasswordModel.changePassword(id: id!, firstName: fName!, lastName: lName!, emailAddress: emailAddr!, password: password!)
+        }
+        else {
+            showError()
+        }
+    }
+    
+    func loadValues(){
+        id = user?.id ?? 0
+        fName = firstName.text!
+        lName = lastName.text!
+        emailAddr = email.text!
+        password = user?.password ?? ""
+    }
+    
+    func showError(){
+        if firstName.text! != "" || lastName.text! != "" || email.text! != "" {
+            let alert = UIAlertController(title: "Error", message: "Cannot leave fields empty", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion:nil)
+        }
+
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

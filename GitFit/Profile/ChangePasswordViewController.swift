@@ -20,11 +20,34 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
     var lastName: String?
     var email: String?
     var password: String?
+    var verifyPassword: String?
+    var oldPass: String?
     let changePasswordModel = ChangePasswordModel()
     
     @IBAction func submit(_ sender: Any) {
         loadValues()
-        changePasswordModel.changePassword(id: id!, firstName: firstName!, lastName: lastName!, emailAddress: email!, password: password!)
+        if oldPass! == user?.password && password! == verifyPassword! {
+            changePasswordModel.changePassword(id: id!, firstName: firstName!, lastName: lastName!, emailAddress: email!, password: password!)
+        }
+        else {
+            showError()
+            currPass.text! = ""
+            newPass.text! = ""
+            verifyPass.text! = ""
+        }
+    }
+    
+    func showError(){
+        if oldPass! != user?.password {
+            let alert = UIAlertController(title: "Error", message: "Current password does not match the existing password", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion:nil)
+        }
+        else {
+            let alert = UIAlertController(title: "Error", message: "New password and verify password does not match", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion:nil)
+        }
     }
     
     func setButtonStyle() {
@@ -43,7 +66,9 @@ class ChangePasswordViewController: UIViewController, UITextFieldDelegate {
         lastName = user?.lastName ?? ""
         email = user?.email ?? ""
         password = newPass.text!
-//      user?.password = newPass.text!
+        verifyPassword = verifyPass.text!
+        oldPass = currPass.text!
+        //      user?.password = newPass.text!
     }
     
     override func viewDidLoad() {

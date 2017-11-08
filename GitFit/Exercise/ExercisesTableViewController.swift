@@ -1,6 +1,6 @@
 import UIKit
 
-class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDelegate, RatingModelDelegate {
+class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDelegate, RatingModelDelegate, FavoriteModelDelegate {
     var exercises: [ExerciseOrder] = []
     var exerciseOrderModel = ExerciseOrderModel()
     var workoutId: Int?
@@ -8,11 +8,15 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     var name: String?
     var starViews: [UIImageView] = []
     let ratingModel = RatingModel()
+    let favoriteModel = FavoriteModel()
+    var favorite = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        favoriteModel.delegate = self
         exerciseOrderModel.delegate = self
         exerciseOrderModel.loadWorkouts(workoutId!, accountId!)
+        favoriteModel.checkFavorite(user!.id!, workoutId!)
         tableView.tableFooterView = UIView()
         self.title = name
         ratingModel.delegate = self
@@ -22,6 +26,34 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func isFavorite(favorite: Int) {
+        var image = #imageLiteral(resourceName: "empty_heart")
+        self.favorite = false
+        if favorite == 1 {
+            image = #imageLiteral(resourceName: "full_heart")
+            self.favorite = true
+        }
+        let fav = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(addFav))
+        self.navigationItem.rightBarButtonItem = fav
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        favoriteModel.checkFavorite(user!.id!, workoutId!)
+    }
+    
+    @objc func addFav() {
+        if favorite {
+            favoriteModel.removeFavorite(user!.id!, workoutId!)
+            self.navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "empty_heart")
+            favorite = false
+        }
+        else {
+            favoriteModel.addFavorite(user!.id!, workoutId!, accountId!)
+            self.navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "full_heart")
+            favorite = true
+        }
     }
     
     func ratingLoaded(_ rating: Int) {

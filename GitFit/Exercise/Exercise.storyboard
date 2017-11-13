@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PB6-FD-V3j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PB6-FD-V3j">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -110,10 +113,68 @@
                             <outlet property="delegate" destination="PB6-FD-V3j" id="W4Y-0c-gaG"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="EN7-Yg-1xJ" kind="show" identifier="exerciseToDescription" id="4qO-iV-3vZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7J7-ol-Vjw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="762" y="-43"/>
         </scene>
+        <!--Exercise View Controller-->
+        <scene sceneID="DGb-tk-BQz">
+            <objects>
+                <viewController id="EN7-Yg-1xJ" customClass="ExerciseViewController" customModule="GitFit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gmc-77-eLl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="13" translatesAutoresizingMaskIntoConstraints="NO" id="ghS-pi-ZWw">
+                                <rect key="frame" x="0.0" y="20" width="375" height="200"/>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A0E-KX-bwO">
+                                <rect key="frame" x="0.0" y="220" width="375" height="447"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADv-Iq-YDG">
+                                        <rect key="frame" x="18" y="18" width="339" height="28"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ADv-Iq-YDG" secondAttribute="bottom" constant="10" id="KK6-Rq-1g5"/>
+                                    <constraint firstItem="ADv-Iq-YDG" firstAttribute="top" secondItem="A0E-KX-bwO" secondAttribute="topMargin" constant="10" id="Qex-1c-GqV"/>
+                                    <constraint firstItem="ADv-Iq-YDG" firstAttribute="leading" secondItem="A0E-KX-bwO" secondAttribute="leadingMargin" constant="10" id="hG1-Tv-ZRd"/>
+                                    <constraint firstItem="ADv-Iq-YDG" firstAttribute="trailing" secondItem="A0E-KX-bwO" secondAttribute="trailingMargin" constant="10" id="oDA-sB-RnZ"/>
+                                    <constraint firstItem="ADv-Iq-YDG" firstAttribute="centerX" secondItem="A0E-KX-bwO" secondAttribute="centerX" id="yDy-DE-BVh"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A0E-KX-bwO" firstAttribute="top" secondItem="ghS-pi-ZWw" secondAttribute="bottom" id="GR6-Sv-3sX"/>
+                            <constraint firstItem="ghS-pi-ZWw" firstAttribute="height" secondItem="Gmc-77-eLl" secondAttribute="height" multiplier="0.3" id="OAK-Ak-yNW"/>
+                            <constraint firstItem="A0E-KX-bwO" firstAttribute="leading" secondItem="ghS-pi-ZWw" secondAttribute="leading" id="gq0-Eu-BpH"/>
+                            <constraint firstItem="ghS-pi-ZWw" firstAttribute="width" secondItem="Gmc-77-eLl" secondAttribute="width" id="r30-AI-e3F"/>
+                            <constraint firstItem="A0E-KX-bwO" firstAttribute="trailing" secondItem="ghS-pi-ZWw" secondAttribute="trailing" id="t3M-vp-aR5"/>
+                            <constraint firstItem="ghS-pi-ZWw" firstAttribute="top" secondItem="6bK-oJ-eyV" secondAttribute="top" id="tdO-3h-ee0"/>
+                            <constraint firstItem="ghS-pi-ZWw" firstAttribute="leading" secondItem="Gmc-77-eLl" secondAttribute="leading" id="umN-Sy-Mgw"/>
+                            <constraint firstItem="A0E-KX-bwO" firstAttribute="bottom" secondItem="6bK-oJ-eyV" secondAttribute="bottom" id="vLg-rn-YpC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6bK-oJ-eyV"/>
+                    </view>
+                    <connections>
+                        <outlet property="exerciseDescription" destination="ADv-Iq-YDG" id="ofu-iA-VWo"/>
+                        <outlet property="exerciseImageView" destination="ghS-pi-ZWw" id="lIS-Mt-ksP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lL5-rq-NKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1640.8" y="-44.527736131934034"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="13" width="400" height="400"/>
+    </resources>
 </document>

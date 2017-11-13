@@ -10,6 +10,7 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     let ratingModel = RatingModel()
     let favoriteModel = FavoriteModel()
     var favorite = false
+    var exerciseIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,6 +152,18 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55.0
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        exerciseIndex = indexPath.row
+        performSegue(withIdentifier: "exerciseToDescription", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dest = segue.destination as! ExerciseViewController
+        dest.descripe = exercises[exerciseIndex!].description
+        dest.name = exercises[exerciseIndex!].name
+        dest.id = exercises[exerciseIndex!].exerciseId
     }
 
     /*

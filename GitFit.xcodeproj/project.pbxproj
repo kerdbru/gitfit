@@ -38,6 +38,7 @@
 		C68336581F8C0B8200E6134D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68336571F8C0B8200E6134D /* ProfileViewController.swift */; };
 		C683365C1F8C122400E6134D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683365B1F8C122400E6134D /* LoginModel.swift */; };
 		C683365E1F8C190500E6134D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683365D1F8C190500E6134D /* Profile.swift */; };
+		C6BAD5561FBB99F300AAE9AA /* NewExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BAD5551FBB99F300AAE9AA /* NewExerciseViewController.swift */; };
 		C6C9AC191FA91AC300F3F762 /* WorkoutList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6C9AC181FA91AC300F3F762 /* WorkoutList.storyboard */; };
 		C6C9AC1D1FA928C800F3F762 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C9AC1C1FA928C800F3F762 /* ChangePasswordViewController.swift */; };
 		C6F9BDD71F96A385001F5077 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F9BDD61F96A385001F5077 /* RegisterModel.swift */; };
@@ -98,6 +99,7 @@
 		C68336571F8C0B8200E6134D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C683365B1F8C122400E6134D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		C683365D1F8C190500E6134D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		C6BAD5551FBB99F300AAE9AA /* NewExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExerciseViewController.swift; sourceTree = "<group>"; };
 		C6C9AC181FA91AC300F3F762 /* WorkoutList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WorkoutList.storyboard; sourceTree = "<group>"; };
 		C6C9AC1C1FA928C800F3F762 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		C6F9BDD61F96A385001F5077 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				932C94F41FBB7C5300BF5BBD /* Create.storyboard */,
 				932C94F61FBB803C00BF5BBD /* CreateTableViewController.swift */,
+				C6BAD5551FBB99F300AAE9AA /* NewExerciseViewController.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				93E7F3461FB0E57200BDE950 /* FavoritesTableViewController.swift in Sources */,
 				C64169061FAA68E4006D847D /* ExercisesTableViewController.swift in Sources */,
 				C6F9BDD71F96A385001F5077 /* RegisterModel.swift in Sources */,
+				C6BAD5561FBB99F300AAE9AA /* NewExerciseViewController.swift in Sources */,
 				C6C9AC1D1FA928C800F3F762 /* ChangePasswordViewController.swift in Sources */,
 				C683365E1F8C190500E6134D /* Profile.swift in Sources */,
 				C68336561F8C0B6F00E6134D /* RegisterViewController.swift in Sources */,

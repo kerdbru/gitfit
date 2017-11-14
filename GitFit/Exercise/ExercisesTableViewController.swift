@@ -124,7 +124,7 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
             
             for i in 1...5 {
                 let star = cell.viewWithTag(i) as! UIImageView
-                star.image = #imageLiteral(resourceName: "empty_star_bigger")
+                star.image = #imageLiteral(resourceName: "blue_empty_star_bigger")
             }
         }
         
@@ -137,10 +137,10 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
         }
         let rate = rating - 1
         for i in 0...4 {
-            starViews[i].image = #imageLiteral(resourceName: "empty_star_bigger")
+            starViews[i].image = #imageLiteral(resourceName: "blue_empty_star_bigger")
         }
         for i in 0...rate {
-            starViews[i].image = #imageLiteral(resourceName: "full_star_bigger")
+            starViews[i].image = #imageLiteral(resourceName: "blue_full_star_bigger")
         }
     }
     

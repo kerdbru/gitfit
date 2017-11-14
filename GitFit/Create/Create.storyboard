@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,7 +34,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="bNU-TE-3Yl">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="1M7-bZ-c6N"/>
                         <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="center" minimumFontSize="17" id="06v-tu-j8x">
                             <rect key="frame" x="109" y="7" width="157" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -44,11 +44,27 @@
                     </navigationItem>
                     <connections>
                         <outlet property="workoutName" destination="06v-tu-j8x" id="5Tn-oT-mni"/>
+                        <segue destination="4Wi-nM-p7f" kind="show" identifier="createToExercise" id="ZkE-1P-A3m"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgP-Wb-kdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1351.2" y="-263.11844077961024"/>
+        </scene>
+        <!--New Exercise View Controller-->
+        <scene sceneID="2g0-ui-4nv">
+            <objects>
+                <viewController id="4Wi-nM-p7f" customClass="NewExerciseViewController" customModule="GitFit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7VN-29-aQN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="3W1-GD-HYa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vP3-Qv-4An" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2098" y="-263"/>
         </scene>
         <!--Create-->
         <scene sceneID="GwK-UI-XRQ">

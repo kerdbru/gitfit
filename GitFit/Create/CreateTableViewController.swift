@@ -1,43 +1,48 @@
-//
-//  CreateTableViewController.swift
-//  GitFit
-//
-//  Created by Keith Erdbruegger on 11/14/17.
-//  Copyright © 2017 Team3. All rights reserved.
-//
-
 import UIKit
 
 class CreateTableViewController: UITableViewController {
-
     @IBOutlet weak var workoutName: UITextField!
+    var exercises: [ExerciseOrder] = []
+    var selected: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let fav = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
-        self.navigationItem.rightBarButtonItem = fav
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
+        self.navigationItem.rightBarButtonItem = addButton
+        
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+        self.navigationItem.leftBarButtonItem = saveButton
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dest = segue.destination as! NewExerciseViewController
+        dest.exercises = exercises
+        dest.selected = selected
     }
 
+    @objc func add() {
+        performSegue(withIdentifier: "createToExercise", sender: self)
+    }
+
+    @objc func save() {
+        
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return exercises.count
     }
 
     /*

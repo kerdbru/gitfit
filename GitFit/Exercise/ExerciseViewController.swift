@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ExerciseViewController: UIViewController {
+class ExerciseViewController: UIViewController, ImageModelDelegate {
+    var imageModel = ImageModel()
     var descripe: String?
     var name: String?
     var id: Int?
@@ -22,7 +23,14 @@ class ExerciseViewController: UIViewController {
         self.title = name
         exerciseDescription.text = descripe
         exerciseDescription.sizeToFit()
-        // Do any additional setup after loading the view.
+        exerciseImageView.image = #imageLiteral(resourceName: "placeholder")
+        imageModel.delegate = self
+        // imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
+    }
+    
+    func loadedImage(image: UIImage?) {
+        self.exerciseImageView.contentMode = .scaleAspectFit
+        self.exerciseImageView.image = image
     }
 
     override func didReceiveMemoryWarning() {

@@ -1,6 +1,7 @@
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, ImageModelDelegate {
+    let imageModel = ImageModel()
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var profilePic: UIImageView!
@@ -25,33 +26,6 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    func loadProfileImage() {
-        let requestURL = URL(string: "http://54.197.29.213/fitness/uploads/account/\(user!.id!)")
-        var request = URLRequest(url: requestURL!)
-        request.httpMethod = "GET"
-        
-        URLSession.shared.dataTask(with: request) {
-            data, response, error in
-            
-            guard let data = data, error == nil, response != nil else {
-                print("No image")
-                return
-            }
-            
-            if let myImage = UIImage(data: data) {
-                DispatchQueue.main.async(execute: {
-                    self.profilePic.contentMode = .scaleAspectFill
-                    self.profilePic.layer.cornerRadius = self.profilePic.frame.height / 2
-                    self.profilePic.layer.masksToBounds = false
-                    self.profilePic.clipsToBounds = true
-                    self.profilePic.image = myImage
-                })
-            } else {
-                print("NOPE")
-            }
-        }.resume()
-    }
-    
     func loadLabelData() {
         let first = user?.firstName ?? ""
         let last = user?.lastName ?? ""
@@ -59,10 +33,19 @@ class ProfileViewController: UIViewController {
         email.text = user?.email ?? ""
     }
     
+    func loadedImage(image: UIImage?) {
+        self.profilePic.contentMode = .scaleAspectFill
+        self.profilePic.layer.cornerRadius = self.profilePic.frame.height / 2
+        self.profilePic.layer.masksToBounds = false
+        self.profilePic.clipsToBounds = true
+        self.profilePic.image = image
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         profilePic.image = #imageLiteral(resourceName: "profile_pic_placeholder")
-        // loadProfileImage()
+        imageModel.delegate = self
+        // imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL)
     }
     
     override func viewWillAppear(_ animated: Bool) {

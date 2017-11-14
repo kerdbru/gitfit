@@ -22,6 +22,7 @@
 		93B164901FAFEC18004DBDF8 /* RatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B1648F1FAFEC18004DBDF8 /* RatingModel.swift */; };
 		93BDDE981FA9616600D2FB68 /* WorkoutDescriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDDE971FA9616600D2FB68 /* WorkoutDescriptions.swift */; };
 		93BDDE9A1FA963BF00D2FB68 /* WorkoutDescriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BDDE991FA963BF00D2FB68 /* WorkoutDescriptionModel.swift */; };
+		93E631E21FBA7D4A00036BDA /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E631E11FBA7D4A00036BDA /* ImageModel.swift */; };
 		93E7F3441FB0E4B400BDE950 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E7F3431FB0E4B400BDE950 /* Favorites.storyboard */; };
 		93E7F3461FB0E57200BDE950 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7F3451FB0E57200BDE950 /* FavoritesTableViewController.swift */; };
 		93E7F3481FB0E6CD00BDE950 /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7F3471FB0E6CD00BDE950 /* FavoriteModel.swift */; };
@@ -79,6 +80,7 @@
 		93B1648F1FAFEC18004DBDF8 /* RatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingModel.swift; sourceTree = "<group>"; };
 		93BDDE971FA9616600D2FB68 /* WorkoutDescriptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDescriptions.swift; sourceTree = "<group>"; };
 		93BDDE991FA963BF00D2FB68 /* WorkoutDescriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDescriptionModel.swift; sourceTree = "<group>"; };
+		93E631E11FBA7D4A00036BDA /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		93E7F3431FB0E4B400BDE950 /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
 		93E7F3451FB0E57200BDE950 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		93E7F3471FB0E6CD00BDE950 /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				93BDDE991FA963BF00D2FB68 /* WorkoutDescriptionModel.swift */,
 				C64169091FAA7251006D847D /* ExerciseOrderModel.swift */,
 				93E7F3471FB0E6CD00BDE950 /* FavoriteModel.swift */,
+				93E631E11FBA7D4A00036BDA /* ImageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				C683365E1F8C190500E6134D /* Profile.swift in Sources */,
 				C68336561F8C0B6F00E6134D /* RegisterViewController.swift in Sources */,
 				C641690A1FAA7251006D847D /* ExerciseOrderModel.swift in Sources */,
+				93E631E21FBA7D4A00036BDA /* ImageModel.swift in Sources */,
 				1E484DEE1F85AB40000DEB04 /* LoginViewController.swift in Sources */,
 				93BDDE9A1FA963BF00D2FB68 /* WorkoutDescriptionModel.swift in Sources */,
 				C68336581F8C0B8200E6134D /* ProfileViewController.swift in Sources */,

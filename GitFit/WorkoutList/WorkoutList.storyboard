@@ -13,7 +13,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Workouts-->
+        <!--Workout Table View Controller-->
         <scene sceneID="8Xp-QK-m2M">
             <objects>
                 <tableViewController id="8Uv-4x-ITA" customClass="WorkoutTableViewController" customModule="GitFit" customModuleProvider="target" sceneMemberID="viewController">
@@ -107,7 +107,7 @@
                             <outlet property="delegate" destination="8Uv-4x-ITA" id="Ff1-O9-3sD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Workouts" id="If1-lt-TnI"/>
+                    <navigationItem key="navigationItem" id="If1-lt-TnI"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="HUq-BY-Q0S" kind="show" identifier="workoutToExercises" id="nhU-MS-fOs"/>

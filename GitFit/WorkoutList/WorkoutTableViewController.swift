@@ -7,6 +7,9 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let search = UISearchBar()
+        search.placeholder = "Search Workouts"
+        self.navigationItem.titleView = search
         workoutDescriptionModel.delegate = self
         workoutDescriptionModel.loadWorkouts()
         tableView.tableFooterView = UIView()

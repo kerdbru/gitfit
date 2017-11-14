@@ -14,6 +14,8 @@
 		1E484DF61F85AB40000DEB04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E484DF41F85AB40000DEB04 /* LaunchScreen.storyboard */; };
 		1E484E011F85AB40000DEB04 /* GitFitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E484E001F85AB40000DEB04 /* GitFitTests.swift */; };
 		1E484E0C1F85AB40000DEB04 /* GitFitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E484E0B1F85AB40000DEB04 /* GitFitUITests.swift */; };
+		932C94F51FBB7C5300BF5BBD /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 932C94F41FBB7C5300BF5BBD /* Create.storyboard */; };
+		932C94F71FBB803C00BF5BBD /* CreateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932C94F61FBB803C00BF5BBD /* CreateTableViewController.swift */; };
 		93358FDD1FA6823D0091278D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93358FDC1FA6823D0091278D /* EditProfileViewController.swift */; };
 		933F1A5B1FA7D74700C2857D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933F1A5A1FA7D74700C2857D /* Profile.storyboard */; };
 		935FCD701FA9740F00DECA6D /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935FCD6F1FA9740F00DECA6D /* WorkoutTableViewController.swift */; };
@@ -72,6 +74,8 @@
 		1E484E071F85AB40000DEB04 /* GitFitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitFitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E484E0B1F85AB40000DEB04 /* GitFitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitFitUITests.swift; sourceTree = "<group>"; };
 		1E484E0D1F85AB40000DEB04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		932C94F41FBB7C5300BF5BBD /* Create.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
+		932C94F61FBB803C00BF5BBD /* CreateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTableViewController.swift; sourceTree = "<group>"; };
 		93358FDC1FA6823D0091278D /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		933F1A5A1FA7D74700C2857D /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		935FCD6F1FA9740F00DECA6D /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 		1E484DEA1F85AB40000DEB04 /* GitFit */ = {
 			isa = PBXGroup;
 			children = (
+				932C94F31FBB7C3400BF5BBD /* Create */,
 				93E7F3491FB13BAD00BDE950 /* Exercise */,
 				93E7F3421FB0E48D00BDE950 /* Favorites */,
 				C6C9AC171FA91AAC00F3F762 /* WorkoutList */,
@@ -179,6 +184,15 @@
 				1E484E0D1F85AB40000DEB04 /* Info.plist */,
 			);
 			path = GitFitUITests;
+			sourceTree = "<group>";
+		};
+		932C94F31FBB7C3400BF5BBD /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				932C94F41FBB7C5300BF5BBD /* Create.storyboard */,
+				932C94F61FBB803C00BF5BBD /* CreateTableViewController.swift */,
+			);
+			path = Create;
 			sourceTree = "<group>";
 		};
 		933F1A591FA7D72800C2857D /* Profile */ = {
@@ -367,6 +381,7 @@
 				1E484DF31F85AB40000DEB04 /* Assets.xcassets in Resources */,
 				93E7F3441FB0E4B400BDE950 /* Favorites.storyboard in Resources */,
 				93E7F34B1FB13BD300BDE950 /* Exercise.storyboard in Resources */,
+				932C94F51FBB7C5300BF5BBD /* Create.storyboard in Resources */,
 				933F1A5B1FA7D74700C2857D /* Profile.storyboard in Resources */,
 				C6C9AC191FA91AC300F3F762 /* WorkoutList.storyboard in Resources */,
 				1E484DF11F85AB40000DEB04 /* Main.storyboard in Resources */,
@@ -407,6 +422,7 @@
 				C68336561F8C0B6F00E6134D /* RegisterViewController.swift in Sources */,
 				C641690A1FAA7251006D847D /* ExerciseOrderModel.swift in Sources */,
 				93E631E21FBA7D4A00036BDA /* ImageModel.swift in Sources */,
+				932C94F71FBB803C00BF5BBD /* CreateTableViewController.swift in Sources */,
 				1E484DEE1F85AB40000DEB04 /* LoginViewController.swift in Sources */,
 				93BDDE9A1FA963BF00D2FB68 /* WorkoutDescriptionModel.swift in Sources */,
 				C68336581F8C0B8200E6134D /* ProfileViewController.swift in Sources */,

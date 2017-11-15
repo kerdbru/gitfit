@@ -257,8 +257,8 @@
 		93E7F3491FB13BAD00BDE950 /* Exercise */ = {
 			isa = PBXGroup;
 			children = (
-				C64169051FAA68E4006D847D /* ExercisesTableViewController.swift */,
 				93E7F34A1FB13BD300BDE950 /* Exercise.storyboard */,
+				C64169051FAA68E4006D847D /* ExercisesTableViewController.swift */,
 				939286051FB94A470020EBB1 /* ExerciseViewController.swift */,
 			);
 			path = Exercise;

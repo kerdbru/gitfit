@@ -25,7 +25,7 @@ class ExerciseViewController: UIViewController, ImageModelDelegate {
         exerciseDescription.sizeToFit()
         exerciseImageView.image = #imageLiteral(resourceName: "placeholder")
         imageModel.delegate = self
-        imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
+        // imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
     }
     
     func loadedImage(image: UIImage?) {

@@ -45,7 +45,7 @@ class ProfileViewController: UIViewController, ImageModelDelegate {
         super.viewDidLoad()
         profilePic.image = #imageLiteral(resourceName: "profile_pic_placeholder")
         imageModel.delegate = self
-        imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL)
+        // imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL)
     }
     
     override func viewWillAppear(_ animated: Bool) {

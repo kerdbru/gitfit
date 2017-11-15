@@ -13,6 +13,7 @@
     <customFonts key="customFonts">
         <array key="Avenir.ttc">
             <string>Avenir-Book</string>
+            <string>Avenir-Heavy</string>
         </array>
     </customFonts>
     <scenes>
@@ -133,18 +134,26 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="200"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A0E-KX-bwO">
-                                <rect key="frame" x="0.0" y="220" width="375" height="447"/>
+                                <rect key="frame" x="0.0" y="225" width="375" height="442"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADv-Iq-YDG">
-                                        <rect key="frame" x="18" y="18" width="339" height="28"/>
+                                        <rect key="frame" x="18" y="51" width="339" height="28"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES9-BI-9Wx">
+                                        <rect key="frame" x="18" y="13" width="136.5" height="33"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="ES9-BI-9Wx" firstAttribute="leading" secondItem="A0E-KX-bwO" secondAttribute="leadingMargin" constant="10" id="JDh-Ub-D6C"/>
                                     <constraint firstAttribute="bottom" secondItem="ADv-Iq-YDG" secondAttribute="bottom" constant="10" id="KK6-Rq-1g5"/>
-                                    <constraint firstItem="ADv-Iq-YDG" firstAttribute="top" secondItem="A0E-KX-bwO" secondAttribute="topMargin" constant="10" id="Qex-1c-GqV"/>
+                                    <constraint firstItem="ES9-BI-9Wx" firstAttribute="top" secondItem="A0E-KX-bwO" secondAttribute="topMargin" constant="5" id="Rom-6L-eJm"/>
+                                    <constraint firstItem="ADv-Iq-YDG" firstAttribute="top" secondItem="ES9-BI-9Wx" secondAttribute="bottom" constant="5" id="gDy-p8-OM0"/>
                                     <constraint firstItem="ADv-Iq-YDG" firstAttribute="leading" secondItem="A0E-KX-bwO" secondAttribute="leadingMargin" constant="10" id="hG1-Tv-ZRd"/>
                                     <constraint firstItem="ADv-Iq-YDG" firstAttribute="trailing" secondItem="A0E-KX-bwO" secondAttribute="trailingMargin" constant="10" id="oDA-sB-RnZ"/>
                                     <constraint firstItem="ADv-Iq-YDG" firstAttribute="centerX" secondItem="A0E-KX-bwO" secondAttribute="centerX" id="yDy-DE-BVh"/>
@@ -153,7 +162,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="A0E-KX-bwO" firstAttribute="top" secondItem="ghS-pi-ZWw" secondAttribute="bottom" id="GR6-Sv-3sX"/>
+                            <constraint firstItem="A0E-KX-bwO" firstAttribute="top" secondItem="ghS-pi-ZWw" secondAttribute="bottom" constant="5" id="5s9-Ke-lTf"/>
+                            <constraint firstItem="A0E-KX-bwO" firstAttribute="top" secondItem="ghS-pi-ZWw" secondAttribute="bottom" constant="5" id="GR6-Sv-3sX"/>
                             <constraint firstItem="ghS-pi-ZWw" firstAttribute="height" secondItem="Gmc-77-eLl" secondAttribute="height" multiplier="0.3" id="OAK-Ak-yNW"/>
                             <constraint firstItem="A0E-KX-bwO" firstAttribute="leading" secondItem="ghS-pi-ZWw" secondAttribute="leading" id="gq0-Eu-BpH"/>
                             <constraint firstItem="ghS-pi-ZWw" firstAttribute="width" secondItem="Gmc-77-eLl" secondAttribute="width" id="r30-AI-e3F"/>

@@ -1,11 +1,3 @@
-//
-//  NewExerciseViewController.swift
-//  GitFit
-//
-//  Created by Ubicomp3 on 11/14/17.
-//  Copyright © 2017 Team3. All rights reserved.
-//
-
 import UIKit
 
 class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -17,15 +9,22 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let edit = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: nil)
+        let edit = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(search))
         self.navigationItem.rightBarButtonItem = edit
         
         resultsController.tableView.delegate = self
         resultsController.tableView.dataSource = self
+        resultsController.tableView.tableFooterView = UIView()
         
         let searchController = UISearchController(searchResultsController: resultsController)
+        searchController.searchBar.placeholder = "Search exercises"
+        searchController.searchBar.autocapitalizationType = .none
         self.present(searchController, animated: true, completion: nil)
-        // Do any additional setup after loading the view.
+    }
+    
+    @objc func search() {
+        let searchController = UISearchController(searchResultsController: resultsController)
+        self.present(searchController, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,16 +42,4 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         
         return cell
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

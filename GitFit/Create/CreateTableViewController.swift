@@ -1,12 +1,13 @@
 import UIKit
 
-class CreateTableViewController: UITableViewController {
+class CreateTableViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var workoutName: UITextField!
     var exercises: [ExerciseOrder] = []
     var selected: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        workoutName.delegate = self
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
         self.navigationItem.rightBarButtonItem = addButton
         
@@ -14,6 +15,11 @@ class CreateTableViewController: UITableViewController {
         self.navigationItem.leftBarButtonItem = saveButton
         
         tableView.tableFooterView = UIView()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

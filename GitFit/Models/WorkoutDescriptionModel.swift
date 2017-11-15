@@ -10,7 +10,8 @@ class WorkoutDescriptionModel: NSObject {
     let URL_LOAD_WORKOUTS = "http://54.197.29.213/fitness/api/getworkoutdescriptions.php"
     
     func loadWorkouts(search: String) {
-        let params = "search=\(search)"
+        var params = "search=\(search)"
+        params = params.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let requestUrl = URL(string: URL_LOAD_WORKOUTS + "?" + params)
         var request = URLRequest(url: requestUrl!)
         

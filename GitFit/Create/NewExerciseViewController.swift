@@ -9,6 +9,8 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Exercise"
+        
         let edit = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(search))
         self.navigationItem.rightBarButtonItem = edit
         

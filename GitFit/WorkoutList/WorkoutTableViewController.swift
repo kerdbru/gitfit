@@ -1,34 +1,46 @@
 import UIKit
 
-class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModelDelegate {
+class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModelDelegate, UISearchBarDelegate {
     var workouts: [WorkoutDescription] = []
     let workoutDescriptionModel = WorkoutDescriptionModel()
     var workout: WorkoutDescription?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let search = UISearchBar()
-        search.placeholder = "Search Workouts"
-        self.navigationItem.titleView = search
         workoutDescriptionModel.delegate = self
-        workoutDescriptionModel.loadWorkouts()
+        workoutDescriptionModel.loadWorkouts(search: "")
         tableView.tableFooterView = UIView()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        addSearchBar()
+        refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        workoutDescriptionModel.loadWorkouts()
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let search = searchBar.text {
+            workoutDescriptionModel.loadWorkouts(search: search)
+        }
+        searchBar.resignFirstResponder()
+    }
+    
+    fileprivate func addSearchBar() {
+        let search = UISearchBar()
+        search.delegate = self
+        search.placeholder = "Search Workouts"
+        self.navigationItem.titleView = search
+        search.autocapitalizationType = .none
+        search.enablesReturnKeyAutomatically = false
+    }
+    
+    @objc func refresh(sender:AnyObject) {
+        workoutDescriptionModel.loadWorkouts(search: "")
     }
     
     func workoutsLoaded(workouts: [WorkoutDescription]) {
         DispatchQueue.main.async {
             self.workouts = workouts
             self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
         }
     }
 

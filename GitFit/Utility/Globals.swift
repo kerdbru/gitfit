@@ -20,4 +20,5 @@ func setDefaultTextFieldStyle(_ text: UITextField, _ color: UIColor) {
     text.layer.cornerRadius = 5
     text.layer.borderWidth = 1.0
     text.layer.borderColor = fitGray.cgColor
+    text.adjustsFontSizeToFitWidth = false
 }

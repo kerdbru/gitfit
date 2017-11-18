@@ -74,36 +74,33 @@
                                 <rect key="frame" x="0.0" y="269" width="375" height="398"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qgi-3P-2gt">
-                                        <rect key="frame" x="60" y="13" width="255" height="32"/>
+                                        <rect key="frame" x="18" y="13" width="339" height="32"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="# Reps" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhx-XW-1lp">
-                                                <rect key="frame" x="0.0" y="0.0" width="81.5" height="32"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="# Reps" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhx-XW-1lp" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="109.5" height="32"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Units" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e5w-Rk-LCC">
-                                                <rect key="frame" x="86.5" y="0.0" width="82" height="32"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Units" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e5w-Rk-LCC" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
+                                                <rect key="frame" x="114.5" y="0.0" width="110" height="32"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="# Sets" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Psg-Pu-wjT">
-                                                <rect key="frame" x="173.5" y="0.0" width="81.5" height="32"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="# Sets" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Psg-Pu-wjT" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
+                                                <rect key="frame" x="229.5" y="0.0" width="109.5" height="32"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="lbs" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KpR-zH-j8j">
-                                        <rect key="frame" x="139" y="50" width="97" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="97" id="a8J-eW-Let"/>
-                                        </constraints>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="lbs" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KpR-zH-j8j" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
+                                        <rect key="frame" x="132.5" y="50" width="110" height="32"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbr-Wf-ILx">
                                         <rect key="frame" x="18" y="87" width="149" height="33"/>
@@ -127,12 +124,13 @@
                                     <constraint firstItem="Vbr-Wf-ILx" firstAttribute="leading" secondItem="lvN-Lg-g9M" secondAttribute="leadingMargin" constant="10" id="8PI-Df-X0e"/>
                                     <constraint firstItem="qgi-3P-2gt" firstAttribute="top" secondItem="lvN-Lg-g9M" secondAttribute="topMargin" constant="5" id="Ipw-qu-2H6"/>
                                     <constraint firstAttribute="bottom" secondItem="h7H-Me-E2I" secondAttribute="bottom" constant="10" id="JdJ-SX-Yqc"/>
-                                    <constraint firstItem="qgi-3P-2gt" firstAttribute="leading" secondItem="lvN-Lg-g9M" secondAttribute="leading" constant="60" id="Nvw-FI-QSI"/>
+                                    <constraint firstItem="qgi-3P-2gt" firstAttribute="leading" secondItem="lvN-Lg-g9M" secondAttribute="leadingMargin" constant="10" id="Nvw-FI-QSI"/>
+                                    <constraint firstItem="KpR-zH-j8j" firstAttribute="leading" secondItem="e5w-Rk-LCC" secondAttribute="leading" id="Onb-Dx-Yw3"/>
                                     <constraint firstItem="Vbr-Wf-ILx" firstAttribute="top" secondItem="KpR-zH-j8j" secondAttribute="bottom" constant="5" id="ctl-dI-Pp8"/>
                                     <constraint firstItem="KpR-zH-j8j" firstAttribute="top" secondItem="qgi-3P-2gt" secondAttribute="bottom" constant="5" id="emn-JY-CiG"/>
-                                    <constraint firstItem="KpR-zH-j8j" firstAttribute="centerX" secondItem="qgi-3P-2gt" secondAttribute="centerX" id="hPy-5u-Scy"/>
+                                    <constraint firstItem="KpR-zH-j8j" firstAttribute="trailing" secondItem="e5w-Rk-LCC" secondAttribute="trailing" id="i3w-0H-90D"/>
                                     <constraint firstItem="qgi-3P-2gt" firstAttribute="centerX" secondItem="lvN-Lg-g9M" secondAttribute="centerX" id="kBb-Pd-I9H"/>
-                                    <constraint firstAttribute="trailing" secondItem="qgi-3P-2gt" secondAttribute="trailing" constant="60" id="ufu-Eh-fBA"/>
+                                    <constraint firstAttribute="trailing" secondItem="qgi-3P-2gt" secondAttribute="trailingMargin" constant="10" id="ufu-Eh-fBA"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -150,6 +148,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3W1-GD-HYa"/>
                     </view>
+                    <connections>
+                        <outlet property="exerciseDescription" destination="h7H-Me-E2I" id="Xr5-lX-wDS"/>
+                        <outlet property="exerciseImageView" destination="hwN-mI-uWp" id="rx9-dc-dtU"/>
+                        <outlet property="label" destination="e5w-Rk-LCC" id="ZYg-Cw-fNF"/>
+                        <outlet property="sets" destination="Psg-Pu-wjT" id="n9B-gK-ods"/>
+                        <outlet property="units" destination="hhx-XW-1lp" id="mLc-AT-MTw"/>
+                        <outlet property="weight" destination="KpR-zH-j8j" id="NGr-jX-KAP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vP3-Qv-4An" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

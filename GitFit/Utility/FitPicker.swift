@@ -35,7 +35,7 @@ class FitPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
     func setTextfieldArrow() {
         textfield?.tintColor = .clear
         textfield?.rightViewMode = .always
-        let arrow = UIImageView(image: #imageLiteral(resourceName: "arrow-down-01-20"))
+        let arrow = UIImageView(image: #imageLiteral(resourceName: "down_arrow"))
         if let size = arrow.image?.size {
             arrow.frame = CGRect(x: 0.0, y: 0.0, width: size.width + 10.0, height: size.height)
         }

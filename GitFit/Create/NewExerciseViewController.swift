@@ -130,7 +130,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         setToolBar(textfield: units)
         setDefaultTextFieldStyle(label, fitGray)
         label.delegate = self
-        pickLabel = FitPicker(textfield: label, pickerData: [topping(text: "Reps", id: 1)])
+        pickLabel = FitPicker(textfield: label, pickerData: [FitPickerItem(text: "Reps", id: 1)])
         setDefaultTextFieldStyle(weight, fitGray)
         weight.delegate = self
         setToolBar(textfield: weight)
@@ -169,7 +169,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         }
         self.scrollView.contentSize = contentRect.size;
         self.searchController?.searchBar.text = ""
-        let id = exerciseList[indexPath.row].id
+        // let id = exerciseList[indexPath.row].id
         // imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
         dismiss(animated: true, completion: nil)
     }

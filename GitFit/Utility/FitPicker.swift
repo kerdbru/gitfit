@@ -1,6 +1,6 @@
 import UIKit
 
-struct topping {
+struct FitPickerItem {
     var text: String?
     var id: Int?
 }
@@ -8,7 +8,7 @@ struct topping {
 class FitPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
     var selected: Int?
     var textfield: UITextField?
-    var pickerData: [topping] = []
+    var pickerData: [FitPickerItem] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,11 +22,12 @@ class FitPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
         self.delegate = self
     }
     
-    init(textfield: UITextField, pickerData: [topping]) {
+    init(textfield: UITextField, pickerData: [FitPickerItem]) {
         self.init()
         self.textfield = textfield
         self.textfield?.inputView = self
         self.pickerData = pickerData
+        self.pickerData.insert(FitPickerItem(text: "", id: -1) , at: 0)
         setTextfieldArrow()
         setPickerStyle()
         setPickerToolBar()

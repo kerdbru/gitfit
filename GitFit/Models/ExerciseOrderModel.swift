@@ -7,11 +7,11 @@ protocol ExerciseOrderModelDelegate {
 class ExerciseOrderModel: NSObject {
     var delegate: ExerciseOrderModelDelegate?
     
-    let URL_LOAD_EXERCISES = "http://54.197.29.213/fitness/api/getexerciseorder.php"
+    let URL_LOAD_EXERCISES_ORDER = "http://54.197.29.213/fitness/api/getexerciseorder.php"
     
     func loadWorkouts(_ workoutId: Int, _ accountId: Int) {
         let params = "workoutId=\(workoutId)&accountId=\(accountId)"
-        let requestUrl = URL(string: URL_LOAD_EXERCISES + "?" + params)
+        let requestUrl = URL(string: URL_LOAD_EXERCISES_ORDER + "?" + params)
         var request = URLRequest(url: requestUrl!)
         
         request.httpMethod = "GET"

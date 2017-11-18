@@ -20,6 +20,8 @@
 		933F1A5B1FA7D74700C2857D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933F1A5A1FA7D74700C2857D /* Profile.storyboard */; };
 		935FCD701FA9740F00DECA6D /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935FCD6F1FA9740F00DECA6D /* WorkoutTableViewController.swift */; };
 		9376D4DB1FBFDBFA00B68F3B /* FitPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376D4DA1FBFDBFA00B68F3B /* FitPicker.swift */; };
+		93898E201FBFF55E00CB6B0C /* CreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93898E1F1FBFF55E00CB6B0C /* CreateModel.swift */; };
+		93898E221FBFF69600CB6B0C /* Exercises.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93898E211FBFF69600CB6B0C /* Exercises.swift */; };
 		939286061FB94A470020EBB1 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939286051FB94A470020EBB1 /* ExerciseViewController.swift */; };
 		93A457C51FAC12C6003D9A61 /* FitTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A457C41FAC12C6003D9A61 /* FitTextField.swift */; };
 		93B164901FAFEC18004DBDF8 /* RatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B1648F1FAFEC18004DBDF8 /* RatingModel.swift */; };
@@ -82,6 +84,8 @@
 		933F1A5A1FA7D74700C2857D /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		935FCD6F1FA9740F00DECA6D /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewController.swift; sourceTree = "<group>"; };
 		9376D4DA1FBFDBFA00B68F3B /* FitPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitPicker.swift; sourceTree = "<group>"; };
+		93898E1F1FBFF55E00CB6B0C /* CreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateModel.swift; sourceTree = "<group>"; };
+		93898E211FBFF69600CB6B0C /* Exercises.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercises.swift; sourceTree = "<group>"; };
 		939286051FB94A470020EBB1 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		93A457C41FAC12C6003D9A61 /* FitTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitTextField.swift; sourceTree = "<group>"; };
 		93B1648F1FAFEC18004DBDF8 /* RatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingModel.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				C64169091FAA7251006D847D /* ExerciseOrderModel.swift */,
 				93E7F3471FB0E6CD00BDE950 /* FavoriteModel.swift */,
 				93E631E11FBA7D4A00036BDA /* ImageModel.swift */,
+				93898E1F1FBFF55E00CB6B0C /* CreateModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				93F5A4811FAB8A0800704CE0 /* Globals.swift */,
 				93A457C41FAC12C6003D9A61 /* FitTextField.swift */,
 				9376D4DA1FBFDBFA00B68F3B /* FitPicker.swift */,
+				93898E211FBFF69600CB6B0C /* Exercises.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -432,9 +438,11 @@
 				93E631E21FBA7D4A00036BDA /* ImageModel.swift in Sources */,
 				932C94F71FBB803C00BF5BBD /* CreateTableViewController.swift in Sources */,
 				1E484DEE1F85AB40000DEB04 /* LoginViewController.swift in Sources */,
+				93898E221FBFF69600CB6B0C /* Exercises.swift in Sources */,
 				93BDDE9A1FA963BF00D2FB68 /* WorkoutDescriptionModel.swift in Sources */,
 				C68336581F8C0B8200E6134D /* ProfileViewController.swift in Sources */,
 				93BDDE981FA9616600D2FB68 /* WorkoutDescriptions.swift in Sources */,
+				93898E201FBFF55E00CB6B0C /* CreateModel.swift in Sources */,
 				93A457C51FAC12C6003D9A61 /* FitTextField.swift in Sources */,
 				1E484DEC1F85AB40000DEB04 /* AppDelegate.swift in Sources */,
 				C64169081FAA6C3A006D847D /* ExerciseOrder.swift in Sources */,

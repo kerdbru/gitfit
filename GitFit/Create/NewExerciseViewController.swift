@@ -1,6 +1,6 @@
 import UIKit
 
-class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CreateModelDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var exerciseImageView: UIImageView!
     @IBOutlet weak var units: UITextField!
@@ -13,16 +13,19 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     var exercises: [ExerciseOrder]?
     var selected: Int?
     let resultsController = UITableViewController(style: .plain)
-    var exerciseList = ["Pull-up", "Push-up"]
+    var exerciseList: [Exercise] = []
     var move: CGFloat = 0
+    var createModel = CreateModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextStyle()
         self.title = "Exercise"
         
-        let edit = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(search))
-        self.navigationItem.rightBarButtonItem = edit
+        createModel.delegate = self
+        
+        let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(search))
+        self.navigationItem.rightBarButtonItem = searchButton
         
         resultsController.tableView.delegate = self
         resultsController.tableView.dataSource = self
@@ -31,7 +34,19 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         let searchController = UISearchController(searchResultsController: resultsController)
         searchController.searchBar.placeholder = "Search exercises"
         searchController.searchBar.autocapitalizationType = .none
+        searchController.searchBar.delegate = self
         self.present(searchController, animated: true, completion: nil)
+    }
+    
+    func exercisesLoaded(exercises: [Exercise]) {
+        DispatchQueue.main.async {
+            self.exerciseList = exercises
+            self.resultsController.tableView.reloadData()
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        createModel.loadExercises(search: searchText)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -118,7 +133,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "newExercise")
         
-        cell.textLabel?.text = exerciseList[indexPath.row]
+        cell.textLabel?.text = exerciseList[indexPath.row].name
         
         return cell
     }

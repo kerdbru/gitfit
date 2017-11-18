@@ -10,7 +10,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var saveButton: UIButton!
     var id: Int?
     var fName: String?
     var lName: String?
@@ -18,18 +17,22 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var password: String?
     let changePasswordModel = ChangePasswordModel()
 
-    @IBAction func save(_ sender: Any) {
+    @objc func save() {
         loadValues()
         if firstName.text! != "" && lastName.text! != "" && email.text! != "" {
             changePasswordModel.changePassword(id: id!, firstName: fName!, lastName: lName!, emailAddress: emailAddr!, password: password!)
             user!.firstName = firstName.text!
             user!.lastName = lastName.text!
             user!.email = email.text!
-            self.navigationController?.popViewController(animated: true)
+            dismiss(animated: true, completion: nil)
         }
         else {
             showError()
         }
+    }
+    
+    @objc func cancel() {
+        dismiss(animated: true, completion: nil)
     }
     
     func loadValues(){
@@ -71,10 +74,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         dismiss(animated: true, completion: nil)
     }
     
-    func setButtonStyle() {
-        setDefaultButtonStyle(saveButton, fitBlue)
-    }
-    
     func loadTextField() {
         firstName.text = user?.firstName ?? ""
         lastName.text = user?.lastName ?? ""
@@ -103,15 +102,21 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Edit Profile"
         imagePicker.delegate = self
         setTextFieldStyle()
-        setButtonStyle()
         loadTextField()
         addGestureToProfilePic()
         
         firstName.delegate = self
         lastName.delegate = self
         email.delegate = self
+        
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+        self.navigationItem.rightBarButtonItem = saveButton
+        
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        self.navigationItem.leftBarButtonItem = cancelButton
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -9,6 +9,8 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var weight: FitTextField!
     @IBOutlet weak var sets: FitTextField!
+    @IBOutlet weak var change: UIButton!
+    @IBOutlet weak var descripe: UILabel!
     
     var pickLabel: UIPickerView?
     var exercises: [ExerciseOrder]?
@@ -23,12 +25,10 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         setTextStyle()
         self.title = "Exercise"
+        setDefaultButtonStyle(change, fitBlue)
         
         createModel.delegate = self
         imageModel.delegate = self
-        
-        let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(search))
-        self.navigationItem.rightBarButtonItem = searchButton
         
         let resultsController = UITableViewController(style: .plain)
         resultsController.tableView.delegate = self
@@ -42,9 +42,27 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         searchController?.searchBar.delegate = self
         searchController?.hidesNavigationBarDuringPresentation = false
         
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+        self.navigationItem.rightBarButtonItem = saveButton
+        
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
+        self.navigationItem.leftBarButtonItem = cancelButton
+        
         // This code is dumb, but fixes issue with when search controller not showing correctly
-        self.present(searchController!, animated: false, completion: nil)
-        dismiss(animated: false, completion: nil)
+//        self.present(searchController!, animated: false, completion: nil)
+//        dismiss(animated: false, completion: nil)
+    }
+    
+    @IBAction func changeExercise(_ sender: Any) {
+        self.present(searchController!, animated: true, completion: nil)
+    }
+    
+    @objc func save() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func cancel() {
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -139,10 +157,6 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         setToolBar(textfield: sets)
     }
     
-    @objc func search() {
-        self.present(searchController!, animated: true, completion: nil)
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return exerciseList.count
     }
@@ -160,6 +174,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        descripe.text = "Description"
         self.title = exerciseList[indexPath.row].name
         self.exerciseDescription.text = exerciseList[indexPath.row].description
         exerciseDescription.sizeToFit()

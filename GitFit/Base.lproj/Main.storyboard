@@ -219,7 +219,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="930-OF-z23">
             <objects>
-                <tabBarController id="vch-Ac-2UW" sceneMemberID="viewController">
+                <tabBarController extendedLayoutIncludesOpaqueBars="YES" id="vch-Ac-2UW" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Eba-JA-vmz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

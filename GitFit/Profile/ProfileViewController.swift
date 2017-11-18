@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController, ImageModelDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         view.endEditing(true)
         if segue.identifier == "editProfile" {
-            let dest = segue.destination as! EditProfileViewController
+            let dest = segue.destination.childViewControllers[0] as! EditProfileViewController
             dest.profileImage = profilePic.image!
         }
     }

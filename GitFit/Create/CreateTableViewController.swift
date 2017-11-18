@@ -23,7 +23,7 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dest = segue.destination as! NewExerciseViewController
+        let dest = segue.destination.childViewControllers[0] as! NewExerciseViewController
         dest.exercises = exercises
         dest.selected = selected
     }

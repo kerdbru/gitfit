@@ -131,10 +131,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ghS-pi-ZWw">
-                                <rect key="frame" x="0.0" y="20" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="30" width="375" height="200"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A0E-KX-bwO">
-                                <rect key="frame" x="0.0" y="225" width="375" height="442"/>
+                                <rect key="frame" x="0.0" y="235" width="375" height="432"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADv-Iq-YDG">
                                         <rect key="frame" x="18" y="51" width="339" height="28"/>
@@ -166,8 +166,8 @@
                             <constraint firstItem="ghS-pi-ZWw" firstAttribute="height" secondItem="Gmc-77-eLl" secondAttribute="height" multiplier="0.3" id="OAK-Ak-yNW"/>
                             <constraint firstItem="A0E-KX-bwO" firstAttribute="leading" secondItem="ghS-pi-ZWw" secondAttribute="leading" id="gq0-Eu-BpH"/>
                             <constraint firstItem="ghS-pi-ZWw" firstAttribute="width" secondItem="Gmc-77-eLl" secondAttribute="width" id="r30-AI-e3F"/>
+                            <constraint firstItem="ghS-pi-ZWw" firstAttribute="top" secondItem="6bK-oJ-eyV" secondAttribute="top" constant="10" id="ssj-ZL-ilO"/>
                             <constraint firstItem="A0E-KX-bwO" firstAttribute="trailing" secondItem="ghS-pi-ZWw" secondAttribute="trailing" id="t3M-vp-aR5"/>
-                            <constraint firstItem="ghS-pi-ZWw" firstAttribute="top" secondItem="6bK-oJ-eyV" secondAttribute="top" id="tdO-3h-ee0"/>
                             <constraint firstItem="ghS-pi-ZWw" firstAttribute="leading" secondItem="Gmc-77-eLl" secondAttribute="leading" id="umN-Sy-Mgw"/>
                             <constraint firstItem="A0E-KX-bwO" firstAttribute="bottom" secondItem="6bK-oJ-eyV" secondAttribute="bottom" id="vLg-rn-YpC"/>
                         </constraints>

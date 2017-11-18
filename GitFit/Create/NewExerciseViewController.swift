@@ -1,21 +1,23 @@
 import UIKit
 
-class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CreateModelDelegate, UISearchBarDelegate {
+class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CreateModelDelegate, UISearchBarDelegate, ImageModelDelegate {
     
     @IBOutlet weak var exerciseImageView: UIImageView!
     @IBOutlet weak var units: UITextField!
     @IBOutlet weak var label: UITextField!
-    @IBOutlet weak var sets: UITextField!
-    @IBOutlet weak var weight: UITextField!
     @IBOutlet weak var exerciseDescription: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var weight: FitTextField!
+    @IBOutlet weak var sets: FitTextField!
     
     var pickLabel: UIPickerView?
     var exercises: [ExerciseOrder]?
     var selected: Int?
-    let resultsController = UITableViewController(style: .plain)
+    var searchController: UISearchController?
     var exerciseList: [Exercise] = []
     var move: CGFloat = 0
     var createModel = CreateModel()
+    var imageModel = ImageModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,30 +25,52 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         self.title = "Exercise"
         
         createModel.delegate = self
+        imageModel.delegate = self
         
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(search))
         self.navigationItem.rightBarButtonItem = searchButton
         
+        let resultsController = UITableViewController(style: .plain)
         resultsController.tableView.delegate = self
         resultsController.tableView.dataSource = self
         resultsController.tableView.tableFooterView = UIView()
+        resultsController.tableView.contentInsetAdjustmentBehavior = .never
         
-        let searchController = UISearchController(searchResultsController: resultsController)
-        searchController.searchBar.placeholder = "Search exercises"
-        searchController.searchBar.autocapitalizationType = .none
-        searchController.searchBar.delegate = self
-        self.present(searchController, animated: true, completion: nil)
+        searchController = UISearchController(searchResultsController: resultsController)
+        searchController?.searchBar.placeholder = "Search exercises"
+        searchController?.searchBar.autocapitalizationType = .none
+        searchController?.searchBar.delegate = self
+        searchController?.hidesNavigationBarDuringPresentation = false
+        
+        // This code is dumb, but fixes issue with when search controller not showing correctly
+        self.present(searchController!, animated: false, completion: nil)
+        dismiss(animated: false, completion: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.present(searchController!, animated: true, completion: nil)
     }
     
     func exercisesLoaded(exercises: [Exercise]) {
         DispatchQueue.main.async {
             self.exerciseList = exercises
-            self.resultsController.tableView.reloadData()
+            let tableViewController = self.searchController?.searchResultsController as! UITableViewController
+            tableViewController.tableView.reloadData()
+        }
+    }
+    
+    func loadedImage(image: UIImage?) {
+        DispatchQueue.main.async {
+            self.exerciseImageView.image = image
         }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         createModel.loadExercises(search: searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -86,8 +110,6 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     func setToolBar(textfield: UITextField) {
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
-        //toolBar.isTranslucent = true
-        //toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         toolBar.sizeToFit()
         
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
@@ -118,8 +140,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @objc func search() {
-        let searchController = UISearchController(searchResultsController: resultsController)
-        self.present(searchController, animated: true, completion: nil)
+        self.present(searchController!, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -136,5 +157,20 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         cell.textLabel?.text = exerciseList[indexPath.row].name
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.title = exerciseList[indexPath.row].name
+        self.exerciseDescription.text = exerciseList[indexPath.row].description
+        exerciseDescription.sizeToFit()
+        var contentRect = CGRect.zero;
+        for view in scrollView.subviews {
+            contentRect = contentRect.union(view.frame);
+        }
+        self.scrollView.contentSize = contentRect.size;
+        self.searchController?.searchBar.text = ""
+        let id = exerciseList[indexPath.row].id
+        // imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
+        dismiss(animated: true, completion: nil)
     }
 }

@@ -41,7 +41,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="32"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" placeholder="PASSWORD" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fi3-KZ-LF8" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="42" width="240" height="32"/>
@@ -147,7 +147,7 @@
                                         <rect key="frame" x="0.0" y="92" width="325" height="36"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                         <variation key="heightClass=compact-widthClass=compact">
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                         </variation>

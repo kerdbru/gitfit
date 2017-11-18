@@ -167,7 +167,7 @@
                                                                 <rect key="frame" x="0.0" y="74" width="217" height="32"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>

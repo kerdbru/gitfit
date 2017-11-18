@@ -142,8 +142,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES9-BI-9Wx">
-                                        <rect key="frame" x="18" y="13" width="136.5" height="33"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ES9-BI-9Wx">
+                                        <rect key="frame" x="18" y="13" width="129" height="33"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -162,7 +162,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="A0E-KX-bwO" firstAttribute="top" secondItem="ghS-pi-ZWw" secondAttribute="bottom" constant="5" id="5s9-Ke-lTf"/>
                             <constraint firstItem="A0E-KX-bwO" firstAttribute="top" secondItem="ghS-pi-ZWw" secondAttribute="bottom" constant="5" id="GR6-Sv-3sX"/>
                             <constraint firstItem="ghS-pi-ZWw" firstAttribute="height" secondItem="Gmc-77-eLl" secondAttribute="height" multiplier="0.3" id="OAK-Ak-yNW"/>
                             <constraint firstItem="A0E-KX-bwO" firstAttribute="leading" secondItem="ghS-pi-ZWw" secondAttribute="leading" id="gq0-Eu-BpH"/>

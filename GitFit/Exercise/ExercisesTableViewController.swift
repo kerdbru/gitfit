@@ -63,7 +63,6 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     override func viewWillAppear(_ animated: Bool) {
         favoriteModel.checkFavorite(user!.id!, self.workoutId!)
         imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL + "\(creatorId!)")
-        creatorModel.loadCreator(id: creatorId!)
     }
     
     @objc func addFav() {
@@ -135,6 +134,7 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
             cell.accessoryType = .disclosureIndicator
     
             creatorLabel = cell.viewWithTag(2) as? UILabel
+            creatorModel.loadCreator(id: creatorId!)
             
             let picView = cell.viewWithTag(1) as! UIImageView
             picView.contentMode = .scaleAspectFill
@@ -150,7 +150,7 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
             cell.accessoryType = .disclosureIndicator
             
             let name = cell.viewWithTag(1) as! UILabel
-            name.text! = "\(indexPath.row + 1)) \(exercise.name!)"
+            name.text! = "\(indexPath.row)) \(exercise.name!)"
             
             var weight = ""
             if let lbs = exercise.weight {

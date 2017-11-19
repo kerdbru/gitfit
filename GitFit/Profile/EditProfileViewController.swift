@@ -1,10 +1,12 @@
 import UIKit
 
-class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, ImageModelDelegate {
 
     var profileImage = #imageLiteral(resourceName: "profile_pic_placeholder")
     let imagePicker = UIImagePickerController()
     var move: CGFloat = 0
+    var imageChanged = false
+    var imageModel = ImageModel()
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var firstName: UITextField!
@@ -24,7 +26,14 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             user!.firstName = firstName.text!
             user!.lastName = lastName.text!
             user!.email = email.text!
-            dismiss(animated: true, completion: nil)
+            
+            if imageChanged {
+                let id = user?.id!
+                imageModel.uploadProfilePic("\(id!)", profileImageView.image!)
+            }
+            else {
+                dismiss(animated: true, completion: nil)
+            }
         }
         else {
             showError()
@@ -69,6 +78,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             profileImageView.layer.masksToBounds = false
             profileImageView.clipsToBounds = true
             profileImageView.image = pickedImage
+            imageChanged = true
         }
         
         dismiss(animated: true, completion: nil)
@@ -111,6 +121,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         firstName.delegate = self
         lastName.delegate = self
         email.delegate = self
+        imageModel.delegate = self
         
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
         self.navigationItem.rightBarButtonItem = saveButton
@@ -172,5 +183,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             self.profileImageView.layer.masksToBounds = false
             self.profileImageView.clipsToBounds = true
         })
+    }
+    
+    func profilePicUploaded() {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }

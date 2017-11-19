@@ -1,11 +1,13 @@
 import UIKit
 
-class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, ImageModelDelegate {
 
     var newUser: Profile?
     let registerModel = RegisterModel()
-    let imagePicker = UIImagePickerController();
+    let imagePicker = UIImagePickerController()
+    let imageModel = ImageModel()
     var move: CGFloat = 0
+    var imageChanged = false
 
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var firstName: UITextField!
@@ -19,6 +21,7 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
         super.viewDidLoad()
         registerModel.delegate = self
         imagePicker.delegate = self
+        imageModel.delegate = self
         setTextFieldStyle()
         setButtonStyle()
         addGestureToProfilePic()
@@ -102,6 +105,7 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
             img.layer.masksToBounds = false
             img.clipsToBounds = true
             img.image = pickedImage
+            self.imageChanged = true
         }
         
         dismiss(animated: true, completion: nil)
@@ -182,7 +186,14 @@ class RegisterViewController: UIViewController, RegisterModelDelegate, UIImagePi
     func createdProfile(profile: Profile?) {
         if profile != nil {
             DispatchQueue.main.async {
-                self.registerModel.uploadImage(String(describing: profile!.id!), self.img.image!)
+                if self.imageChanged {
+                    self.imageModel.uploadProfilePic("\(profile!.id!)", self.img.image!)
+                }
+                else {
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
                 user = profile
             }
         }

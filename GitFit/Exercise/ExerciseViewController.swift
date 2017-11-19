@@ -31,9 +31,11 @@ class ExerciseViewController: UIViewController, ImageModelDelegate {
     }
     
     func loadedImage(image: UIImage?) {
-        DispatchQueue.main.async {
-            self.exerciseImageView.contentMode = .scaleAspectFit
-            self.exerciseImageView.image = image
+        if let image = image {
+            DispatchQueue.main.async {
+                self.exerciseImageView.contentMode = .scaleAspectFit
+                self.exerciseImageView.image = image
+            }
         }
     }
 

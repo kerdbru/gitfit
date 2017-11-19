@@ -29,8 +29,10 @@ class ExerciseViewController: UIViewController, ImageModelDelegate {
     }
     
     func loadedImage(image: UIImage?) {
-        self.exerciseImageView.contentMode = .scaleAspectFit
-        self.exerciseImageView.image = image
+        DispatchQueue.main.async {
+            self.exerciseImageView.contentMode = .scaleAspectFit
+            self.exerciseImageView.image = image
+        }
     }
 
     override func didReceiveMemoryWarning() {

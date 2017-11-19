@@ -33,10 +33,21 @@ class FavoritesTableViewController: UITableViewController, FavoriteModelDelegate
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favorite", for: indexPath)
 
-        cell.textLabel?.text = workouts[indexPath.row].name
-        cell.detailTextLabel?.text = workouts[indexPath.row].type
+        let textLabel = cell.viewWithTag(2) as! UILabel
+        textLabel.text = workouts[indexPath.row].name
+        let type = cell.viewWithTag(1)
+        switch workouts[indexPath.row].type! {
+        case "Intermediate":
+            type!.backgroundColor = fitYellow
+        case "Advanced":
+            type!.backgroundColor = fitRed
+        default:
+            type!.backgroundColor = fitGreen
+        }
+        type!.layer.borderColor = UIColor.black.cgColor
+        type!.layer.borderWidth = 1.0
+        
         cell.accessoryType = .disclosureIndicator
-
         return cell
     }
     
@@ -54,6 +65,7 @@ class FavoritesTableViewController: UITableViewController, FavoriteModelDelegate
         dest.accountId = user!.id!
         dest.workoutId = workout?.id
         dest.name = workout?.name
+        dest.creatorId = workout?.accountId
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

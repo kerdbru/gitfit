@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginViewController: UIViewController, HomeModelDelegate, UITextFieldDelegate {
+class LoginViewController: UIViewController, LoginModelDelegate, UITextFieldDelegate {
     let loginModel = LoginModel()
     var move: CGFloat = 0
     

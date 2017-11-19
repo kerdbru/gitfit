@@ -4,7 +4,7 @@ protocol ImageModelDelegate {
     func loadedImage(image: UIImage?)
 }
 
-let LOAD_PROFILE_IMAGE_URL = "http://54.197.29.213/fitness/uploads/account/\(user!.id!)"
+let LOAD_PROFILE_IMAGE_URL = "http://54.197.29.213/fitness/uploads/account/"
 let LOAD_EXERCISE_IMAGE_URL = "http://54.197.29.213/fitness/uploads/exercises/"
 
 class ImageModel: NSObject {

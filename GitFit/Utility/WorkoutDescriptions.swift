@@ -24,4 +24,12 @@ class Favorite : NSObject, Codable {
     var id: Int?
     var name: String?
     var type: String?
+    var accountId: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case accountId = "account_id"
+        case name
+        case id
+        case type
+    }
 }

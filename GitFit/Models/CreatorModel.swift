@@ -1,16 +1,16 @@
 import UIKit
 
-protocol LoginModelDelegate {
-    func profileLoaded(profile: Profile?)
+protocol CreatorModelDelegate {
+    func creatorLoaded(user: Creator?)
 }
 
-class LoginModel: NSObject {
-    var delegate: LoginModelDelegate?
+class CreatorModel: NSObject {
+    var delegate: CreatorModelDelegate?
     
-    let URL_LOAD_PROFILE = "http://54.197.29.213/fitness/api/getaccount.php"
+    let URL_LOAD_PROFILE = "http://54.197.29.213/fitness/api/getcreator.php"
     
-    func loadProfile(email: String, password: String) {
-        let params = "email=" + email + "&password=" + password
+    func loadCreator(id: Int) {
+        let params = "id=\(id)"
         let requestUrl = URL(string: URL_LOAD_PROFILE + "?" + params)
         var request = URLRequest(url: requestUrl!)
         
@@ -26,7 +26,7 @@ class LoginModel: NSObject {
             
             if let user = self.parseJson(data: data) {
                 DispatchQueue.main.async {
-                    self.delegate?.profileLoaded(profile: user)
+                    self.delegate?.creatorLoaded(user: user)
                 }
             }
             else {
@@ -37,24 +37,20 @@ class LoginModel: NSObject {
     
     func dispatchNoProfile() {
         DispatchQueue.main.async {
-            self.delegate?.profileLoaded(profile: nil)
+            self.delegate?.creatorLoaded(user: nil)
         }
     }
     
-    func parseJson(data: Data) -> Profile? {
+    func parseJson(data: Data) -> Creator? {
         do {
             let decoder = JSONDecoder()
-            let users = try decoder.decode([Profile].self, from: data)
+            let user = try decoder.decode(Creator.self, from: data)
             
-            if users.count > 0 {
-                return users[0]
-            }
-            else {
-                return nil
-            }
+            return user
         } catch {
             print(error)
             return nil
         }
     }
 }
+

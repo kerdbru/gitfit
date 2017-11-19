@@ -62,8 +62,18 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         
         let name = cell.viewWithTag(1) as! UILabel
         name.text = workout.name
-        let type = cell.viewWithTag(2) as! UILabel
-        type.text = workout.type
+        let type = cell.viewWithTag(2)
+        switch workout.type! {
+        case "Intermediate":
+            type!.backgroundColor = fitYellow
+        case "Advanced":
+            type!.backgroundColor = fitRed
+        default:
+            type!.backgroundColor = fitGreen
+        }
+        type!.layer.borderColor = UIColor.black.cgColor
+        type!.layer.borderWidth = 1.0
+        
         let review = cell.viewWithTag(8) as! UILabel
         review.text = "(\(workout.ratingCount ?? 0))"
         
@@ -76,17 +86,16 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         
         while stars > 0 {
             let star = cell.viewWithTag(tag) as! UIImageView
-            star.image = #imageLiteral(resourceName: "blue_full_star")
+            star.image = #imageLiteral(resourceName: "full_star")
             stars -= 1
             tag += 1
         }
         while tag < 8 {
             let star = cell.viewWithTag(tag) as! UIImageView
-            star.image = #imageLiteral(resourceName: "blue_empty_star")
+            star.image = #imageLiteral(resourceName: "empty_star")
             tag += 1
         }
-        
-
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
@@ -100,44 +109,10 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         dest.accountId = workout?.accountId
         dest.workoutId = workout?.id
         dest.name = workout?.name
+        dest.creatorId = workout?.accountId
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55.0
+        return 60.0
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 }

@@ -34,18 +34,22 @@ class ProfileViewController: UIViewController, ImageModelDelegate {
     }
     
     func loadedImage(image: UIImage?) {
-        self.profilePic.contentMode = .scaleAspectFill
-        self.profilePic.layer.cornerRadius = self.profilePic.frame.height / 2
-        self.profilePic.layer.masksToBounds = false
-        self.profilePic.clipsToBounds = true
-        self.profilePic.image = image
+        DispatchQueue.main.async {
+            self.profilePic.contentMode = .scaleAspectFill
+            self.profilePic.layer.cornerRadius = self.profilePic.frame.height / 2
+            self.profilePic.layer.masksToBounds = false
+            self.profilePic.clipsToBounds = true
+            self.profilePic.image = image
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         profilePic.image = #imageLiteral(resourceName: "profile_pic_placeholder")
         imageModel.delegate = self
-        // imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL)
+//        if let id = user!.id {
+//            imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL+"\(id)")
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

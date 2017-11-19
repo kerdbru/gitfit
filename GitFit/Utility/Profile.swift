@@ -21,3 +21,13 @@ struct Profile : Codable, CustomStringConvertible {
         return "\(id ?? -1), \(firstName ?? ""), \(lastName ?? ""), \(trainer ?? 0), \(email ?? ""), \(password ?? "")"
     }
 }
+
+struct Creator: Codable {
+    var firstName: String?
+    var lastName: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case firstName = "first_name"
+        case lastName = "last_name"
+    }
+}

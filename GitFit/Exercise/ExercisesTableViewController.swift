@@ -1,16 +1,22 @@
 import UIKit
 
-class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDelegate, RatingModelDelegate, FavoriteModelDelegate {
+class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDelegate, RatingModelDelegate, FavoriteModelDelegate, CreatorModelDelegate, ImageModelDelegate {
     var exercises: [ExerciseOrder?] = []
     var exerciseOrderModel = ExerciseOrderModel()
     var workoutId: Int?
     var accountId: Int?
+    var creatorId: Int?
     var name: String?
     var starViews: [UIImageView] = []
     let ratingModel = RatingModel()
     let favoriteModel = FavoriteModel()
     var favorite = false
     var exerciseIndex: Int?
+    var creatorModel = CreatorModel()
+    var imageModel = ImageModel()
+    var creator: Creator?
+    var creatorPic = #imageLiteral(resourceName: "profile_pic_placeholder")
+    var creatorLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +27,26 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
         tableView.tableFooterView = UIView()
         self.title = name
         ratingModel.delegate = self
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        creatorModel.delegate = self
+        imageModel.delegate = self
+    }
+    
+    func creatorLoaded(user: Creator?) {
+        self.creator = user
+        let first = creator?.firstName
+        let last = creator?.lastName?.first
+    
+        if let first = first, let last = last {
+            creatorLabel?.text! = "\(first) \(last)."
+        }
+    }
+    
+    func loadedImage(image: UIImage?) {
+        if let image = image {
+            DispatchQueue.main.async {
+                self.creatorPic = image
+            }
+        }
     }
     
     func isFavorite(favorite: Int) {
@@ -41,7 +61,9 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        favoriteModel.checkFavorite(user!.id!, workoutId!)
+        favoriteModel.checkFavorite(user!.id!, self.workoutId!)
+        imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL + "\(creatorId!)")
+        creatorModel.loadCreator(id: creatorId!)
     }
     
     @objc func addFav() {
@@ -65,6 +87,7 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
         DispatchQueue.main.async {
             self.exercises = exercise
             self.exercises.append(nil)
+            self.exercises.insert(nil, at: 0)
             self.ratingModel.getRating(user!.id!, self.workoutId!)
             self.tableView.reloadData()
         }
@@ -86,32 +109,10 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
         // #warning Incomplete implementation, return the number of rows
         return exercises.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
-        if indexPath.row != exercises.count - 1 {
-            cell = tableView.dequeueReusableCell(withIdentifier: "exercise", for: indexPath)
-            let exercise = exercises[indexPath.row]!
-        
-            let name = cell.viewWithTag(1) as! UILabel
-            name.text! = "\(indexPath.row + 1)) \(exercise.name!)"
-        
-            var weight = ""
-            if let lbs = exercise.weight {
-                weight = "\n\(lbs) lbs"
-            }
-            let label = "\(exercise.amount!) \(exercise.label!)"
-            var set = ""
-            if exercise.sets! > 1 {
-                set = " / \(exercise.sets!) sets"
-            }
-        
-            let detail = cell.viewWithTag(2) as! UILabel
-            detail.text! = "\(label)\(set)\(weight)"
-        }
-        else
-        {
+        if indexPath.row == exercises.count - 1 {
             cell = tableView.dequeueReusableCell(withIdentifier: "rating", for: indexPath)
             cell.selectionStyle = .none
             
@@ -127,6 +128,42 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
                 let star = cell.viewWithTag(i) as! UIImageView
                 star.image = #imageLiteral(resourceName: "blue_empty_star_bigger")
             }
+        }
+        else if indexPath.row == 0
+        {
+            cell = tableView.dequeueReusableCell(withIdentifier: "creator", for: indexPath)
+            cell.accessoryType = .disclosureIndicator
+    
+            creatorLabel = cell.viewWithTag(2) as? UILabel
+            
+            let picView = cell.viewWithTag(1) as! UIImageView
+            picView.contentMode = .scaleAspectFill
+            picView.layer.cornerRadius = (picView.frame.height) / 2
+            picView.layer.masksToBounds = false
+            picView.clipsToBounds = true
+            picView.image = creatorPic
+        }
+        else
+        {
+            cell = tableView.dequeueReusableCell(withIdentifier: "exercise", for: indexPath)
+            let exercise = exercises[indexPath.row]!
+            cell.accessoryType = .disclosureIndicator
+            
+            let name = cell.viewWithTag(1) as! UILabel
+            name.text! = "\(indexPath.row + 1)) \(exercise.name!)"
+            
+            var weight = ""
+            if let lbs = exercise.weight {
+                weight = "\n\(lbs) lbs"
+            }
+            let label = "\(exercise.amount!) \(exercise.label!)"
+            var set = ""
+            if exercise.sets! > 1 {
+                set = " / \(exercise.sets!) sets"
+            }
+            
+            let detail = cell.viewWithTag(2) as! UILabel
+            detail.text! = "\(label)\(set)\(weight)"
         }
         
         return cell
@@ -152,7 +189,7 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55.0
+        return 60.0
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

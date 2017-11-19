@@ -13,9 +13,10 @@ class ExerciseViewController: UIViewController, ImageModelDelegate {
     var descripe: String?
     var name: String?
     var id: Int?
+    var information: String?
 
     @IBOutlet weak var exerciseImageView: UIImageView!
-    
+    @IBOutlet weak var info: UILabel!
     @IBOutlet weak var exerciseDescription: UILabel!
     
     override func viewDidLoad() {
@@ -25,6 +26,7 @@ class ExerciseViewController: UIViewController, ImageModelDelegate {
         exerciseDescription.sizeToFit()
         exerciseImageView.image = #imageLiteral(resourceName: "placeholder")
         imageModel.delegate = self
+        info.text = information
         // imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
     }
     

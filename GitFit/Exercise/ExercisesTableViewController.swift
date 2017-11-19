@@ -159,7 +159,7 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
             let label = "\(exercise.amount!) \(exercise.label!)"
             var set = ""
             if exercise.sets! > 1 {
-                set = " / \(exercise.sets!) sets"
+                set = ", \(exercise.sets!) sets"
             }
             
             let detail = cell.viewWithTag(2) as! UILabel
@@ -200,10 +200,28 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func getInfo() -> String {
+        var weight = ""
+        var set = ""
+        
+        let exercise = exercises[exerciseIndex!]!
+        let label = "\(exercise.amount!) \(exercise.label!)"
+        
+        if let lbs = exercise.weight {
+            weight = ", \(lbs) lbs"
+        }
+        if exercise.sets! > 1 {
+            set = ", \(exercise.sets!) sets"
+        }
+        
+        return "\(label)\(set)\(weight)"
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let dest = segue.destination as! ExerciseViewController
         dest.descripe = exercises[exerciseIndex!]?.description
         dest.name = exercises[exerciseIndex!]?.name
         dest.id = exercises[exerciseIndex!]?.exerciseId
+        dest.information = getInfo()
     }
 }

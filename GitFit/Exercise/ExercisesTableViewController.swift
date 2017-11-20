@@ -201,10 +201,9 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     }
     
     func getInfo() -> String {
+        guard let exercise = exercises[exerciseIndex!] else { return "" }
         var weight = ""
         var set = ""
-        
-        let exercise = exercises[exerciseIndex!]!
         let label = "\(exercise.amount!) \(exercise.label!)"
         
         if let lbs = exercise.weight {

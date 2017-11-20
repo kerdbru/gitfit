@@ -68,17 +68,17 @@ class FavoritesTableViewController: UITableViewController, FavoriteModelDelegate
         dest.creatorId = workout?.accountId
     }
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
+//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            favoriteModel.removeFavorite(user!.id!, workouts[indexPath.row].id!)
-            self.workouts.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            favoriteModel.removeFavorite(user!.id!, workouts[indexPath.row].id!)
+//            self.workouts.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         favoriteModel.loadWorkouts(user!.id!)

@@ -1,5 +1,9 @@
 import UIKit
 
+protocol NewExerciseDelegate {
+    func updateArray(_ exercises: [ExerciseOrder])
+}
+
 class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CreateModelDelegate, UISearchBarDelegate, ImageModelDelegate {
     
     @IBOutlet weak var exerciseImageView: UIImageView!
@@ -12,7 +16,8 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var change: UIButton!
     @IBOutlet weak var descripe: UILabel!
     
-    var pickLabel: UIPickerView?
+    var exerciseId: Int?
+    var pickLabel: FitPicker?
     var exercises: [ExerciseOrder]?
     var selected: Int?
     var searchController: UISearchController?
@@ -20,6 +25,8 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     var move: CGFloat = 0
     var createModel = CreateModel()
     var imageModel = ImageModel()
+    var delegate: NewExerciseDelegate?
+    var exerciseSelected = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +65,38 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @objc func save() {
-        dismiss(animated: true, completion: nil)
+        var valid = true
+        if label.text == "" {
+            valid = false
+            label.layer.borderColor = fitRed.cgColor
+        }
+        if units.text == "" {
+            valid = true
+            units.layer.borderColor = fitRed.cgColor
+        }
+        
+        if  valid && exerciseSelected {
+            var sets = 1, weight: Int? = nil
+            let pos = (exercises?.count)! + 1
+            let amount = Int(units.text!)
+            if self.weight.text != "" {
+                weight = Int(self.weight.text!)!
+            }
+            if self.sets.text != "" {
+                sets = Int(self.sets.text!)!
+            }
+            let label = pickLabel?.pickerData[(pickLabel?.selected)!].text
+            let name = self.title
+            let exerciseDescription = self.exerciseDescription.text
+            //print(pos, amount, weight, sets, label, name, exerciseDescription, exercises?.count)
+        
+            exercises?.append(ExerciseOrder(id: -1, position: pos, amount: amount, weight: weight, sets: sets, label: label, name: name, description: exerciseDescription, exerciseId: exerciseId))
+            delegate?.updateArray(exercises!)
+            dismiss(animated: true, completion: nil)
+        }
+        else {
+            showError(message: "Please select an exercise and fill out all required fields")
+        }
     }
     
     @objc func cancel() {
@@ -176,8 +214,11 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         descripe.text = "Description"
         self.title = exerciseList[indexPath.row].name
+        exerciseId = exerciseList[indexPath.row].id
+        exerciseSelected = true
         self.exerciseDescription.text = exerciseList[indexPath.row].description
         exerciseDescription.sizeToFit()
+        
         var contentRect = CGRect.zero;
         for view in scrollView.subviews {
             contentRect = contentRect.union(view.frame);
@@ -187,5 +228,12 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         // let id = exerciseList[indexPath.row].id
         // imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func showError(message: String){
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion:nil)
     }
 }

@@ -33,7 +33,12 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
     }
     
     @objc func refresh(sender:AnyObject) {
-        workoutDescriptionModel.loadWorkouts(search: "")
+        var search = ""
+        let searchBar = self.navigationItem.titleView as! UISearchBar
+        if let value = searchBar.text {
+            search = value
+        }
+        workoutDescriptionModel.loadWorkouts(search: search)
     }
     
     func workoutsLoaded(workouts: [WorkoutDescription]) {

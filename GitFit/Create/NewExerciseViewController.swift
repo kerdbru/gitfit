@@ -55,9 +55,32 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         self.navigationItem.leftBarButtonItem = cancelButton
         
-        // This code is dumb, but fixes issue with when search controller not showing correctly
-//        self.present(searchController!, animated: false, completion: nil)
-//        dismiss(animated: false, completion: nil)
+        addRightView(textfield: sets, string: "sets")
+        addRightView(textfield: weight, string: "lbs")
+        
+        if selected! > -1 {
+            exerciseSelected = true
+            let exercise = exercises![selected!]
+            let id = exercise.exerciseId
+            exerciseId = exercise.exerciseId
+            imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
+            descripe.text = "Description"
+            self.title = exercise.name
+            exerciseDescription.text = exercise.description
+            if let value = exercise.amount {
+                units.text = "\(value)"
+            }
+            if let value = exercise.label {
+                label.text = "\(value)"
+                pickLabel?.set(with: "\(value)")
+            }
+            if let value = exercise.sets {
+                sets.text = "\(value)"
+            }
+            if let value = exercise.weight {
+                weight.text = "\(value)"
+            }
+        }
     }
     
     @IBAction func changeExercise(_ sender: Any) {
@@ -75,22 +98,14 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
             units.layer.borderColor = fitRed.cgColor
         }
         
-        if  valid && exerciseSelected {
-            var sets = 1, weight: Int? = nil
-            let pos = (exercises?.count)! + 1
-            let amount = Int(units.text!)
-            if self.weight.text != "" {
-                weight = Int(self.weight.text!)!
+        if valid && exerciseSelected {
+            let exercise = getExercise()
+            if selected! < 0 {
+                exercises?.append(exercise)
             }
-            if self.sets.text != "" {
-                sets = Int(self.sets.text!)!
+            else {
+                exercises![selected!] = exercise
             }
-            let label = pickLabel?.pickerData[(pickLabel?.selected)!].text
-            let name = self.title
-            let exerciseDescription = self.exerciseDescription.text
-            //print(pos, amount, weight, sets, label, name, exerciseDescription, exercises?.count)
-        
-            exercises?.append(ExerciseOrder(id: -1, position: pos, amount: amount, weight: weight, sets: sets, label: label, name: name, description: exerciseDescription, exerciseId: exerciseId))
             delegate?.updateArray(exercises!)
             dismiss(animated: true, completion: nil)
         }
@@ -208,21 +223,15 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // let id = exerciseList[indexPath.row].id
+        // imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
         descripe.text = "Description"
         self.title = exerciseList[indexPath.row].name
         exerciseId = exerciseList[indexPath.row].id
         exerciseSelected = true
-        self.exerciseDescription.text = exerciseList[indexPath.row].description
-        exerciseDescription.sizeToFit()
-        
-        var contentRect = CGRect.zero;
-        for view in scrollView.subviews {
-            contentRect = contentRect.union(view.frame);
-        }
-        self.scrollView.contentSize = contentRect.size;
+        exerciseDescription.text = exerciseList[indexPath.row].description
+        resizeScrollView()
         self.searchController?.searchBar.text = ""
-        // let id = exerciseList[indexPath.row].id
-        // imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
         dismiss(animated: true, completion: nil)
     }
     
@@ -232,5 +241,43 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion:nil)
+    }
+    
+    func getExercise() -> ExerciseOrder {
+        var sets: Int? = nil, weight: Int? = nil
+        let pos = (exercises?.count)! + 1
+        let amount = Int(units.text!)
+        if self.weight.text != "" {
+            weight = Int(self.weight.text!)!
+        }
+        if self.sets.text != "" {
+            sets = Int(self.sets.text!)!
+        }
+        let label = pickLabel?.pickerData[(pickLabel?.selected)!].text
+        let name = self.title
+        let exerciseDescription = self.exerciseDescription.text
+        
+        return ExerciseOrder(id: -1, position: pos, amount: amount, weight: weight, sets: sets, label: label, name: name, description: exerciseDescription, exerciseId: exerciseId)
+    }
+    
+    func resizeScrollView() {
+        exerciseDescription.sizeToFit()
+        var contentRect = CGRect.zero;
+        for view in scrollView.subviews {
+            contentRect = contentRect.union(view.frame);
+        }
+        self.scrollView.contentSize = contentRect.size;
+    }
+    
+    func addRightView(textfield: UITextField, string: String) {
+        let myLabel = UILabel()
+        myLabel.text = string
+        myLabel.sizeToFit()
+        let labelSize = myLabel.frame.size
+        textfield.rightViewMode = .always
+        myLabel.frame = CGRect(x: 0.0, y: 0.0, width: labelSize.width + 10.0, height: labelSize.height)
+        myLabel.contentMode = .center
+        myLabel.font = UIFont(name: "Avenir", size: 18.0)
+        textfield.rightView = myLabel
     }
 }

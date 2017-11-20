@@ -30,6 +30,7 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
     }
 
     @objc func add() {
+        selected = -1
         performSegue(withIdentifier: "createToExercise", sender: self)
     }
 
@@ -67,14 +68,19 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
         }
         let label = "\(exercise.amount!) \(exercise.label!)"
         var set = ""
-        if exercise.sets! > 1 {
-            set = ", \(exercise.sets!) sets"
+        if let sets = exercise.sets, sets > 1 {
+            set = ", \(sets) sets"
         }
         
         let detail = cell.viewWithTag(2) as! UILabel
         detail.text! = "\(label)\(set)\(weight)"
     
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selected = indexPath.row
+        performSegue(withIdentifier: "createToExercise", sender: self)
     }
     
     func updateArray(_ exercises: [ExerciseOrder]) {

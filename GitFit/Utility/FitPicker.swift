@@ -108,5 +108,14 @@ class FitPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
         
         return pickerLabel!;
     }
+    
+    func set(with value: String) {
+        for i in 0...pickerData.count - 1{
+            if pickerData[i].text == value {
+                self.selectRow(i, inComponent: 0, animated: false)
+                selected = i
+            }
+        }
+    }
 }
 

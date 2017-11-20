@@ -132,12 +132,8 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.layer.borderColor = fitBlue.cgColor
         var textPos:CGFloat = 0
-        if textField != weight {
-            textPos = (textField.superview?.superview?.frame.origin.y)! + textField.frame.origin.y
-        }
-        else {
-            textPos = (textField.superview?.frame.origin.y)! + textField.frame.origin.y
-        }
+        textPos = (textField.superview?.superview?.frame.origin.y)! + textField.frame.origin.y
+
         let halfScreen = UIScreen.main.bounds.height / 2
         if halfScreen < (textPos + 50) {
             move = 50 + textPos - halfScreen
@@ -232,6 +228,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     func showError(message: String){
+        view.endEditing(true)
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion:nil)

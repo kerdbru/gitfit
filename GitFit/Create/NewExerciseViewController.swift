@@ -1,7 +1,7 @@
 import UIKit
 
 protocol NewExerciseDelegate {
-    func updateArray(_ exercises: [ExerciseOrder])
+    func updateArray(_ exercises: [ExerciseOrder?])
 }
 
 class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CreateModelDelegate, UISearchBarDelegate, ImageModelDelegate, FitPickerDelegate {
@@ -17,7 +17,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     
     var exerciseId: Int?
     var pickLabel: FitPicker?
-    var exercises: [ExerciseOrder]?
+    var exercises: [ExerciseOrder?]?
     var selected: Int?
     var searchController: UISearchController?
     var exerciseList: [Exercise] = []
@@ -29,7 +29,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
 
     fileprivate func loadInformation() {
         exerciseSelected = true
-        let exercise = exercises![selected!]
+        let exercise = exercises![selected!]!
         //let id = exercise.exerciseId
         exerciseId = exercise.exerciseId
 //        imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")

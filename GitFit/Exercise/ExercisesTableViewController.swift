@@ -114,6 +114,7 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
         if indexPath.row == exercises.count - 1 {
             cell = tableView.dequeueReusableCell(withIdentifier: "rating", for: indexPath)
             cell.selectionStyle = .none
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
             
             for i in 1...5 {
                 let star = cell.viewWithTag(i) as! UIImageView

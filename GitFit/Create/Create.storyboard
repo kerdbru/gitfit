@@ -130,24 +130,14 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gew-ti-7ql">
-                                        <rect key="frame" x="18" y="93" width="339" height="37"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                        <state key="normal" title="Change Exercise">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="changeExercise:" destination="4Wi-nM-p7f" eventType="touchUpInside" id="E4P-UJ-CAN"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbr-Wf-ILx">
-                                        <rect key="frame" x="18" y="140" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="18" y="93" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7H-Me-E2I">
-                                        <rect key="frame" x="18" y="145" width="339" height="0.0"/>
+                                        <rect key="frame" x="18" y="98" width="339" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -159,17 +149,14 @@
                                     <constraint firstItem="0g7-yU-h3X" firstAttribute="leading" secondItem="lvN-Lg-g9M" secondAttribute="leadingMargin" constant="10" id="I6O-Fg-W6T"/>
                                     <constraint firstItem="qgi-3P-2gt" firstAttribute="top" secondItem="lvN-Lg-g9M" secondAttribute="topMargin" constant="5" id="Ipw-qu-2H6"/>
                                     <constraint firstAttribute="bottom" secondItem="h7H-Me-E2I" secondAttribute="bottom" constant="10" id="KS1-oZ-QWa"/>
+                                    <constraint firstItem="Vbr-Wf-ILx" firstAttribute="top" secondItem="0g7-yU-h3X" secondAttribute="bottom" constant="10" id="MCr-Jb-ZID"/>
                                     <constraint firstItem="qgi-3P-2gt" firstAttribute="leading" secondItem="lvN-Lg-g9M" secondAttribute="leadingMargin" constant="10" id="Nvw-FI-QSI"/>
-                                    <constraint firstItem="Gew-ti-7ql" firstAttribute="leading" secondItem="lvN-Lg-g9M" secondAttribute="leadingMargin" constant="10" id="O3r-Rq-IzI"/>
-                                    <constraint firstItem="Vbr-Wf-ILx" firstAttribute="top" secondItem="Gew-ti-7ql" secondAttribute="bottom" constant="10" id="WLa-tL-2Y3"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="Gew-ti-7ql" secondAttribute="trailing" constant="10" id="dR9-Oy-t6Y"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="h7H-Me-E2I" secondAttribute="trailing" constant="10" id="fc2-2Q-Siq"/>
                                     <constraint firstItem="qgi-3P-2gt" firstAttribute="centerX" secondItem="lvN-Lg-g9M" secondAttribute="centerX" id="kBb-Pd-I9H"/>
                                     <constraint firstItem="0g7-yU-h3X" firstAttribute="top" secondItem="qgi-3P-2gt" secondAttribute="bottom" constant="10" id="lfc-hq-5ab"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="0g7-yU-h3X" secondAttribute="trailing" constant="10" id="nfA-x0-4LB"/>
                                     <constraint firstItem="h7H-Me-E2I" firstAttribute="leading" secondItem="lvN-Lg-g9M" secondAttribute="leadingMargin" constant="10" id="qQ1-Iw-mdI"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="qgi-3P-2gt" secondAttribute="trailing" constant="10" id="ufu-Eh-fBA"/>
-                                    <constraint firstItem="Gew-ti-7ql" firstAttribute="top" secondItem="0g7-yU-h3X" secondAttribute="bottom" constant="10" id="y8M-dK-cm6"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -189,7 +176,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="V0Y-DW-4IF"/>
                     <connections>
-                        <outlet property="change" destination="Gew-ti-7ql" id="Zqa-2l-9WK"/>
                         <outlet property="descripe" destination="Vbr-Wf-ILx" id="ebG-mV-P0J"/>
                         <outlet property="exerciseDescription" destination="h7H-Me-E2I" id="Xr5-lX-wDS"/>
                         <outlet property="exerciseImageView" destination="hwN-mI-uWp" id="rx9-dc-dtU"/>

@@ -57,7 +57,6 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "createExercise", for: indexPath)
         let exercise = exercises[indexPath.row]
-        cell.accessoryType = .disclosureIndicator
         
         let name = cell.viewWithTag(1) as! UILabel
         name.text! = "\(indexPath.row + 1)) \(exercise.name!)"
@@ -86,5 +85,16 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
     func updateArray(_ exercises: [ExerciseOrder]) {
         self.exercises = exercises
         self.tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.exercises.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }

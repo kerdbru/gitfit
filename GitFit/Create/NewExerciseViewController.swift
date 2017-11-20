@@ -13,7 +13,6 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var weight: FitTextField!
     @IBOutlet weak var sets: FitTextField!
-    @IBOutlet weak var change: UIButton!
     @IBOutlet weak var descripe: UILabel!
     
     var exerciseId: Int?
@@ -28,11 +27,34 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     var delegate: NewExerciseDelegate?
     var exerciseSelected = false
 
+    fileprivate func loadInformation() {
+        exerciseSelected = true
+        let exercise = exercises![selected!]
+        //let id = exercise.exerciseId
+        exerciseId = exercise.exerciseId
+//        imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
+        descripe.text = "Description"
+        self.title = exercise.name
+        exerciseDescription.text = exercise.description
+        if let value = exercise.amount {
+            units.text = "\(value)"
+        }
+        if let value = exercise.label {
+            label.text = "\(value)"
+            pickLabel?.set(with: "\(value)")
+        }
+        if let value = exercise.sets {
+            sets.text = "\(value)"
+        }
+        if let value = exercise.weight {
+            weight.text = "\(value)"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextStyle()
         self.title = "Exercise"
-        setDefaultButtonStyle(change, fitBlue)
         
         createModel.delegate = self
         imageModel.delegate = self
@@ -58,32 +80,20 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         addRightView(textfield: sets, string: "sets")
         addRightView(textfield: weight, string: "lbs")
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(changeExercise))
+        tapGesture.numberOfTapsRequired = 1
+        self.navigationController?.navigationBar.addGestureRecognizer(tapGesture)
+        
         if selected! > -1 {
-            exerciseSelected = true
-            let exercise = exercises![selected!]
-            let id = exercise.exerciseId
-            exerciseId = exercise.exerciseId
-            imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
-            descripe.text = "Description"
-            self.title = exercise.name
-            exerciseDescription.text = exercise.description
-            if let value = exercise.amount {
-                units.text = "\(value)"
-            }
-            if let value = exercise.label {
-                label.text = "\(value)"
-                pickLabel?.set(with: "\(value)")
-            }
-            if let value = exercise.sets {
-                sets.text = "\(value)"
-            }
-            if let value = exercise.weight {
-                weight.text = "\(value)"
-            }
+            loadInformation()
         }
+        else {
+            self.present(searchController!, animated: true, completion: nil)
+        }
+        
     }
     
-    @IBAction func changeExercise(_ sender: Any) {
+    @objc func changeExercise(_ sender: Any) {
         self.present(searchController!, animated: true, completion: nil)
     }
     
@@ -116,10 +126,6 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     
     @objc func cancel() {
         dismiss(animated: true, completion: nil)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.present(searchController!, animated: true, completion: nil)
     }
     
     func exercisesLoaded(exercises: [Exercise]) {

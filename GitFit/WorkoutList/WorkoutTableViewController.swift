@@ -4,22 +4,23 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
     var workouts: [WorkoutDescription] = []
     let workoutDescriptionModel = WorkoutDescriptionModel()
     var workout: WorkoutDescription?
+    @IBOutlet weak var workoutType: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         workoutDescriptionModel.delegate = self
-        workoutDescriptionModel.loadWorkouts(search: "")
+        workoutDescriptionModel.loadWorkouts(search: "", type: 0)
         tableView.tableFooterView = UIView()
         addSearchBar()
         refreshControl = UIRefreshControl()
         refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
+        workoutType.addTarget(self, action: #selector(reload), for: .valueChanged)
+        workoutType.tintColor = fitBlue
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if let search = searchBar.text {
-            workoutDescriptionModel.loadWorkouts(search: search)
-        }
+        reload()
         searchBar.resignFirstResponder()
     }
     
@@ -30,15 +31,6 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         self.navigationItem.titleView = search
         search.autocapitalizationType = .none
         search.enablesReturnKeyAutomatically = false
-    }
-    
-    @objc func refresh(sender:AnyObject) {
-        var search = ""
-        let searchBar = self.navigationItem.titleView as! UISearchBar
-        if let value = searchBar.text {
-            search = value
-        }
-        workoutDescriptionModel.loadWorkouts(search: search)
     }
     
     func workoutsLoaded(workouts: [WorkoutDescription]) {
@@ -76,6 +68,7 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         default:
             type!.backgroundColor = fitGreen
         }
+        type!.layer.cornerRadius = type!.frame.size.height / 2
         type!.layer.borderColor = UIColor.black.cgColor
         type!.layer.borderWidth = 1.0
         
@@ -119,5 +112,14 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
+    }
+    
+    @objc func reload() {
+        var search = ""
+        let searchBar = self.navigationItem.titleView as! UISearchBar
+        if let value = searchBar.text {
+            search = value
+        }
+        workoutDescriptionModel.loadWorkouts(search: search, type: workoutType.selectedSegmentIndex)
     }
 }

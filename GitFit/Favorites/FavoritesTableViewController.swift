@@ -44,6 +44,7 @@ class FavoritesTableViewController: UITableViewController, FavoriteModelDelegate
         default:
             type!.backgroundColor = fitGreen
         }
+        type!.layer.cornerRadius = type!.frame.size.height / 2
         type!.layer.borderColor = UIColor.black.cgColor
         type!.layer.borderWidth = 1.0
         

@@ -25,41 +25,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="type" rowHeight="44" id="i7z-5f-Xmf">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i7z-5f-Xmf" id="EfG-L6-f3z">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                        <view key="tableHeaderView" tag="3" contentMode="scaleToFill" id="4dY-WJ-yBl">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uCF-M2-yxW">
+                                    <rect key="frame" x="10" y="10" width="355" height="73"/>
                                     <subviews>
-                                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWc-fH-L1D">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <items>
-                                                <barButtonItem style="plain" id="FLs-RA-k8a">
-                                                    <segmentedControl key="customView" opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="32Z-nT-KHy">
-                                                        <rect key="frame" x="16" y="7.5" width="343" height="29"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <segments>
-                                                            <segment title="Beginner"/>
-                                                            <segment title="Intermediate"/>
-                                                            <segment title="Advanced"/>
-                                                        </segments>
-                                                    </segmentedControl>
-                                                </barButtonItem>
-                                            </items>
-                                        </toolbar>
+                                        <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWT-8W-lCM" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="35"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tl6-7i-PJ5">
+                                            <rect key="frame" x="0.0" y="45" width="355" height="29"/>
+                                            <segments>
+                                                <segment title="Beginner"/>
+                                                <segment title="Intermediate"/>
+                                                <segment title="Advanced"/>
+                                            </segments>
+                                        </segmentedControl>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="AWc-fH-L1D" secondAttribute="bottom" id="2pW-TJ-eaX"/>
-                                        <constraint firstAttribute="trailing" secondItem="AWc-fH-L1D" secondAttribute="trailing" id="m4c-T9-b4r"/>
-                                        <constraint firstItem="AWc-fH-L1D" firstAttribute="top" secondItem="EfG-L6-f3z" secondAttribute="top" id="mJo-DB-OT5"/>
-                                        <constraint firstItem="AWc-fH-L1D" firstAttribute="leading" secondItem="EfG-L6-f3z" secondAttribute="leading" id="xEm-o0-F0R"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                            </tableViewCell>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="uCF-M2-yxW" secondAttribute="bottom" constant="10" id="DWG-qc-Es9"/>
+                                <constraint firstItem="uCF-M2-yxW" firstAttribute="leading" secondItem="4dY-WJ-yBl" secondAttribute="leading" constant="10" id="DeN-Y6-Kcz"/>
+                                <constraint firstItem="uCF-M2-yxW" firstAttribute="leading" secondItem="4dY-WJ-yBl" secondAttribute="leading" constant="10" id="LyC-5F-J22"/>
+                                <constraint firstAttribute="trailing" secondItem="uCF-M2-yxW" secondAttribute="trailing" constant="10" id="P4S-7y-LqE"/>
+                                <constraint firstItem="uCF-M2-yxW" firstAttribute="top" secondItem="4dY-WJ-yBl" secondAttribute="top" constant="10" id="Tcu-ek-0O4"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="createExercise" rowHeight="60" id="oBB-EC-w4E">
-                                <rect key="frame" x="0.0" y="72" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="121" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oBB-EC-w4E" id="gNc-nf-DPb">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
@@ -100,16 +101,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="bNU-TE-3Yl">
                         <nil key="title"/>
-                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" id="06v-tu-j8x">
-                            <rect key="frame" x="109" y="7" width="157" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                     </navigationItem>
                     <connections>
-                        <outlet property="workoutName" destination="06v-tu-j8x" id="5Tn-oT-mni"/>
+                        <outlet property="workoutName" destination="lWT-8W-lCM" id="af5-ml-FpY"/>
+                        <outlet property="workoutType" destination="Tl6-7i-PJ5" id="X9c-05-2Jd"/>
                         <segue destination="8Ig-iU-6Pf" kind="presentation" identifier="createToExercise" id="ZkE-1P-A3m"/>
                     </connections>
                 </tableViewController>

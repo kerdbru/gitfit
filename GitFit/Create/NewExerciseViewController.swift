@@ -4,7 +4,7 @@ protocol NewExerciseDelegate {
     func updateArray(_ exercises: [ExerciseOrder])
 }
 
-class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CreateModelDelegate, UISearchBarDelegate, ImageModelDelegate {
+class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CreateModelDelegate, UISearchBarDelegate, ImageModelDelegate, FitPickerDelegate {
     
     @IBOutlet weak var exerciseImageView: UIImageView!
     @IBOutlet weak var units: UITextField!
@@ -104,7 +104,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
             label.layer.borderColor = fitRed.cgColor
         }
         if units.text == "" {
-            valid = true
+            valid = false
             units.layer.borderColor = fitRed.cgColor
         }
         
@@ -203,7 +203,8 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         setToolBar(textfield: units)
         setDefaultTextFieldStyle(label, fitGray)
         label.delegate = self
-        pickLabel = FitPicker(textfield: label, pickerData: [FitPickerItem(text: "Reps", id: 1)])
+        pickLabel = FitPicker(textfield: label, pickerData: [FitPickerItem(text: "reps", id: 1), FitPickerItem(text: "mins", id: 2)])
+        pickLabel?.fitDelegate = self
         setDefaultTextFieldStyle(weight, fitGray)
         weight.delegate = self
         setToolBar(textfield: weight)
@@ -285,5 +286,9 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         myLabel.contentMode = .center
         myLabel.font = UIFont(name: "Avenir", size: 18.0)
         textfield.rightView = myLabel
+    }
+    
+    func userHitDone(selectedRow: Int) {
+        units.placeholder = "*\(pickLabel?.pickerData[selectedRow].text?.firstUpper ?? "Value")"
     }
 }

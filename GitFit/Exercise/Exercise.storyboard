@@ -66,23 +66,26 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="exercise" rowHeight="60" id="eCB-Im-jcD">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="exercise" rowHeight="60" id="eCB-Im-jcD">
                                 <rect key="frame" x="0.0" y="88" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eCB-Im-jcD" id="4BL-p5-2us">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 reps, 3 sets any weight" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onP-oa-mxM">
-                                            <rect key="frame" x="271" y="8" width="94" height="44"/>
+                                            <rect key="frame" x="216" y="8" width="120" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="Ig4-sy-Mjf"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1) Clean Deadlift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmY-EU-5kF">
-                                            <rect key="frame" x="15" y="17.5" width="200" height="25"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1) Clean Deadlift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="DmY-EU-5kF">
+                                            <rect key="frame" x="10" y="17.5" width="205" height="25"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="200" id="L5i-T5-ras"/>
+                                                <constraint firstAttribute="width" constant="205" id="L5i-T5-ras"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                             <nil key="textColor"/>
@@ -91,9 +94,9 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="onP-oa-mxM" firstAttribute="centerY" secondItem="4BL-p5-2us" secondAttribute="centerY" id="7iT-mg-ESF"/>
-                                        <constraint firstItem="DmY-EU-5kF" firstAttribute="leading" secondItem="4BL-p5-2us" secondAttribute="leading" constant="15" id="B22-Pb-Wwj"/>
+                                        <constraint firstItem="DmY-EU-5kF" firstAttribute="leading" secondItem="4BL-p5-2us" secondAttribute="leading" constant="10" id="B22-Pb-Wwj"/>
                                         <constraint firstItem="DmY-EU-5kF" firstAttribute="centerY" secondItem="4BL-p5-2us" secondAttribute="centerY" id="XJu-5j-Nlt"/>
-                                        <constraint firstAttribute="trailing" secondItem="onP-oa-mxM" secondAttribute="trailing" constant="10" id="xUB-il-chj"/>
+                                        <constraint firstAttribute="trailing" secondItem="onP-oa-mxM" secondAttribute="trailing" constant="5" id="xUB-il-chj"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>

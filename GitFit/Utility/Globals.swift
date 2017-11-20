@@ -9,6 +9,13 @@ let fitRed = UIColor(displayP3Red: 255/256, green: 59/256, blue: 48/256, alpha: 
 
 var user: Profile?
 
+extension String {
+    var firstUpper: String {
+        guard let first = first else { return "" }
+        return String(first).uppercased() + dropFirst()
+    }
+}
+
 func setDefaultButtonStyle(_ button: UIButton, _ color: UIColor) {
     button.layer.cornerRadius = button.frame.height / 2
     button.clipsToBounds = true

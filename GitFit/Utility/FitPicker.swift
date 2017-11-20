@@ -5,10 +5,15 @@ struct FitPickerItem {
     var id: Int?
 }
 
+protocol FitPickerDelegate {
+    func userHitDone(selectedRow: Int)
+}
+
 class FitPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
     var selected: Int?
     var textfield: UITextField?
     var pickerData: [FitPickerItem] = []
+    var fitDelegate: FitPickerDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +32,11 @@ class FitPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
         self.textfield = textfield
         self.textfield?.inputView = self
         self.pickerData = pickerData
-        self.pickerData.insert(FitPickerItem(text: "", id: -1) , at: 0)
+        if pickerData.count > 0 {
+            self.selectRow(0, inComponent: 0, animated: false)
+            textfield.text = pickerData[0].text
+            selected = 0
+        }
         setTextfieldArrow()
         setPickerStyle()
         setPickerToolBar()
@@ -67,6 +76,7 @@ class FitPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @objc func donePicker() {
         selected = self.selectedRow(inComponent: 0)
+        fitDelegate?.userHitDone(selectedRow: selected!)
         textfield?.resignFirstResponder()
     }
     

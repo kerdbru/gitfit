@@ -34,15 +34,18 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 reps, 3 sets any weight" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46X-dT-nns">
-                                            <rect key="frame" x="271" y="8" width="94" height="44"/>
+                                            <rect key="frame" x="235" y="8" width="130" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="130" id="RWn-wp-QIQ"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1) Clean Deadlift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eac-Ul-Ycs">
-                                            <rect key="frame" x="15" y="17.5" width="200" height="25"/>
+                                            <rect key="frame" x="10" y="17.5" width="220" height="25"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="200" id="1wS-Yb-2rk"/>
+                                                <constraint firstAttribute="width" constant="220" id="1wS-Yb-2rk"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                             <nil key="textColor"/>
@@ -53,7 +56,7 @@
                                         <constraint firstAttribute="trailing" secondItem="46X-dT-nns" secondAttribute="trailing" constant="10" id="050-9y-u3h"/>
                                         <constraint firstItem="46X-dT-nns" firstAttribute="centerY" secondItem="gNc-nf-DPb" secondAttribute="centerY" id="963-lR-LDS"/>
                                         <constraint firstItem="eac-Ul-Ycs" firstAttribute="centerY" secondItem="gNc-nf-DPb" secondAttribute="centerY" id="eYP-3q-GHh"/>
-                                        <constraint firstItem="eac-Ul-Ycs" firstAttribute="leading" secondItem="gNc-nf-DPb" secondAttribute="leading" constant="15" id="rs2-W0-3mX"/>
+                                        <constraint firstItem="eac-Ul-Ycs" firstAttribute="leading" secondItem="gNc-nf-DPb" secondAttribute="leading" constant="10" id="rs2-W0-3mX"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -99,7 +102,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qgi-3P-2gt">
                                         <rect key="frame" x="18" y="13" width="339" height="30"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*Value" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhx-XW-1lp" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*Reps" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhx-XW-1lp" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="167" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>

@@ -85,8 +85,8 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         
         if selected! > -1 {
             loadInformation()
-            addRightView(textfield: sets, string: "sets")
-            addRightView(textfield: weight, string: "lbs")
+            setRightView(textField: sets)
+            setRightView(textField: weight)
         }
         else {
             self.present(searchController!, animated: true, completion: nil)
@@ -299,7 +299,12 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     func setRightView(textField: UITextField) {
         if textField == sets {
             if let value = textField.text, value.count > 0 {
-                addRightView(textfield: textField, string: "sets")
+                if Int(value)! == 1 {
+                    addRightView(textfield: textField, string: "set")
+                }
+                else {
+                    addRightView(textfield: textField, string: "sets")
+                }
             }
             else {
                 textField.rightView = nil

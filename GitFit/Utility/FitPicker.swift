@@ -1,6 +1,6 @@
 import UIKit
 
-struct FitPickerItem {
+struct FitPickerItem: Codable {
     var text: String?
     var id: Int?
 }

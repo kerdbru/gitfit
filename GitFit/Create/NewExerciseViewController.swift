@@ -71,6 +71,8 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         searchController?.searchBar.delegate = self
         searchController?.hidesNavigationBarDuringPresentation = false
         
+        exerciseImageView.roundCornersForAspectFit(radius: 5.0)
+        
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
         self.navigationItem.rightBarButtonItem = saveButton
         
@@ -90,7 +92,6 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         else {
             self.present(searchController!, animated: true, completion: nil)
         }
-        
     }
     
     @objc func changeExercise(_ sender: Any) {
@@ -138,7 +139,9 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     
     func loadedImage(image: UIImage?) {
         DispatchQueue.main.async {
+            self.exerciseImageView.contentMode = .scaleAspectFit
             self.exerciseImageView.image = image
+            self.exerciseImageView.roundCornersForAspectFit(radius: 5.0)
         }
     }
     
@@ -203,7 +206,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         setToolBar(textfield: units)
         setDefaultTextFieldStyle(label, fitGray)
         label.delegate = self
-        pickLabel = FitPicker(textfield: label, pickerData: [FitPickerItem(text: "reps", id: 1), FitPickerItem(text: "mins", id: 2)])
+        pickLabel = FitPicker(textfield: label, pickerData: fitLabels)
         pickLabel?.fitDelegate = self
         setDefaultTextFieldStyle(weight, fitGray)
         weight.delegate = self

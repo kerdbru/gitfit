@@ -1,10 +1,3 @@
-//
-//  ExerciseViewController.swift
-//  GitFit
-//
-//  Created by Keith Erdbruegger on 11/12/17.
-//  Copyright © 2017 Team3. All rights reserved.
-//
 
 import UIKit
 
@@ -25,9 +18,10 @@ class ExerciseViewController: UIViewController, ImageModelDelegate {
         exerciseDescription.text = descripe
         exerciseDescription.sizeToFit()
         exerciseImageView.image = #imageLiteral(resourceName: "placeholder")
+        exerciseImageView.roundCornersForAspectFit(radius: 5.0)
         imageModel.delegate = self
         info.text = information
-        // imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
+        imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
     }
     
     func loadedImage(image: UIImage?) {
@@ -35,6 +29,7 @@ class ExerciseViewController: UIViewController, ImageModelDelegate {
             DispatchQueue.main.async {
                 self.exerciseImageView.contentMode = .scaleAspectFit
                 self.exerciseImageView.image = image
+                self.exerciseImageView.roundCornersForAspectFit(radius: 5.0)
             }
         }
     }
@@ -43,15 +38,4 @@ class ExerciseViewController: UIViewController, ImageModelDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

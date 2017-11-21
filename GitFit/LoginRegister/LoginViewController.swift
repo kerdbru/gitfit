@@ -1,8 +1,9 @@
 import UIKit
 
-class LoginViewController: UIViewController, LoginModelDelegate, UITextFieldDelegate {
+class LoginViewController: UIViewController, LoginModelDelegate, UITextFieldDelegate, DataModelDelegate {
     let loginModel = LoginModel()
     var move: CGFloat = 0
+    var dataModel = DataModel()
     
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userPassword: UITextField!
@@ -12,6 +13,7 @@ class LoginViewController: UIViewController, LoginModelDelegate, UITextFieldDele
     override func viewDidLoad() {
         super.viewDidLoad()
         loginModel.delegate = self
+        dataModel.delegate = self
         setTextFieldStyle()
         setButtonStyle()
         
@@ -81,6 +83,7 @@ class LoginViewController: UIViewController, LoginModelDelegate, UITextFieldDele
     func profileLoaded(profile: Profile?) {
         if(profile != nil) {
             user = profile
+            dataModel.loadLabels()
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "loginToHome", sender: self)
             }
@@ -120,6 +123,11 @@ class LoginViewController: UIViewController, LoginModelDelegate, UITextFieldDele
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         view.endEditing(true)
+    }
+    
+    func labelsLoaded(labels: [FitPickerItem]) {
+        fitLabels = labels
+        print(labels.count)
     }
 }
 

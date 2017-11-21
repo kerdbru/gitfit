@@ -8,11 +8,41 @@ let fitYellow = UIColor(displayP3Red: 255/256, green: 204/256, blue: 0/256, alph
 let fitRed = UIColor(displayP3Red: 255/256, green: 59/256, blue: 48/256, alpha: 1)
 
 var user: Profile?
+var fitLabels: [FitPickerItem] = []
 
 extension String {
     var firstUpper: String {
         guard let first = first else { return "" }
         return String(first).uppercased() + dropFirst()
+    }
+}
+
+
+ // code taken from https://stackoverflow.com/questions/34962103/how-to-set-uiimageview-with-rounded-corners-for-aspect-fit-mode
+extension UIImageView
+{
+    func roundCornersForAspectFit(radius: CGFloat)
+    {
+        if let image = self.image {
+            
+            //calculate drawingRect
+            let boundsScale = self.bounds.size.width / self.bounds.size.height
+            let imageScale = image.size.width / image.size.height
+            
+            var drawingRect: CGRect = self.bounds
+            
+            if boundsScale > imageScale {
+                drawingRect.size.width =  drawingRect.size.height * imageScale
+                drawingRect.origin.x = (self.bounds.size.width - drawingRect.size.width) / 2
+            } else {
+                drawingRect.size.height = drawingRect.size.width / imageScale
+                drawingRect.origin.y = (self.bounds.size.height - drawingRect.size.height) / 2
+            }
+            let path = UIBezierPath(roundedRect: drawingRect, cornerRadius: radius)
+            let mask = CAShapeLayer()
+            mask.path = path.cgPath
+            self.layer.mask = mask
+        }
     }
 }
 

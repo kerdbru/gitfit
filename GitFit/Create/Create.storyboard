@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="afe-O3-sas">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="afe-O3-sas">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -124,7 +124,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvN-Lg-g9M">
-                                <rect key="frame" x="0.0" y="279" width="375" height="388"/>
+                                <rect key="frame" x="0.0" y="298" width="375" height="369"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qgi-3P-2gt">
                                         <rect key="frame" x="18" y="13" width="339" height="30"/>
@@ -192,16 +192,24 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="hwN-mI-uWp">
                                 <rect key="frame" x="10" y="74" width="355" height="200"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap image to change exercise!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CtA-WS-bBr">
+                                <rect key="frame" x="85.5" y="276" width="204" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3W1-GD-HYa" firstAttribute="trailing" secondItem="lvN-Lg-g9M" secondAttribute="trailing" id="25I-cL-DlH"/>
+                            <constraint firstItem="CtA-WS-bBr" firstAttribute="centerX" secondItem="7VN-29-aQN" secondAttribute="centerX" id="8kN-vR-TMf"/>
+                            <constraint firstItem="lvN-Lg-g9M" firstAttribute="top" secondItem="CtA-WS-bBr" secondAttribute="bottom" constant="2" id="FaO-9R-ELt"/>
                             <constraint firstItem="hwN-mI-uWp" firstAttribute="leading" secondItem="3W1-GD-HYa" secondAttribute="leading" constant="10" id="Gss-Ff-DBI"/>
                             <constraint firstItem="lvN-Lg-g9M" firstAttribute="bottom" secondItem="3W1-GD-HYa" secondAttribute="bottom" id="Zb9-Hv-jlW"/>
                             <constraint firstItem="hwN-mI-uWp" firstAttribute="height" secondItem="7VN-29-aQN" secondAttribute="height" multiplier="0.3" id="axC-3f-kcQ"/>
-                            <constraint firstItem="lvN-Lg-g9M" firstAttribute="top" secondItem="hwN-mI-uWp" secondAttribute="bottom" constant="5" id="be0-rr-1kJ"/>
                             <constraint firstItem="3W1-GD-HYa" firstAttribute="trailing" secondItem="hwN-mI-uWp" secondAttribute="trailing" constant="10" id="f4H-7x-geD"/>
                             <constraint firstItem="lvN-Lg-g9M" firstAttribute="leading" secondItem="3W1-GD-HYa" secondAttribute="leading" id="rYu-tL-Vof"/>
+                            <constraint firstItem="CtA-WS-bBr" firstAttribute="top" secondItem="hwN-mI-uWp" secondAttribute="bottom" constant="2" id="slZ-Tm-hFh"/>
                             <constraint firstItem="hwN-mI-uWp" firstAttribute="top" secondItem="3W1-GD-HYa" secondAttribute="top" constant="10" id="wPs-9y-xm9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3W1-GD-HYa"/>

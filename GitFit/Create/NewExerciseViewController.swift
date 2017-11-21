@@ -79,15 +79,14 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         self.navigationItem.leftBarButtonItem = cancelButton
         
-        addRightView(textfield: sets, string: "sets")
-        addRightView(textfield: weight, string: "lbs")
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(changeExercise))
         tapGesture.numberOfTapsRequired = 1
         self.navigationController?.navigationBar.addGestureRecognizer(tapGesture)
         
         if selected! > -1 {
             loadInformation()
+            addRightView(textfield: sets, string: "sets")
+            addRightView(textfield: weight, string: "lbs")
         }
         else {
             self.present(searchController!, animated: true, completion: nil)
@@ -171,6 +170,8 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
             moveTextField(textField: textField, distance: move)
             move = 0
         }
+        
+        setRightView(textField: textField)
     }
     
     func moveTextField(textField: UITextField, distance: CGFloat) {
@@ -293,5 +294,25 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     
     func userHitDone(selectedRow: Int) {
         units.placeholder = "*\(pickLabel?.pickerData[selectedRow].text?.firstUpper ?? "Value")"
+    }
+    
+    func setRightView(textField: UITextField) {
+        if textField == sets {
+            if let value = textField.text, value.count > 0 {
+                addRightView(textfield: textField, string: "sets")
+            }
+            else {
+                textField.rightView = nil
+            }
+        }
+        
+        if textField == weight {
+            if let value = textField.text, value.count > 0  {
+                addRightView(textfield: textField, string: "lbs")
+            }
+            else {
+                textField.rightView = nil
+            }
+        }
     }
 }

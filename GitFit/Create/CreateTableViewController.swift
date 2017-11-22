@@ -133,7 +133,7 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
     func getIndex(with value: String, data: [FitPickerItem]) -> Int {
         for i in 0...data.count - 1{
             if data[i].text == value {
-                return i
+                return data[i].id!
             }
         }
         return -1

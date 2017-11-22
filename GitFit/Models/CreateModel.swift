@@ -61,7 +61,7 @@ class CreateModel: NSObject {
     }
     
     func createWorkoutItem(workoutId: Int, accountId: Int, position: Int, exerciseId: Int, labelId: Int, amount: Int, weight: Int, sets: Int) {
-        let requestUrl = URL(string: URL_CREATE_WORKOUT)
+        let requestUrl = URL(string: URL_CREATE_WORKOUT_ITEM)
         var request = URLRequest(url: requestUrl!)
         
         request.httpMethod = "POST"
@@ -76,8 +76,7 @@ class CreateModel: NSObject {
             }
             
             DispatchQueue.main.async {
-                let complete = String(data: data, encoding: .utf8)
-                self.delegate?.workoutCreated!(id: Int(complete!)!)
+                let _ = String(data: data, encoding: .utf8)
             }
         }.resume()
     }

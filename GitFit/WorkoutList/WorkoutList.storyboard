@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aTB-cY-cDS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aTB-cY-cDS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,7 +26,10 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8V7-ph-9Ix">
-                                    <rect key="frame" x="10" y="10" width="355" height="25"/>
+                                    <rect key="frame" x="10" y="7" width="355" height="31"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="ZOA-F1-Lf8"/>
+                                    </constraints>
                                     <segments>
                                         <segment title="All"/>
                                         <segment title="Beginner"/>
@@ -37,9 +40,8 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="8V7-ph-9Ix" secondAttribute="bottom" constant="10" id="08Z-hq-Dqf"/>
                                 <constraint firstItem="8V7-ph-9Ix" firstAttribute="leading" secondItem="XU7-Y3-kSD" secondAttribute="leading" constant="10" id="8CK-ek-fGz"/>
-                                <constraint firstItem="8V7-ph-9Ix" firstAttribute="top" secondItem="XU7-Y3-kSD" secondAttribute="top" constant="10" id="NFt-bw-g0Z"/>
+                                <constraint firstItem="8V7-ph-9Ix" firstAttribute="centerY" secondItem="XU7-Y3-kSD" secondAttribute="centerY" id="CbQ-IE-cGj"/>
                                 <constraint firstAttribute="trailing" secondItem="8V7-ph-9Ix" secondAttribute="trailing" constant="10" id="XNI-ee-ddf"/>
                             </constraints>
                         </view>

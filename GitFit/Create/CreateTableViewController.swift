@@ -1,13 +1,16 @@
 import UIKit
 
-class CreateTableViewController: UITableViewController, UITextFieldDelegate, NewExerciseDelegate {
+class CreateTableViewController: UITableViewController, UITextFieldDelegate, NewExerciseDelegate, CreateModelDelegate {
+    
     var exercises: [ExerciseOrder] = []
     var selected: Int?
+    var createModel = CreateModel()
     @IBOutlet weak var workoutName: UITextField!
     @IBOutlet weak var workoutType: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createModel.delegate = self
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
         self.navigationItem.rightBarButtonItem = addButton
         workoutName.delegate = self
@@ -40,7 +43,7 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
     }
 
     @objc func save() {
-        
+        createModel.createWorkout(name: workoutName.text!, workoutTypeId: workoutType.selectedSegmentIndex + 1, accountId: user!.id!)
     }
     
     // MARK: - Table view data source
@@ -110,5 +113,29 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderColor = fitGray.cgColor
+    }
+    
+    func workoutCreated(id: Int) {
+        for index in 0...exercises.count - 1 {
+            let exercise = exercises[index]
+            var weight = 0, sets = 0
+            if let value = exercise.weight {
+                weight = value
+            }
+            if let value = exercise.weight {
+                sets = value
+            }
+            let labelId = getIndex(with: exercise.label!, data: fitLabels)
+            createModel.createWorkoutItem(workoutId: id, accountId: user!.id!, position: index + 1, exerciseId: exercise.exerciseId!, labelId: labelId, amount: exercise.amount!, weight: weight, sets: sets)
+        }
+    }
+    
+    func getIndex(with value: String, data: [FitPickerItem]) -> Int {
+        for i in 0...data.count - 1{
+            if data[i].text == value {
+                return i
+            }
+        }
+        return -1
     }
 }

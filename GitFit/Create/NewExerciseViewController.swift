@@ -241,7 +241,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         self.title = exerciseList[indexPath.row].name
         exerciseId = exerciseList[indexPath.row].id
         exerciseSelected = true
-        exerciseDescription.text = exerciseList[indexPath.row].description
+        exerciseDescription.text = exerciseList[indexPath.row].exerciseDescription
         resizeScrollView()
         self.searchController?.searchBar.text = ""
         dismiss(animated: true, completion: nil)

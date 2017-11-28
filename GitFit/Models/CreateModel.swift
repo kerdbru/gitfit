@@ -3,6 +3,7 @@ import UIKit
 @objc protocol CreateModelDelegate {
     @objc optional func exercisesLoaded(exercises: [Exercise])
     @objc optional func workoutCreated(id: Int)
+    @objc optional func exercisesAdded()
 }
 
 class CreateModel: NSObject {
@@ -77,6 +78,7 @@ class CreateModel: NSObject {
             
             DispatchQueue.main.async {
                 let _ = String(data: data, encoding: .utf8)
+                self.delegate?.exercisesAdded!()
             }
         }.resume()
     }

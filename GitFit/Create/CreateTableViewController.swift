@@ -43,7 +43,23 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
     }
 
     @objc func save() {
-        createModel.createWorkout(name: workoutName.text!, workoutTypeId: workoutType.selectedSegmentIndex + 1, accountId: user!.id!)
+        var valid = true
+        
+        view.endEditing(true)
+        if workoutName.text == "" {
+            workoutName.layer.borderColor = fitRed.cgColor
+            valid = false
+        }
+        if exercises.count == 0 {
+            valid = false
+        }
+        
+        if valid {
+            createModel.createWorkout(name: workoutName.text!, workoutTypeId: workoutType.selectedSegmentIndex + 1, accountId: user!.id!)
+        }
+        else {
+            showError()
+        }
     }
     
     // MARK: - Table view data source
@@ -137,5 +153,17 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
             }
         }
         return -1
+    }
+    
+    func showError(){
+        let alert = UIAlertController(title: "Error", message: "Please enter valid workout name and at least one exercise", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion:nil)
+    }
+    
+    func exercisesAdded() {
+        self.workoutName.text = ""
+        self.exercises = []
+        self.tableView.reloadData()
     }
 }

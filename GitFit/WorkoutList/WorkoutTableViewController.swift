@@ -59,18 +59,15 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         
         let name = cell.viewWithTag(1) as! UILabel
         name.text = workout.name
-        let type = cell.viewWithTag(2)
+        let type = cell.viewWithTag(2) as! UIImageView
         switch workout.type! {
         case "Intermediate":
-            type!.backgroundColor = fitYellow
+            type.image = #imageLiteral(resourceName: "rating-icon-temp-medium")
         case "Advanced":
-            type!.backgroundColor = fitRed
+            type.image = #imageLiteral(resourceName: "rating-icon-temp-hard")
         default:
-            type!.backgroundColor = fitGreen
+            type.image = #imageLiteral(resourceName: "rating-icon-temp-easy")
         }
-        type!.layer.cornerRadius = type!.frame.size.height / 2
-        type!.layer.borderColor = UIColor.black.cgColor
-        type!.layer.borderWidth = 1.0
         
         let review = cell.viewWithTag(8) as! UILabel
         review.text = "(\(workout.ratingCount ?? 0))"

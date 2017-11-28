@@ -21,7 +21,7 @@ class ExerciseViewController: UIViewController, ImageModelDelegate {
         exerciseImageView.roundCornersForAspectFit(radius: 5.0)
         imageModel.delegate = self
         info.text = information
-        imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
+//        imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
     }
     
     func loadedImage(image: UIImage?) {

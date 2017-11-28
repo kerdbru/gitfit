@@ -32,7 +32,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
         let exercise = exercises![selected!]
         let id = exercise.exerciseId
         exerciseId = exercise.exerciseId
-        imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
+//        imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
         descripe.text = "Description"
         self.title = exercise.name
         exerciseDescription.text = exercise.description
@@ -236,7 +236,7 @@ class NewExerciseViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let id = exerciseList[indexPath.row].id
-        imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
+//        imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id ?? 0)")
         descripe.text = "Description"
         self.title = exerciseList[indexPath.row].name
         exerciseId = exerciseList[indexPath.row].id

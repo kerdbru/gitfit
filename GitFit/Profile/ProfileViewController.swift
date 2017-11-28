@@ -53,8 +53,8 @@ class ProfileViewController: UIViewController, ImageModelDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         loadLabelData()
-        if let id = user!.id {
-            imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL+"\(id)")
-        }
+//        if let id = user!.id {
+//            imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL+"\(id)")
+//        }
     }
 }

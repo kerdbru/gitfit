@@ -196,7 +196,12 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row != exercises.count - 1 {
             exerciseIndex = indexPath.row
-            performSegue(withIdentifier: "exerciseToDescription", sender: self)
+            if indexPath.row == 0 {
+                performSegue(withIdentifier: "exerciseToProfile", sender: self)
+            }
+            else {
+                performSegue(withIdentifier: "exerciseToDescription", sender: self)
+            }
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -218,10 +223,23 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dest = segue.destination as! ExerciseViewController
-        dest.descripe = exercises[exerciseIndex!]?.description
-        dest.name = exercises[exerciseIndex!]?.name
-        dest.id = exercises[exerciseIndex!]?.exerciseId
-        dest.information = getInfo()
+        if segue.identifier == "exerciseToDescription" {
+            let dest = segue.destination as! ExerciseViewController
+            dest.descripe = exercises[exerciseIndex!]?.description
+            dest.name = exercises[exerciseIndex!]?.name
+            dest.id = exercises[exerciseIndex!]?.exerciseId
+            dest.information = getInfo()
+        }
+        if segue.identifier == "exerciseToProfile" {
+            let dest = segue.destination as! ExerciseProfileViewController
+            dest.profilePic = creatorPic
+            let first = creator?.firstName
+            let last = creator?.lastName?.first
+            
+            if let first = first, let last = last {
+                dest.title = "\(first) \(last)."
+            }
+            dest.creatorId = creatorId
+        }
     }
 }

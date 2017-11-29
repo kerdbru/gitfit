@@ -64,7 +64,7 @@ class ProfileViewController: UIViewController, ImageModelDelegate {
         let storyboard = UIStoryboard(name: "WorkoutList", bundle: nil)
         let navController = storyboard.instantiateViewController(withIdentifier: "workouts") as? UINavigationController
         let controller = navController?.childViewControllers[0] as! WorkoutTableViewController
-        controller.accountId = 1
+        controller.accountId = user!.id!
         controller.title = "My Workouts"
         navigationController?.pushViewController(controller, animated: true)
     }

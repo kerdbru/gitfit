@@ -22,7 +22,7 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
         tableView.tableFooterView = UIView()
 
         self.title = "Create Workout"
-        workoutType.tintColor = fitBlue
+        workoutType.tintColor = UIColor.gray
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

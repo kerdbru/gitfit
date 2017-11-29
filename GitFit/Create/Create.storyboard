@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="afe-O3-sas">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="afe-O3-sas">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -30,19 +30,19 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uCF-M2-yxW">
-                                    <rect key="frame" x="10" y="10" width="355" height="73"/>
+                                    <rect key="frame" x="10" y="11.5" width="355" height="70"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWT-8W-lCM" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="355" height="35"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="35" id="c5k-VL-MFj"/>
-                                            </constraints>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tl6-7i-PJ5">
-                                            <rect key="frame" x="0.0" y="45" width="355" height="29"/>
+                                            <rect key="frame" x="0.0" y="40" width="355" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="EcB-qT-6yA"/>
+                                            </constraints>
                                             <segments>
                                                 <segment title="Beginner"/>
                                                 <segment title="Intermediate"/>
@@ -54,11 +54,9 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="uCF-M2-yxW" secondAttribute="bottom" constant="10" id="DWG-qc-Es9"/>
-                                <constraint firstItem="uCF-M2-yxW" firstAttribute="leading" secondItem="4dY-WJ-yBl" secondAttribute="leading" constant="10" id="DeN-Y6-Kcz"/>
                                 <constraint firstItem="uCF-M2-yxW" firstAttribute="leading" secondItem="4dY-WJ-yBl" secondAttribute="leading" constant="10" id="LyC-5F-J22"/>
                                 <constraint firstAttribute="trailing" secondItem="uCF-M2-yxW" secondAttribute="trailing" constant="10" id="P4S-7y-LqE"/>
-                                <constraint firstItem="uCF-M2-yxW" firstAttribute="top" secondItem="4dY-WJ-yBl" secondAttribute="top" constant="10" id="Tcu-ek-0O4"/>
+                                <constraint firstItem="uCF-M2-yxW" firstAttribute="centerY" secondItem="4dY-WJ-yBl" secondAttribute="centerY" id="qjQ-c6-oSj"/>
                             </constraints>
                         </view>
                         <prototypes>

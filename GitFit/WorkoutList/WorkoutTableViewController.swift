@@ -1,36 +1,43 @@
 import UIKit
 
-class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModelDelegate, UISearchBarDelegate {
+class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModelDelegate, UISearchBarDelegate, UISearchControllerDelegate {
     var workouts: [WorkoutDescription] = []
     let workoutDescriptionModel = WorkoutDescriptionModel()
     var workout: WorkoutDescription?
+    var accountId = 0
     @IBOutlet weak var workoutType: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         workoutDescriptionModel.delegate = self
-        workoutDescriptionModel.loadWorkouts(search: "", type: 0)
+        workoutDescriptionModel.loadWorkouts(search: "", type: workoutType.selectedSegmentIndex, accountId: accountId)
         tableView.tableFooterView = UIView()
+        self.title = "Workouts"
         addSearchBar()
         refreshControl = UIRefreshControl()
         refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
         workoutType.addTarget(self, action: #selector(reload), for: .valueChanged)
-        workoutType.tintColor = fitBlue
+        workoutType.tintColor = UIColor.gray
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         reload()
-        searchBar.resignFirstResponder()
     }
     
     fileprivate func addSearchBar() {
-        let search = UISearchBar()
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.delegate = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        
+        let search = searchController.searchBar
         search.delegate = self
-        search.placeholder = "Search Workouts"
-        self.navigationItem.titleView = search
+        search.placeholder = "Search"
         search.autocapitalizationType = .none
         search.enablesReturnKeyAutomatically = false
+        
+        self.navigationItem.searchController = searchController
     }
     
     func workoutsLoaded(workouts: [WorkoutDescription]) {
@@ -81,13 +88,13 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         
         while stars > 0 {
             let star = cell.viewWithTag(tag) as! UIImageView
-            star.image = #imageLiteral(resourceName: "full_star")
+            star.image = #imageLiteral(resourceName: "blue_full_star")
             stars -= 1
             tag += 1
         }
         while tag < 8 {
             let star = cell.viewWithTag(tag) as! UIImageView
-            star.image = #imageLiteral(resourceName: "empty_star")
+            star.image = #imageLiteral(resourceName: "blue_empty_star")
             tag += 1
         }
         cell.accessoryType = .disclosureIndicator
@@ -113,10 +120,14 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
     
     @objc func reload() {
         var search = ""
-        let searchBar = self.navigationItem.titleView as! UISearchBar
-        if let value = searchBar.text {
+        let searchBar = self.navigationItem.searchController?.searchBar
+        if let value = searchBar?.text {
             search = value
         }
-        workoutDescriptionModel.loadWorkouts(search: search, type: workoutType.selectedSegmentIndex)
+        workoutDescriptionModel.loadWorkouts(search: search, type: workoutType.selectedSegmentIndex, accountId: accountId)
+    }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        workoutDescriptionModel.loadWorkouts(search: "", type: workoutType.selectedSegmentIndex, accountId: accountId)
     }
 }

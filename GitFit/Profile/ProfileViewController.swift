@@ -5,6 +5,7 @@ class ProfileViewController: UIViewController, ImageModelDelegate {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var myWorkouts: UIButton!
     
     @IBAction func edit(_ sender: Any) {
         performSegue(withIdentifier: "editProfile", sender: self)
@@ -49,6 +50,7 @@ class ProfileViewController: UIViewController, ImageModelDelegate {
         super.viewDidLoad()
         profilePic.image = #imageLiteral(resourceName: "profile_pic_placeholder")
         imageModel.delegate = self
+        setDefaultButtonStyle(myWorkouts, fitBlue)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,5 +58,13 @@ class ProfileViewController: UIViewController, ImageModelDelegate {
 //        if let id = user!.id {
 //            imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL+"\(id)")
 //        }
+    }
+    
+    @IBAction func viewMyWorkouts(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "WorkoutList", bundle: nil)
+        let navController = storyboard.instantiateViewController(withIdentifier: "workouts") as? UINavigationController
+        let controller = navController?.childViewControllers[0] as! WorkoutTableViewController
+        controller.accountId = 1
+        navigationController?.pushViewController(controller, animated: true)
     }
 }

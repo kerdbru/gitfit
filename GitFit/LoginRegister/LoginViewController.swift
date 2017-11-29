@@ -99,7 +99,7 @@ class LoginViewController: UIViewController, LoginModelDelegate, UITextFieldDele
     
     fileprivate func setButtonStyle() {
         setDefaultButtonStyle(loginButton, fitBlue)
-        setDefaultButtonStyle(registerButton, fitGray)
+        setDefaultButtonStyle(registerButton, fitGrayButton)
     }
     
     fileprivate func setTextFieldStyle() {

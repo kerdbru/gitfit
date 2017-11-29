@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pf8-7R-4fo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pf8-7R-4fo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,14 +26,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="5XZ-LA-TLs">
-                                <rect key="frame" x="112.5" y="89" width="150" height="150"/>
+                                <rect key="frame" x="112.5" y="84" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Ybd-cW-EEa"/>
                                     <constraint firstAttribute="height" constant="150" id="goY-YA-MSN"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lm7-Y0-wxh">
-                                <rect key="frame" x="114.5" y="254" width="146" height="89.5"/>
+                                <rect key="frame" x="114.5" y="249" width="146" height="89.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnF-Lp-RXS">
                                         <rect key="frame" x="46.5" y="0.0" width="53.5" height="30.5"/>
@@ -57,13 +57,30 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hb2-IL-Y3J">
+                                <rect key="frame" x="50" y="353.5" width="275" height="40"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <state key="normal" title="View my workouts">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="viewMyWorkouts:" destination="vb5-Lf-KAB" eventType="touchUpInside" id="8Bf-9v-zik"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5XZ-LA-TLs" firstAttribute="top" secondItem="AeR-fx-f2s" secondAttribute="top" constant="25" id="VZv-gb-a1f">
-                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                            <constraint firstItem="AeR-fx-f2s" firstAttribute="trailing" secondItem="Hb2-IL-Y3J" secondAttribute="trailing" constant="50" id="QF1-X7-ToX"/>
+                            <constraint firstItem="5XZ-LA-TLs" firstAttribute="top" secondItem="AeR-fx-f2s" secondAttribute="top" constant="20" id="VZv-gb-a1f">
+                                <variation key="heightClass=compact-widthClass=compact" constant="10"/>
                             </constraint>
-                            <constraint firstItem="lm7-Y0-wxh" firstAttribute="top" secondItem="5XZ-LA-TLs" secondAttribute="bottom" constant="15" id="X8b-qj-sRB"/>
+                            <constraint firstItem="Hb2-IL-Y3J" firstAttribute="top" secondItem="lm7-Y0-wxh" secondAttribute="bottom" constant="15" id="WfC-ub-3j1">
+                                <variation key="heightClass=compact-widthClass=compact" constant="5"/>
+                            </constraint>
+                            <constraint firstItem="lm7-Y0-wxh" firstAttribute="top" secondItem="5XZ-LA-TLs" secondAttribute="bottom" constant="15" id="X8b-qj-sRB">
+                                <variation key="heightClass=compact-widthClass=compact" constant="5"/>
+                            </constraint>
+                            <constraint firstItem="Hb2-IL-Y3J" firstAttribute="leading" secondItem="AeR-fx-f2s" secondAttribute="leading" constant="50" id="bME-ni-ih7"/>
                             <constraint firstItem="5XZ-LA-TLs" firstAttribute="centerX" secondItem="Nqk-bB-9fO" secondAttribute="centerX" id="fHc-X7-cui"/>
                             <constraint firstItem="lm7-Y0-wxh" firstAttribute="centerX" secondItem="Nqk-bB-9fO" secondAttribute="centerX" id="yoB-Mz-XGG"/>
                         </constraints>
@@ -84,6 +101,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="email" destination="opp-dp-OzG" id="ut3-ud-xkX"/>
+                        <outlet property="myWorkouts" destination="Hb2-IL-Y3J" id="TFc-gu-kik"/>
                         <outlet property="name" destination="dnF-Lp-RXS" id="n1b-GG-N2R"/>
                         <outlet property="profilePic" destination="5XZ-LA-TLs" id="bvC-Mb-HXY"/>
                         <segue destination="UR4-19-Vbz" kind="presentation" identifier="editProfile" id="O2M-C3-e9N"/>

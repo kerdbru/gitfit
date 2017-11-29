@@ -1,6 +1,11 @@
 import UIKit
 
-class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModelDelegate, UISearchBarDelegate, UISearchControllerDelegate {
+class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModelDelegate, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        print(searchController.searchBar.text ?? "NULL")
+    }
+    
     var workouts: [WorkoutDescription] = []
     let workoutDescriptionModel = WorkoutDescriptionModel()
     var workout: WorkoutDescription?
@@ -29,6 +34,9 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         searchController.dimsBackgroundDuringPresentation = false
         searchController.delegate = self
         searchController.hidesNavigationBarDuringPresentation = false
+        self.definesPresentationContext = true
+        searchController.searchResultsUpdater = self
+        searchController.definesPresentationContext = true
         
         let search = searchController.searchBar
         search.delegate = self

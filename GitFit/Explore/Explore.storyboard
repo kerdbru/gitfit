@@ -12,14 +12,24 @@
         <!--Explore-->
         <scene sceneID="VU2-Hn-rB9">
             <objects>
-                <viewController id="Aqt-Vf-chg" sceneMemberID="viewController">
+                <viewController id="Aqt-Vf-chg" customClass="ExploreViewController" customModule="GitFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uht-bP-O8y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="8B8-uS-gov">
+                                <rect key="frame" x="41" y="91" width="292" height="194"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ePN-xQ-icZ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Explore" id="EGh-3c-c6P"/>
+                    <connections>
+                        <outlet property="featuredExercise" destination="8B8-uS-gov" id="L7q-bf-swc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ij-gZ-2os" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -48,5 +58,6 @@
     </scenes>
     <resources>
         <image name="globe" width="30" height="30"/>
+        <image name="placeholder" width="1280" height="960"/>
     </resources>
 </document>

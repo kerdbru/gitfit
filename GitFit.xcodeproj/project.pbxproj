@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1722272E1FCF5C710027C22E /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1722272D1FCF5C710027C22E /* Explore.storyboard */; };
+		172227301FCF6DF30027C22E /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1722272F1FCF6DF30027C22E /* ExploreViewController.swift */; };
 		1E484DEC1F85AB40000DEB04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E484DEB1F85AB40000DEB04 /* AppDelegate.swift */; };
 		1E484DEE1F85AB40000DEB04 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E484DED1F85AB40000DEB04 /* LoginViewController.swift */; };
 		1E484DF11F85AB40000DEB04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E484DEF1F85AB40000DEB04 /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		1722272D1FCF5C710027C22E /* Explore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
+		1722272F1FCF6DF30027C22E /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		1E484DE81F85AB40000DEB04 /* GitFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E484DEB1F85AB40000DEB04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E484DED1F85AB40000DEB04 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				1722272D1FCF5C710027C22E /* Explore.storyboard */,
+				1722272F1FCF6DF30027C22E /* ExploreViewController.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				932C94F71FBB803C00BF5BBD /* CreateTableViewController.swift in Sources */,
 				1E484DEE1F85AB40000DEB04 /* LoginViewController.swift in Sources */,
 				93898E221FBFF69600CB6B0C /* Exercises.swift in Sources */,
+				172227301FCF6DF30027C22E /* ExploreViewController.swift in Sources */,
 				93BDDE9A1FA963BF00D2FB68 /* WorkoutDescriptionModel.swift in Sources */,
 				C68336581F8C0B8200E6134D /* ProfileViewController.swift in Sources */,
 				93D8FFE21FCF48280013809A /* ExerciseProfileViewController.swift in Sources */,

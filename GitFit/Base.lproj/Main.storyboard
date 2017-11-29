@@ -226,6 +226,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="gRF-49-36n" kind="relationship" relationship="viewControllers" id="mLW-nH-Uba"/>
                         <segue destination="06P-KP-D9f" kind="relationship" relationship="viewControllers" id="YxW-u4-zU0"/>
                         <segue destination="Tha-Ix-iUM" kind="relationship" relationship="viewControllers" id="yMy-lX-a3t"/>
                         <segue destination="I8I-70-OH6" kind="relationship" relationship="viewControllers" id="4XE-QF-jbU"/>
@@ -275,6 +276,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xyB-O0-rRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="475" y="1453"/>
+        </scene>
+        <!--Explore-->
+        <scene sceneID="0L7-B4-BqK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Explore" id="gRF-49-36n" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="EEW-Ei-Yej"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M3A-Tg-3zF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="904" y="1498"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z9F-jQ-Wqw">

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aaH-6j-MaX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Explore-->
+        <scene sceneID="VU2-Hn-rB9">
+            <objects>
+                <viewController id="Aqt-Vf-chg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uht-bP-O8y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ePN-xQ-icZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Explore" id="EGh-3c-c6P"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ij-gZ-2os" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="810.39999999999998" y="1.3493253373313345"/>
+        </scene>
+        <!--Explore-->
+        <scene sceneID="9cK-sB-pOF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aaH-6j-MaX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Explore" image="globe" selectedImage="globe" id="cGD-4d-Eap"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="l3W-Oc-tg8">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Aqt-Vf-chg" kind="relationship" relationship="rootViewController" id="TdM-dn-7nv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rXg-nK-DNp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-159" y="1"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="globe" width="30" height="30"/>
+    </resources>
+</document>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1722272E1FCF5C710027C22E /* Explore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1722272D1FCF5C710027C22E /* Explore.storyboard */; };
 		1E484DEC1F85AB40000DEB04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E484DEB1F85AB40000DEB04 /* AppDelegate.swift */; };
 		1E484DEE1F85AB40000DEB04 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E484DED1F85AB40000DEB04 /* LoginViewController.swift */; };
 		1E484DF11F85AB40000DEB04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E484DEF1F85AB40000DEB04 /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1722272D1FCF5C710027C22E /* Explore.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Explore.storyboard; sourceTree = "<group>"; };
 		1E484DE81F85AB40000DEB04 /* GitFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E484DEB1F85AB40000DEB04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E484DED1F85AB40000DEB04 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1722272C1FCF5C310027C22E /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				1722272D1FCF5C710027C22E /* Explore.storyboard */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
 		1E484DDF1F85AB40000DEB04 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +175,7 @@
 		1E484DEA1F85AB40000DEB04 /* GitFit */ = {
 			isa = PBXGroup;
 			children = (
+				1722272C1FCF5C310027C22E /* Explore */,
 				932C94F31FBB7C3400BF5BBD /* Create */,
 				93E7F3491FB13BAD00BDE950 /* Exercise */,
 				93E7F3421FB0E48D00BDE950 /* Favorites */,
@@ -401,6 +412,7 @@
 				1E484DF61F85AB40000DEB04 /* LaunchScreen.storyboard in Resources */,
 				1E484DF31F85AB40000DEB04 /* Assets.xcassets in Resources */,
 				93E7F3441FB0E4B400BDE950 /* Favorites.storyboard in Resources */,
+				1722272E1FCF5C710027C22E /* Explore.storyboard in Resources */,
 				93E7F34B1FB13BD300BDE950 /* Exercise.storyboard in Resources */,
 				932C94F51FBB7C5300BF5BBD /* Create.storyboard in Resources */,
 				933F1A5B1FA7D74700C2857D /* Profile.storyboard in Resources */,

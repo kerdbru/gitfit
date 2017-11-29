@@ -12,7 +12,6 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
         workoutDescriptionModel.delegate = self
         workoutDescriptionModel.loadWorkouts(search: "", type: workoutType.selectedSegmentIndex, accountId: accountId)
         tableView.tableFooterView = UIView()
-        self.title = "Workouts"
         addSearchBar()
         refreshControl = UIRefreshControl()
         refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -97,6 +96,15 @@ class WorkoutTableViewController: UITableViewController, WorkoutDescriptionModel
             star.image = #imageLiteral(resourceName: "blue_empty_star")
             tag += 1
         }
+        
+        let heart = cell.viewWithTag(9) as! UIImageView
+        if workout.favorite! > 0 {
+            heart.image = #imageLiteral(resourceName: "if_heart_285639")
+        }
+        else {
+            heart.image = nil
+        }
+        
         cell.accessoryType = .disclosureIndicator
         return cell
     }

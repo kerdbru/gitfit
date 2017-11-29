@@ -30,16 +30,16 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uCF-M2-yxW">
-                                    <rect key="frame" x="10" y="11.5" width="355" height="70"/>
+                                    <rect key="frame" x="10" y="10" width="355" height="73"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWT-8W-lCM" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="33"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tl6-7i-PJ5">
-                                            <rect key="frame" x="0.0" y="40" width="355" height="31"/>
+                                            <rect key="frame" x="0.0" y="43" width="355" height="31"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="EcB-qT-6yA"/>
                                             </constraints>
@@ -54,9 +54,10 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="uCF-M2-yxW" secondAttribute="bottom" constant="10" id="0J8-PR-n3L"/>
                                 <constraint firstItem="uCF-M2-yxW" firstAttribute="leading" secondItem="4dY-WJ-yBl" secondAttribute="leading" constant="10" id="LyC-5F-J22"/>
                                 <constraint firstAttribute="trailing" secondItem="uCF-M2-yxW" secondAttribute="trailing" constant="10" id="P4S-7y-LqE"/>
-                                <constraint firstItem="uCF-M2-yxW" firstAttribute="centerY" secondItem="4dY-WJ-yBl" secondAttribute="centerY" id="qjQ-c6-oSj"/>
+                                <constraint firstItem="uCF-M2-yxW" firstAttribute="top" secondItem="4dY-WJ-yBl" secondAttribute="top" constant="10" id="zIA-tz-c17"/>
                             </constraints>
                         </view>
                         <prototypes>

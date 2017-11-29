@@ -13,7 +13,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Workout Table View Controller-->
+        <!--Workouts-->
         <scene sceneID="8Xp-QK-m2M">
             <objects>
                 <tableViewController id="8Uv-4x-ITA" customClass="WorkoutTableViewController" customModule="GitFit" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,11 +46,11 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="workout" rowHeight="55" id="P5t-7Q-u3x">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="workout" rowHeight="55" id="P5t-7Q-u3x">
                                 <rect key="frame" x="0.0" y="88" width="375" height="55"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P5t-7Q-u3x" id="FWh-FW-wto">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="54.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="54.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rating-icon-temp-easy" translatesAutoresizingMaskIntoConstraints="NO" id="XDN-aD-sqW">
@@ -61,16 +61,16 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7pN-Kb-YCs">
-                                            <rect key="frame" x="52" y="4" width="275" height="46.5"/>
+                                            <rect key="frame" x="52" y="4" width="250" height="46.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfB-13-uwB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="275" height="27.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GfB-13-uwB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="250" height="27.5"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="4in-xi-Zic">
-                                                    <rect key="frame" x="0.0" y="27.5" width="275" height="19"/>
+                                                    <rect key="frame" x="0.0" y="27.5" width="250" height="19"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g9j-Pr-Oei">
                                                             <rect key="frame" x="0.0" y="0.0" width="20" height="19"/>
@@ -108,7 +108,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QK-t5-rVm">
-                                                            <rect key="frame" x="110" y="0.0" width="165" height="19"/>
+                                                            <rect key="frame" x="110" y="0.0" width="140" height="19"/>
                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -117,12 +117,22 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="275" id="5Mk-SQ-iPF"/>
+                                                <constraint firstAttribute="width" constant="250" id="5Mk-SQ-iPF"/>
                                             </constraints>
                                         </stackView>
+                                        <imageView userInteractionEnabled="NO" tag="9" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="srW-Ep-MWX">
+                                            <rect key="frame" x="306" y="11.5" width="32" height="32"/>
+                                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="32" id="9ZP-LU-Ucn"/>
+                                                <constraint firstAttribute="height" constant="32" id="Fho-xm-DS9"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="srW-Ep-MWX" secondAttribute="trailing" constant="3" id="BIF-Xf-Pax"/>
                                         <constraint firstItem="7pN-Kb-YCs" firstAttribute="centerY" secondItem="FWh-FW-wto" secondAttribute="centerY" id="LIb-3e-ZPc"/>
+                                        <constraint firstItem="srW-Ep-MWX" firstAttribute="centerY" secondItem="FWh-FW-wto" secondAttribute="centerY" id="aBI-ij-3es"/>
                                         <constraint firstItem="XDN-aD-sqW" firstAttribute="leading" secondItem="FWh-FW-wto" secondAttribute="leading" constant="5" id="nFY-pD-Iqu"/>
                                         <constraint firstItem="7pN-Kb-YCs" firstAttribute="leading" secondItem="XDN-aD-sqW" secondAttribute="trailing" constant="5" id="nI1-nR-69V"/>
                                         <constraint firstItem="XDN-aD-sqW" firstAttribute="centerY" secondItem="FWh-FW-wto" secondAttribute="centerY" id="qD7-2e-eLx"/>
@@ -135,7 +145,7 @@
                             <outlet property="delegate" destination="8Uv-4x-ITA" id="Ff1-O9-3sD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="If1-lt-TnI"/>
+                    <navigationItem key="navigationItem" title="Workouts" id="If1-lt-TnI"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="workoutType" destination="8V7-ph-9Ix" id="gT7-0P-91M"/>

@@ -4,6 +4,7 @@ import UIKit
     @objc optional func exercisesLoaded(exercises: [Exercise])
     @objc optional func workoutCreated(id: Int)
     @objc optional func exercisesAdded()
+    @objc optional func usersLoaded(users: [Users])
 }
 
 class CreateModel: NSObject {
@@ -12,6 +13,7 @@ class CreateModel: NSObject {
     let URL_CREATE_WORKOUT = "http://54.197.29.213/fitness/api/createworkout.php"
     let URL_LOAD_EXERCISES = "http://54.197.29.213/fitness/api/getexercises.php"
     let URL_CREATE_WORKOUT_ITEM = "http://54.197.29.213/fitness/api/addworkoutitem.php"
+    let URL_GET_USERS = "http://54.197.29.213/fitness/api/getusers.php"
     
     func createWorkout(name: String, workoutTypeId: Int, accountId: Int) {
         let requestUrl = URL(string: URL_CREATE_WORKOUT)
@@ -87,6 +89,41 @@ class CreateModel: NSObject {
         do {
             let decoder = JSONDecoder()
             let json = try decoder.decode([Exercise].self, from: data)
+            return json
+        } catch {
+            print(error)
+            return []
+        }
+    }
+    
+    func getUsers(){
+        let requestUrl = URL(string: URL_GET_USERS)
+        var request = URLRequest(url: requestUrl!)
+        
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) {
+            data, response, error in
+            guard let data = data, error == nil, response != nil else {
+                print("error in url session")
+                DispatchQueue.main.async {
+                    self.delegate?.usersLoaded!(users: [])
+                }
+                return
+            }
+            
+            if let users = self.parseJsonUsers(data: data) {
+                DispatchQueue.main.async {
+                    self.delegate?.usersLoaded!(users: users)
+                }
+            }
+        }.resume()
+    }
+    
+    func parseJsonUsers(data: Data) -> [Users]? {
+        do {
+            let decoder = JSONDecoder()
+            let json = try decoder.decode([Users].self, from: data)
             return json
         } catch {
             print(error)

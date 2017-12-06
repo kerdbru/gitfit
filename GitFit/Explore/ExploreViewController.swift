@@ -1,21 +1,27 @@
-//
-//  ExploreViewController.swift
-//  GitFit
-//
-//  Created by Sumaiya Asif on 11/29/17.
-//  Copyright © 2017 Team3. All rights reserved.
-//
-
 import UIKit
 
-class ExploreViewController: UIViewController, CreateModelDelegate {
+class ExploreViewController: UIViewController, CreateModelDelegate, ImageModelDelegate {
     @IBOutlet weak var featuredExercise: UIImageView!
     @IBOutlet weak var featuredUser: UIImageView!
+    @IBOutlet weak var exerciseName: UILabel!
     let createModel = CreateModel()
     var exercises: [Exercise] = []
+    var users: [Users] = []
+    var imageModel = ImageModel()
+    var featuredPerson: Users?
+    var featuredExercises: Exercise?
+    var imageType = 0
     
     func exercisesLoaded(exercises: [Exercise]) {
         self.exercises = exercises
+        if self.featuredExercises == nil {
+            self.featuredExercises = self.getRandomExercise()
+            self.exerciseName.text = self.featuredExercises?.name
+            if let id = self.featuredExercises?.id {
+                self.imageType = 1
+                self.imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id)")
+            }
+        }
     }
     
     func getRandomExercise() -> Exercise? {
@@ -26,15 +32,17 @@ class ExploreViewController: UIViewController, CreateModelDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createModel.loadExercises(search: "")
+        createModel.getUsers()
         createModel.delegate = self
+        imageModel.delegate = self
+        
         let tapToExercise = UITapGestureRecognizer(target: self, action: #selector(handleTapToExercise(sender:)))
         let tapToUser = UITapGestureRecognizer(target: self, action: #selector(handleTapToUser(sender:)))
+        
         featuredExercise.addGestureRecognizer(tapToExercise)
         featuredUser.addGestureRecognizer(tapToUser)
         featuredUser.isUserInteractionEnabled = true
         featuredExercise.isUserInteractionEnabled = true
-        // Do any additional setup after loading the view.
     }
     
     @objc func handleTapToExercise(sender: UITapGestureRecognizer) {
@@ -52,11 +60,20 @@ class ExploreViewController: UIViewController, CreateModelDelegate {
             performSegue(withIdentifier: "exploreToUsers", sender: self)
         }
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "exploreToUsers"{
             let dest = segue.destination as! ExerciseProfileViewController
-            dest.creatorId = 1
-            dest.profilePic = #imageLiteral(resourceName: "profile_pic_placeholder")
+            if let featured = featuredPerson {
+                dest.creatorId = featured.id
+                let first = featured.firstName
+                let last = featured.lastName?.first
+                
+                if let first = first, let last = last {
+                    dest.title = "\(first) \(last)."
+                }
+                dest.profilePic = featuredUser.image
+            }
         }
         else if segue.identifier == "exploreToExercises"{
             let dest = segue.destination as! ExerciseViewController
@@ -69,20 +86,42 @@ class ExploreViewController: UIViewController, CreateModelDelegate {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func usersLoaded(users: [Users]) {
+        self.users = users
+        if self.featuredPerson == nil {
+            self.featuredPerson = self.getRandomUser()
+            if let id = featuredPerson?.id {
+                self.imageType = 0
+                self.imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL + "\(id)")
+            }
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func getRandomUser() -> Users? {
+        if users.count <= 0 { return nil }
+        let rand = Int(arc4random_uniform(UInt32(users.count)))
+        return users[rand]
     }
-    */
-
+    
+    func loadedImage(image: UIImage?) {
+        DispatchQueue.main.async {
+            if self.imageType == 0 {
+                self.featuredUser.contentMode = .scaleAspectFill
+                self.featuredUser.layer.cornerRadius = self.featuredUser.frame.height / 2
+                self.featuredUser.layer.masksToBounds = false
+                self.featuredUser.clipsToBounds = true
+                if let image = image {
+                    self.featuredUser.image = image
+                }
+                else {
+                    self.featuredUser.image = #imageLiteral(resourceName: "profile_pic_placeholder")
+                }
+                self.createModel.loadExercises(search: "")
+            }
+            else if self.imageType == 1 {
+                self.featuredExercise.image = image
+                self.featuredExercise.roundCornersForAspectFit(radius: 5.0)
+            }
+        }
+    }
 }

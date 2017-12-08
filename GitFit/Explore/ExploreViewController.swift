@@ -10,23 +10,24 @@ class ExploreViewController: UIViewController, CreateModelDelegate, ImageModelDe
     var imageModel = ImageModel()
     var featuredPerson: Users?
     var featuredExercises: Exercise?
+    var lastExercise = -1
     var imageType = 0
+    var featuredTimer: Timer?
     
     func exercisesLoaded(exercises: [Exercise]) {
         self.exercises = exercises
         if self.featuredExercises == nil {
-            self.featuredExercises = self.getRandomExercise()
-            self.exerciseName.text = self.featuredExercises?.name
-            if let id = self.featuredExercises?.id {
-                self.imageType = 1
-                self.imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id)")
-            }
+            setFeaturedExercise()
         }
     }
     
     func getRandomExercise() -> Exercise? {
         if exercises.count <= 0 { return nil }
-        let rand = Int(arc4random_uniform(UInt32(exercises.count)))
+        if exercises.count == 1 { return exercises[0] }
+        var rand = lastExercise
+        while rand == lastExercise {
+            rand = Int(arc4random_uniform(UInt32(exercises.count)))
+        }
         return exercises[rand]
     }
     
@@ -47,10 +48,6 @@ class ExploreViewController: UIViewController, CreateModelDelegate, ImageModelDe
     
     @objc func handleTapToExercise(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-//            UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseOut, animations: {
-//                self.featuredExercise.alpha = 0.0
-//            }, completion: nil)
-            // handling code
             performSegue(withIdentifier: "exploreToExercises", sender: self)
         }
     }
@@ -119,9 +116,32 @@ class ExploreViewController: UIViewController, CreateModelDelegate, ImageModelDe
                 self.createModel.loadExercises(search: "")
             }
             else if self.imageType == 1 {
-                self.featuredExercise.image = image
+                UIView.transition(with: self.featuredExercise,
+                                  duration: 0.8,
+                                  options: .transitionCrossDissolve,
+                                  animations: {
+                                    self.featuredExercise.image = image
+                }, completion: nil)
+                
                 self.featuredExercise.roundCornersForAspectFit(radius: 5.0)
             }
         }
+    }
+    
+    @objc func setFeaturedExercise() {
+        self.featuredExercises = self.getRandomExercise()
+        self.exerciseName.text = self.featuredExercises?.name
+        if let id = self.featuredExercises?.id {
+            self.imageType = 1
+            self.imageModel.loadImage(urlString: LOAD_EXERCISE_IMAGE_URL + "\(id)")
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        featuredTimer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(setFeaturedExercise), userInfo: nil, repeats: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        featuredTimer?.invalidate()
     }
 }

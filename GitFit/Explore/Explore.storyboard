@@ -14,7 +14,6 @@
         <array key="Avenir.ttc">
             <string>Avenir-Book</string>
             <string>Avenir-Heavy</string>
-            <string>Avenir-MediumOblique</string>
         </array>
     </customFonts>
     <scenes>
@@ -26,59 +25,92 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rPh-DS-vu9">
-                                <rect key="frame" x="37" y="89" width="300.5" height="476.5"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Auh-QV-Utk">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sI0-uA-Mav">
-                                        <rect key="frame" x="69.5" y="0.0" width="161.5" height="184.5"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hull-gym-weights" translatesAutoresizingMaskIntoConstraints="NO" id="Maw-AE-V1j">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="375" id="96j-jp-1wb">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="216" id="Q7g-h0-ulV">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                            </constraint>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rPh-DS-vu9">
+                                        <rect key="frame" x="38" y="231" width="300" height="417"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VD9-ET-u2X">
-                                                <rect key="frame" x="0.0" y="0.0" width="161.5" height="34.5"/>
-                                                <fontDescription key="fontDescription" name="Avenir-MediumOblique" family="Avenir" pointSize="25"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="6zc-1u-ptA">
-                                                <rect key="frame" x="5.5" y="34.5" width="150.5" height="150"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sI0-uA-Mav">
+                                                <rect key="frame" x="81" y="0.0" width="138.5" height="135"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VD9-ET-u2X">
+                                                        <rect key="frame" x="0.0" y="0.0" width="138.5" height="35"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="6zc-1u-ptA">
+                                                        <rect key="frame" x="19" y="35" width="100" height="100"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="100" id="D5M-fg-MYx"/>
+                                                            <constraint firstAttribute="height" constant="100" id="iIn-Sw-NMC"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7h9-XK-lRk">
+                                                <rect key="frame" x="0.0" y="155" width="300" height="262"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured Exercises" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xa-oU-9ae">
+                                                        <rect key="frame" x="58" y="0.0" width="184" height="35"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="8B8-uS-gov">
+                                                        <rect key="frame" x="0.0" y="35" width="300" height="200"/>
+                                                        <gestureRecognizers/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="300" id="Mlm-TU-gC0"/>
+                                                            <constraint firstAttribute="height" constant="200" id="c29-pc-jwn"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercises" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMn-ZY-pnM">
+                                                        <rect key="frame" x="109.5" y="235" width="81.5" height="27"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="D5M-fg-MYx"/>
-                                                    <constraint firstAttribute="height" constant="150" id="iIn-Sw-NMC"/>
+                                                    <constraint firstItem="8B8-uS-gov" firstAttribute="top" secondItem="7h9-XK-lRk" secondAttribute="top" constant="35" id="5qv-QI-OTo"/>
                                                 </constraints>
-                                            </imageView>
+                                            </stackView>
                                         </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7h9-XK-lRk">
-                                        <rect key="frame" x="0.0" y="214.5" width="300.5" height="262"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured Exercise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xa-oU-9ae">
-                                                <rect key="frame" x="48.5" y="0.0" width="203.5" height="34.5"/>
-                                                <fontDescription key="fontDescription" name="Avenir-MediumOblique" family="Avenir" pointSize="25"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="8B8-uS-gov">
-                                                <rect key="frame" x="0.0" y="34.5" width="300.5" height="200"/>
-                                                <gestureRecognizers/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="300" id="Mlm-TU-gC0"/>
-                                                    <constraint firstAttribute="height" constant="200" id="c29-pc-jwn"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercises" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMn-ZY-pnM">
-                                                <rect key="frame" x="109.5" y="234.5" width="81.5" height="27.5"/>
-                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="417" id="MtM-dP-8hJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="sI0-uA-Mav" secondAttribute="bottom" constant="282" id="bIy-jI-Zh0"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Maw-AE-V1j" secondAttribute="trailing" id="ApG-4b-dUR"/>
+                                    <constraint firstItem="rPh-DS-vu9" firstAttribute="top" secondItem="Maw-AE-V1j" secondAttribute="bottom" constant="15" id="USe-Dy-uM2"/>
+                                    <constraint firstItem="Maw-AE-V1j" firstAttribute="top" secondItem="Auh-QV-Utk" secondAttribute="top" id="gTV-jg-Dzc"/>
+                                    <constraint firstItem="Maw-AE-V1j" firstAttribute="leading" secondItem="Auh-QV-Utk" secondAttribute="leading" id="l2a-Zw-aed"/>
+                                    <constraint firstAttribute="bottom" secondItem="rPh-DS-vu9" secondAttribute="bottom" constant="10" id="roo-VK-l60"/>
+                                    <constraint firstItem="rPh-DS-vu9" firstAttribute="centerX" secondItem="Auh-QV-Utk" secondAttribute="centerX" id="zBr-om-iHy"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rPh-DS-vu9" firstAttribute="centerX" secondItem="uht-bP-O8y" secondAttribute="centerX" id="tye-q2-di8"/>
-                            <constraint firstItem="rPh-DS-vu9" firstAttribute="top" secondItem="ePN-xQ-icZ" secondAttribute="top" constant="25" id="yxO-UR-VEW"/>
+                            <constraint firstItem="Auh-QV-Utk" firstAttribute="leading" secondItem="ePN-xQ-icZ" secondAttribute="leading" id="4Yp-jF-Q8d"/>
+                            <constraint firstItem="Auh-QV-Utk" firstAttribute="top" secondItem="ePN-xQ-icZ" secondAttribute="top" id="53r-SB-JLw"/>
+                            <constraint firstItem="Auh-QV-Utk" firstAttribute="trailing" secondItem="ePN-xQ-icZ" secondAttribute="trailing" id="NRY-rb-DIc"/>
+                            <constraint firstAttribute="bottom" secondItem="Auh-QV-Utk" secondAttribute="bottom" id="d5W-G3-w67"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ePN-xQ-icZ"/>
                     </view>
@@ -314,6 +346,7 @@
     <resources>
         <image name="blue_empty_star_bigger" width="30" height="32"/>
         <image name="globe" width="30" height="30"/>
+        <image name="hull-gym-weights" width="720" height="450"/>
         <image name="placeholder" width="1280" height="960"/>
         <image name="profile_pic_placeholder" width="158" height="158"/>
     </resources>

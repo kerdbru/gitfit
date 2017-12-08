@@ -43,3 +43,10 @@ class Users: NSObject, Codable {
         case lastName = "last_name"
     }
 }
+
+class Stats: NSObject, Codable {
+    var number: Int?
+    var total: Int?
+    var favorites: Int?
+    var creations: Int?
+}

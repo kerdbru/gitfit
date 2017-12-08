@@ -88,7 +88,7 @@
                         <outlet property="featuredExercise" destination="8B8-uS-gov" id="L7q-bf-swc"/>
                         <outlet property="featuredUser" destination="6zc-1u-ptA" id="vbx-xq-MVh"/>
                         <segue destination="cFm-ah-Mh2" kind="show" identifier="exploreToExercises" id="sIz-tU-H2n"/>
-                        <segue destination="0F2-XB-RUc" kind="show" identifier="exploreToUsers" id="5Ku-6W-uVV"/>
+                        <segue destination="DTy-Ue-KCT" kind="show" identifier="exploreToUsers" id="vmd-mc-Hhd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ij-gZ-2os" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -186,52 +186,133 @@
             <point key="canvasLocation" x="1708" y="331"/>
         </scene>
         <!--Exercise Profile View Controller-->
-        <scene sceneID="mOY-fD-Bqd">
+        <scene sceneID="n3F-e6-gmS">
             <objects>
-                <viewController id="0F2-XB-RUc" customClass="ExerciseProfileViewController" customModule="GitFit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Kg7-o8-hTJ">
+                <viewController id="DTy-Ue-KCT" customClass="ExerciseProfileViewController" customModule="GitFit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NoZ-0b-nnU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="dtK-9d-Q81">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_pic_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="SgA-xY-k8D">
                                 <rect key="frame" x="112.5" y="89" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="KR6-GK-krS"/>
-                                    <constraint firstAttribute="height" constant="150" id="ibe-5u-OuZ"/>
+                                    <constraint firstAttribute="width" constant="150" id="5J4-CJ-KVC"/>
+                                    <constraint firstAttribute="height" constant="150" id="Ltp-Pl-HJj"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6t-0l-oUj">
-                                <rect key="frame" x="50" y="264" width="275" height="40"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ui1-RN-IG9">
+                                <rect key="frame" x="91.5" y="244" width="192" height="30"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_empty_star_bigger" translatesAutoresizingMaskIntoConstraints="NO" id="OxA-fk-8M5">
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="AsZ-HD-l5W"/>
+                                            <constraint firstAttribute="height" constant="30" id="ObV-pI-U5y"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_empty_star_bigger" translatesAutoresizingMaskIntoConstraints="NO" id="j45-F9-q7Q">
+                                        <rect key="frame" x="34" y="0.0" width="32" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="03n-9d-iFZ"/>
+                                            <constraint firstAttribute="height" constant="30" id="SkT-J3-dNt"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_empty_star_bigger" translatesAutoresizingMaskIntoConstraints="NO" id="24E-xv-BzI">
+                                        <rect key="frame" x="68" y="0.0" width="32" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="hBm-UA-2ch"/>
+                                            <constraint firstAttribute="height" constant="30" id="kBW-4D-7qM"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_empty_star_bigger" translatesAutoresizingMaskIntoConstraints="NO" id="TVi-Ja-bwL">
+                                        <rect key="frame" x="102" y="0.0" width="32" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="E3B-cl-caO"/>
+                                            <constraint firstAttribute="width" constant="32" id="vWP-T2-yTt"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue_empty_star_bigger" translatesAutoresizingMaskIntoConstraints="NO" id="5Vj-4u-vnf">
+                                        <rect key="frame" x="136" y="0.0" width="32" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="KmT-SR-XXF"/>
+                                            <constraint firstAttribute="width" constant="32" id="WdF-9R-saR"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4J-vb-e3W">
+                                        <rect key="frame" x="170" y="1.5" width="22" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="izW-xX-zpa">
+                                <rect key="frame" x="50" y="299" width="275" height="66"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workouts created: 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9j-Ki-Yoy">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="30.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorited 3 times!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3b-I0-jQj">
+                                        <rect key="frame" x="0.0" y="35.5" width="275" height="30.5"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <variation key="heightClass=compact-widthClass=compact" spacing="2"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeM-A9-wI4">
+                                <rect key="frame" x="50" y="390" width="275" height="40"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="View their creations">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="viewWorkouts:" destination="0F2-XB-RUc" eventType="touchUpInside" id="TXK-IV-MSm"/>
+                                    <action selector="viewWorkouts:" destination="DTy-Ue-KCT" eventType="touchUpInside" id="2Gk-xO-Tar"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dtK-9d-Q81" firstAttribute="top" secondItem="WTr-jy-zY5" secondAttribute="top" constant="25" id="3V0-3R-y63"/>
-                            <constraint firstItem="dtK-9d-Q81" firstAttribute="centerX" secondItem="Kg7-o8-hTJ" secondAttribute="centerX" id="aOi-kd-tpg"/>
-                            <constraint firstItem="R6t-0l-oUj" firstAttribute="top" secondItem="dtK-9d-Q81" secondAttribute="bottom" constant="25" id="nxM-OK-ma6"/>
-                            <constraint firstItem="WTr-jy-zY5" firstAttribute="trailing" secondItem="R6t-0l-oUj" secondAttribute="trailing" constant="50" id="wth-6E-Lhf"/>
-                            <constraint firstItem="R6t-0l-oUj" firstAttribute="leading" secondItem="WTr-jy-zY5" secondAttribute="leading" constant="50" id="y10-N0-eE0"/>
+                            <constraint firstItem="QeM-A9-wI4" firstAttribute="leading" secondItem="w9V-v1-Vq4" secondAttribute="leading" constant="50" id="0xs-MK-0HJ"/>
+                            <constraint firstItem="ui1-RN-IG9" firstAttribute="centerX" secondItem="NoZ-0b-nnU" secondAttribute="centerX" id="2bQ-eB-V3B"/>
+                            <constraint firstItem="ui1-RN-IG9" firstAttribute="top" secondItem="SgA-xY-k8D" secondAttribute="bottom" constant="5" id="4cO-V3-N0t">
+                                <variation key="heightClass=compact-widthClass=compact" constant="2"/>
+                            </constraint>
+                            <constraint firstItem="w9V-v1-Vq4" firstAttribute="trailing" secondItem="izW-xX-zpa" secondAttribute="trailing" constant="50" id="7A9-z9-ord"/>
+                            <constraint firstItem="SgA-xY-k8D" firstAttribute="centerX" secondItem="NoZ-0b-nnU" secondAttribute="centerX" id="AnS-dW-Iy9"/>
+                            <constraint firstItem="izW-xX-zpa" firstAttribute="top" secondItem="ui1-RN-IG9" secondAttribute="bottom" constant="25" id="Pfa-a1-ha1">
+                                <variation key="heightClass=compact-widthClass=compact" constant="5"/>
+                            </constraint>
+                            <constraint firstItem="w9V-v1-Vq4" firstAttribute="trailing" secondItem="QeM-A9-wI4" secondAttribute="trailing" constant="50" id="UTB-1J-Zhv"/>
+                            <constraint firstItem="SgA-xY-k8D" firstAttribute="top" secondItem="w9V-v1-Vq4" secondAttribute="top" constant="25" id="gSF-oZ-Cvf">
+                                <variation key="heightClass=compact-widthClass=compact" constant="5"/>
+                            </constraint>
+                            <constraint firstItem="QeM-A9-wI4" firstAttribute="top" secondItem="izW-xX-zpa" secondAttribute="bottom" constant="25" id="hk3-u0-Pca">
+                                <variation key="heightClass=compact-widthClass=compact" constant="5"/>
+                            </constraint>
+                            <constraint firstItem="izW-xX-zpa" firstAttribute="leading" secondItem="w9V-v1-Vq4" secondAttribute="leading" constant="50" id="pKj-Sx-7ZW"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="WTr-jy-zY5"/>
+                        <viewLayoutGuide key="safeArea" id="w9V-v1-Vq4"/>
                     </view>
                     <connections>
-                        <outlet property="profilePicView" destination="dtK-9d-Q81" id="ENL-Ib-Zl4"/>
-                        <outlet property="viewWorkoutsButton" destination="R6t-0l-oUj" id="OGw-xw-VED"/>
+                        <outlet property="profilePicView" destination="SgA-xY-k8D" id="lfd-WG-Te7"/>
+                        <outlet property="rating" destination="ui1-RN-IG9" id="2Gg-MU-Ss8"/>
+                        <outlet property="totalFavorites" destination="E3b-I0-jQj" id="MUs-Se-4ZM"/>
+                        <outlet property="viewWorkoutsButton" destination="QeM-A9-wI4" id="989-R3-mf9"/>
+                        <outlet property="workoutsCreated" destination="x9j-Ki-Yoy" id="9A6-27-H57"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q4z-KE-fkh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mZz-XC-f0N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1708" y="-385"/>
+            <point key="canvasLocation" x="1708" y="-360"/>
         </scene>
     </scenes>
     <resources>
+        <image name="blue_empty_star_bigger" width="30" height="32"/>
         <image name="globe" width="30" height="30"/>
         <image name="placeholder" width="1280" height="960"/>
         <image name="profile_pic_placeholder" width="158" height="158"/>

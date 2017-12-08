@@ -85,9 +85,11 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     func exerciseLoaded(exercise: [ExerciseOrder]) {
         DispatchQueue.main.async {
             self.exercises = exercise
-            self.exercises.append(nil)
+            if user!.id! != self.creatorId {
+                self.exercises.append(nil)
+                self.ratingModel.getRating(user!.id!, self.workoutId!)
+            }
             self.exercises.insert(nil, at: 0)
-            self.ratingModel.getRating(user!.id!, self.workoutId!)
             self.tableView.reloadData()
         }
     }
@@ -111,7 +113,21 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell
-        if indexPath.row == exercises.count - 1 {
+        if indexPath.row == 0 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "creator", for: indexPath)
+            cell.accessoryType = .disclosureIndicator
+    
+            creatorLabel = cell.viewWithTag(2) as? UILabel
+            creatorModel.loadCreator(id: creatorId!)
+            
+            let picView = cell.viewWithTag(1) as! UIImageView
+            picView.contentMode = .scaleAspectFill
+            picView.layer.cornerRadius = (picView.frame.height) / 2
+            picView.layer.masksToBounds = false
+            picView.clipsToBounds = true
+            picView.image = creatorPic
+        }
+        else if exercises[indexPath.row] == nil {
             cell = tableView.dequeueReusableCell(withIdentifier: "rating", for: indexPath)
             cell.selectionStyle = .none
             cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
@@ -128,21 +144,6 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
                 let star = cell.viewWithTag(i) as! UIImageView
                 star.image = #imageLiteral(resourceName: "blue_empty_star_bigger")
             }
-        }
-        else if indexPath.row == 0
-        {
-            cell = tableView.dequeueReusableCell(withIdentifier: "creator", for: indexPath)
-            cell.accessoryType = .disclosureIndicator
-    
-            creatorLabel = cell.viewWithTag(2) as? UILabel
-            creatorModel.loadCreator(id: creatorId!)
-            
-            let picView = cell.viewWithTag(1) as! UIImageView
-            picView.contentMode = .scaleAspectFill
-            picView.layer.cornerRadius = (picView.frame.height) / 2
-            picView.layer.masksToBounds = false
-            picView.clipsToBounds = true
-            picView.image = creatorPic
         }
         else
         {

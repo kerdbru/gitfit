@@ -77,7 +77,7 @@ class ExploreViewController: UIViewController, CreateModelDelegate, ImageModelDe
         }
         else if segue.identifier == "exploreToExercises"{
             let dest = segue.destination as! ExerciseViewController
-            if let exercise = getRandomExercise() {
+            if let exercise = featuredExercises {
                 dest.descripe = exercise.exerciseDescription
                 dest.id = exercise.id
                 dest.name = exercise.name

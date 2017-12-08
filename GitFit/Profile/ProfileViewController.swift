@@ -1,11 +1,13 @@
 import UIKit
 
-class ProfileViewController: UIViewController, ImageModelDelegate {
+class ProfileViewController: UIViewController, ImageModelDelegate, StatModelDelegate {
     let imageModel = ImageModel()
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var workoutsCreated: UILabel!
+    @IBOutlet weak var ratings: UIStackView!
+    @IBOutlet weak var totalFavorites: UILabel!
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var myWorkouts: UIButton!
+    var statModel = StatModel()
     
     @IBAction func edit(_ sender: Any) {
         performSegue(withIdentifier: "editProfile", sender: self)
@@ -30,8 +32,7 @@ class ProfileViewController: UIViewController, ImageModelDelegate {
     func loadLabelData() {
         let first = user?.firstName ?? ""
         let last = user?.lastName ?? ""
-        name.text = "\(first) \(last)"
-        email.text = user?.email ?? ""
+        self.title = "\(first) \(last)"
     }
     
     func loadedImage(image: UIImage?) {
@@ -51,6 +52,8 @@ class ProfileViewController: UIViewController, ImageModelDelegate {
         profilePic.image = #imageLiteral(resourceName: "profile_pic_placeholder")
         imageModel.delegate = self
         setDefaultButtonStyle(myWorkouts, fitBlue)
+        statModel.delegate = self
+        statModel.loadStats(id: user!.id!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,5 +70,36 @@ class ProfileViewController: UIViewController, ImageModelDelegate {
         controller.accountId = user!.id!
         controller.title = "My Workouts"
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func statsLoaded(stats: Stats?) {
+        var stars: Double = 0.0, i = 0
+        if let stats = stats, stats.number! != 0 {
+            stars = Double(stats.total!) / Double(stats.number!)
+            stars.round()
+            let label = ratings.arrangedSubviews[5] as! UILabel
+            label.text = "(\(stats.number!))"
+        }
+        
+        while stars > 0 {
+            let star = ratings.arrangedSubviews[i] as! UIImageView
+            star.image = #imageLiteral(resourceName: "blue_full_star")
+            stars -= 1
+            i += 1
+        }
+        while i < 5 {
+            let star = ratings.arrangedSubviews[i] as! UIImageView
+            star.image = #imageLiteral(resourceName: "blue_empty_star")
+            i += 1
+        }
+        
+        workoutsCreated.text = "Workouts created: \(stats?.creations! ?? 0)"
+        if let fav = stats?.favorites {
+            var time = "times"
+            if fav == 1 {
+                time = "time"
+            }
+            totalFavorites.text = "Favorited \(fav) \(time)!"
+        }
     }
 }

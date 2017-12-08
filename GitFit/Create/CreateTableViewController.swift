@@ -138,7 +138,7 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
             if let value = exercise.weight {
                 weight = value
             }
-            if let value = exercise.weight {
+            if let value = exercise.sets {
                 sets = value
             }
             let labelId = getIndex(with: exercise.label!, data: fitLabels)

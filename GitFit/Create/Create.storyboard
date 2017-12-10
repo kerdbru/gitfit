@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="afe-O3-sas">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="afe-O3-sas">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -58,6 +58,25 @@
                                 <constraint firstItem="uCF-M2-yxW" firstAttribute="leading" secondItem="4dY-WJ-yBl" secondAttribute="leading" constant="10" id="LyC-5F-J22"/>
                                 <constraint firstAttribute="trailing" secondItem="uCF-M2-yxW" secondAttribute="trailing" constant="10" id="P4S-7y-LqE"/>
                                 <constraint firstItem="uCF-M2-yxW" firstAttribute="top" secondItem="4dY-WJ-yBl" secondAttribute="top" constant="10" id="zIA-tz-c17"/>
+                            </constraints>
+                        </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="03t-Bf-OCC">
+                            <rect key="frame" x="0.0" y="181" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-Co-ODB">
+                                    <rect key="frame" x="170" y="4" width="34" height="36"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <state key="normal" title="Edit"/>
+                                    <connections>
+                                        <action selector="edit:" destination="aCo-27-zdZ" eventType="touchUpInside" id="ts6-DQ-ZhJ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="pMT-Co-ODB" firstAttribute="centerY" secondItem="03t-Bf-OCC" secondAttribute="centerY" id="Tzw-Rt-ERh"/>
+                                <constraint firstItem="pMT-Co-ODB" firstAttribute="centerX" secondItem="03t-Bf-OCC" secondAttribute="centerX" id="qCT-Y0-Pp3"/>
                             </constraints>
                         </view>
                         <prototypes>

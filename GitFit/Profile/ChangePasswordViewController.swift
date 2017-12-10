@@ -1,10 +1,3 @@
-//
-//  ChangePasswordViewController.swift
-//  GitFit
-//
-//  Created by Ubicomp3 on 10/31/17.
-//  Copyright © 2017 Team3. All rights reserved.
-//
 
 import UIKit
 

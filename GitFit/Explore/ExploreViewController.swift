@@ -138,7 +138,7 @@ class ExploreViewController: UIViewController, CreateModelDelegate, ImageModelDe
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        featuredTimer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(setFeaturedExercise), userInfo: nil, repeats: true)
+        featuredTimer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(setFeaturedExercise), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -58,9 +58,9 @@ class ProfileViewController: UIViewController, ImageModelDelegate, StatModelDele
     
     override func viewWillAppear(_ animated: Bool) {
         loadLabelData()
-//        if let id = user!.id {
-//            imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL+"\(id)")
-//        }
+        if let id = user!.id {
+            imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL+"\(id)")
+        }
     }
     
     @IBAction func viewMyWorkouts(_ sender: Any) {

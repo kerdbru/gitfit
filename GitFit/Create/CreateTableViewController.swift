@@ -18,8 +18,6 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
         
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
         self.navigationItem.leftBarButtonItem = saveButton
-        
-        tableView.tableFooterView = UIView()
 
         self.title = "Create Workout"
         workoutType.tintColor = UIColor.gray
@@ -165,5 +163,25 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
         self.workoutName.text = ""
         self.exercises = []
         self.tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = self.exercises[sourceIndexPath.row]
+        exercises.remove(at: sourceIndexPath.row)
+        exercises.insert(movedObject, at: destinationIndexPath.row)
+        // To check for correctness enable: self.tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    @IBAction func edit(_ sender: Any) {
+        if tableView.isEditing {
+            tableView.isEditing = false
+        }
+        else {
+            tableView.isEditing = true
+        }
     }
 }

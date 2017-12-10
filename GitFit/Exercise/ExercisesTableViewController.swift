@@ -62,7 +62,7 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     
     override func viewWillAppear(_ animated: Bool) {
         favoriteModel.checkFavorite(user!.id!, self.workoutId!)
-//        imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL + "\(creatorId!)")
+        imageModel.loadImage(urlString: LOAD_PROFILE_IMAGE_URL + "\(creatorId!)")
     }
     
     @objc func addFav() {

@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController, ImageModelDelegate, StatModelDele
     func loadLabelData() {
         let first = user?.firstName ?? ""
         let last = user?.lastName ?? ""
-        self.title = "\(first) \(last)"
+        self.navigationItem.title = "\(first) \(last)"
     }
     
     func loadedImage(image: UIImage?) {

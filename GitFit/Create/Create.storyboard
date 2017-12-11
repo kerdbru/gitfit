@@ -61,22 +61,25 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="03t-Bf-OCC">
-                            <rect key="frame" x="0.0" y="181" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="181" width="375" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-Co-ODB">
-                                    <rect key="frame" x="170" y="4" width="34" height="36"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                    <state key="normal" title="Edit"/>
+                                    <rect key="frame" x="50" y="10" width="275" height="40"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                    <state key="normal" title="Submit!">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
                                     <connections>
-                                        <action selector="edit:" destination="aCo-27-zdZ" eventType="touchUpInside" id="ts6-DQ-ZhJ"/>
+                                        <action selector="submit:" destination="aCo-27-zdZ" eventType="touchUpInside" id="ApR-7v-gAm"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="pMT-Co-ODB" firstAttribute="centerY" secondItem="03t-Bf-OCC" secondAttribute="centerY" id="Tzw-Rt-ERh"/>
-                                <constraint firstItem="pMT-Co-ODB" firstAttribute="centerX" secondItem="03t-Bf-OCC" secondAttribute="centerX" id="qCT-Y0-Pp3"/>
+                                <constraint firstAttribute="trailing" secondItem="pMT-Co-ODB" secondAttribute="trailing" constant="50" id="Fuk-wJ-TYm"/>
+                                <constraint firstItem="pMT-Co-ODB" firstAttribute="centerY" secondItem="03t-Bf-OCC" secondAttribute="centerY" id="IAv-uW-bIf"/>
+                                <constraint firstItem="pMT-Co-ODB" firstAttribute="leading" secondItem="03t-Bf-OCC" secondAttribute="leading" constant="50" id="fcR-Ih-2z6"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -124,6 +127,7 @@
                         <nil key="title"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="submitButton" destination="pMT-Co-ODB" id="T2K-qi-Cna"/>
                         <outlet property="workoutName" destination="lWT-8W-lCM" id="af5-ml-FpY"/>
                         <outlet property="workoutType" destination="Tl6-7i-PJ5" id="X9c-05-2Jd"/>
                         <segue destination="8Ig-iU-6Pf" kind="presentation" identifier="createToExercise" id="ZkE-1P-A3m"/>

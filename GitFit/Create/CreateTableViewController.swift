@@ -5,6 +5,7 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
     var exercises: [ExerciseOrder] = []
     var selected: Int?
     var createModel = CreateModel()
+    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var workoutName: UITextField!
     @IBOutlet weak var workoutType: UISegmentedControl!
     
@@ -16,11 +17,12 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
         workoutName.delegate = self
         setDefaultTextFieldStyle(workoutName, fitGray)
         
-        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
-        self.navigationItem.leftBarButtonItem = saveButton
+        self.navigationItem.leftBarButtonItem = editButtonItem
 
-        self.title = "Create Workout"
+        self.navigationItem.title = "Create Workout"
         workoutType.tintColor = UIColor.gray
+        
+        setDefaultButtonStyle(submitButton, fitBlue)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -36,28 +38,9 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
     }
 
     @objc func add() {
+        super.setEditing(false, animated: true)
         selected = -1
         performSegue(withIdentifier: "createToExercise", sender: self)
-    }
-
-    @objc func save() {
-        var valid = true
-        
-        view.endEditing(true)
-        if workoutName.text == "" {
-            workoutName.layer.borderColor = fitRed.cgColor
-            valid = false
-        }
-        if exercises.count == 0 {
-            valid = false
-        }
-        
-        if valid {
-            createModel.createWorkout(name: workoutName.text!, workoutTypeId: workoutType.selectedSegmentIndex + 1, accountId: user!.id!)
-        }
-        else {
-            showError()
-        }
     }
     
     // MARK: - Table view data source
@@ -77,7 +60,6 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCell(withIdentifier: "createExercise", for: indexPath)
         let exercise = exercises[indexPath.row]
         
@@ -169,19 +151,40 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
         let movedObject = self.exercises[sourceIndexPath.row]
         exercises.remove(at: sourceIndexPath.row)
         exercises.insert(movedObject, at: destinationIndexPath.row)
-        // To check for correctness enable: self.tableView.reloadData()
+        self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    @IBAction func edit(_ sender: Any) {
-        if tableView.isEditing {
-            tableView.isEditing = false
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        if editing {
+            submitButton.isHidden = true
         }
         else {
-            tableView.isEditing = true
+            submitButton.isHidden = false
+        }
+    }
+    
+    @IBAction func submit(_ sender: Any) {
+        var valid = true
+        
+        view.endEditing(true)
+        if workoutName.text == "" {
+            workoutName.layer.borderColor = fitRed.cgColor
+            valid = false
+        }
+        if exercises.count == 0 {
+            valid = false
+        }
+        
+        if valid {
+            createModel.createWorkout(name: workoutName.text!, workoutTypeId: workoutType.selectedSegmentIndex + 1, accountId: user!.id!)
+        }
+        else {
+            showError()
         }
     }
 }

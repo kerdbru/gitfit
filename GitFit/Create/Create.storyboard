@@ -65,7 +65,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-Co-ODB">
-                                    <rect key="frame" x="50" y="10" width="275" height="40"/>
+                                    <rect key="frame" x="10" y="10" width="355" height="40"/>
                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                     <state key="normal" title="Add exercise">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,9 +77,9 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="pMT-Co-ODB" secondAttribute="trailing" constant="50" id="Fuk-wJ-TYm"/>
+                                <constraint firstAttribute="trailing" secondItem="pMT-Co-ODB" secondAttribute="trailing" constant="10" id="Fuk-wJ-TYm"/>
                                 <constraint firstItem="pMT-Co-ODB" firstAttribute="centerY" secondItem="03t-Bf-OCC" secondAttribute="centerY" id="IAv-uW-bIf"/>
-                                <constraint firstItem="pMT-Co-ODB" firstAttribute="leading" secondItem="03t-Bf-OCC" secondAttribute="leading" constant="50" id="fcR-Ih-2z6"/>
+                                <constraint firstItem="pMT-Co-ODB" firstAttribute="leading" secondItem="03t-Bf-OCC" secondAttribute="leading" constant="10" id="fcR-Ih-2z6"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -101,9 +101,6 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1) Clean Deadlift" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eac-Ul-Ycs">
                                             <rect key="frame" x="10" y="17.5" width="220" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="220" id="1wS-Yb-2rk"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -112,6 +109,7 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="46X-dT-nns" secondAttribute="trailing" constant="10" id="050-9y-u3h"/>
                                         <constraint firstItem="46X-dT-nns" firstAttribute="centerY" secondItem="gNc-nf-DPb" secondAttribute="centerY" id="963-lR-LDS"/>
+                                        <constraint firstItem="46X-dT-nns" firstAttribute="leading" secondItem="eac-Ul-Ycs" secondAttribute="trailing" constant="5" id="KYu-1s-j6x"/>
                                         <constraint firstItem="eac-Ul-Ycs" firstAttribute="centerY" secondItem="gNc-nf-DPb" secondAttribute="centerY" id="eYP-3q-GHh"/>
                                         <constraint firstItem="eac-Ul-Ycs" firstAttribute="leading" secondItem="gNc-nf-DPb" secondAttribute="leading" constant="10" id="rs2-W0-3mX"/>
                                     </constraints>

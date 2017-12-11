@@ -195,14 +195,13 @@ class ExercisesTableViewController: UITableViewController, ExerciseOrderModelDel
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row != exercises.count - 1 {
+        if indexPath.row == 0 {
             exerciseIndex = indexPath.row
-            if indexPath.row == 0 {
-                performSegue(withIdentifier: "exerciseToProfile", sender: self)
-            }
-            else {
-                performSegue(withIdentifier: "exerciseToDescription", sender: self)
-            }
+            performSegue(withIdentifier: "exerciseToProfile", sender: self)
+        }
+        else if exercises[indexPath.row] != nil {
+            exerciseIndex = indexPath.row
+            performSegue(withIdentifier: "exerciseToDescription", sender: self)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }

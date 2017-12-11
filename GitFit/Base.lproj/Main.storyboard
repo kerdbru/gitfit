@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6ix-Zh-I1p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6ix-Zh-I1p">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -115,18 +115,18 @@
                                 <rect key="frame" x="112.5" y="89" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="Aub-3d-1z1">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="100"/>
+                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
                                     </constraint>
                                     <constraint firstAttribute="width" constant="150" id="kH1-dS-JMn">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="100"/>
+                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
                                     </constraint>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mCp-FN-wWl">
-                                <rect key="frame" x="25" y="249" width="325" height="266"/>
+                                <rect key="frame" x="25" y="249" width="325" height="290"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="*First name                       " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IRc-Rb-nal" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="325" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="325" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" textContentType="name"/>
@@ -135,7 +135,7 @@
                                         </variation>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="*Last name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6yC-E3-fS0" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="46" width="325" height="36"/>
+                                        <rect key="frame" x="0.0" y="50" width="325" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" textContentType="name"/>
@@ -144,7 +144,7 @@
                                         </variation>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="*Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQ8-4f-9SL" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="325" height="36"/>
+                                        <rect key="frame" x="0.0" y="100" width="325" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
@@ -153,7 +153,7 @@
                                         </variation>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="*Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yDL-bz-Jkw" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="138" width="325" height="36"/>
+                                        <rect key="frame" x="0.0" y="150" width="325" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -162,7 +162,7 @@
                                         </variation>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="*Verify password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nqY-vN-ho6" customClass="FitTextField" customModule="GitFit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="184" width="325" height="36"/>
+                                        <rect key="frame" x="0.0" y="200" width="325" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -171,8 +171,8 @@
                                         </variation>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqA-h0-cIy">
-                                        <rect key="frame" x="0.0" y="230" width="325" height="36"/>
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="250" width="325" height="40"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
                                         <state key="normal" title="Register">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>

@@ -67,11 +67,11 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMT-Co-ODB">
                                     <rect key="frame" x="50" y="10" width="275" height="40"/>
                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
-                                    <state key="normal" title="Submit!">
+                                    <state key="normal" title="Add exercise">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
-                                        <action selector="submit:" destination="aCo-27-zdZ" eventType="touchUpInside" id="ApR-7v-gAm"/>
+                                        <action selector="add:" destination="aCo-27-zdZ" eventType="touchUpInside" id="MZf-mn-Mbn"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -127,7 +127,7 @@
                         <nil key="title"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="submitButton" destination="pMT-Co-ODB" id="T2K-qi-Cna"/>
+                        <outlet property="addButton" destination="pMT-Co-ODB" id="sRn-Zc-ebG"/>
                         <outlet property="workoutName" destination="lWT-8W-lCM" id="af5-ml-FpY"/>
                         <outlet property="workoutType" destination="Tl6-7i-PJ5" id="X9c-05-2Jd"/>
                         <segue destination="8Ig-iU-6Pf" kind="presentation" identifier="createToExercise" id="ZkE-1P-A3m"/>

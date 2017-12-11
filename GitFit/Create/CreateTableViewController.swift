@@ -5,15 +5,15 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
     var exercises: [ExerciseOrder] = []
     var selected: Int?
     var createModel = CreateModel()
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var workoutName: UITextField!
     @IBOutlet weak var workoutType: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createModel.delegate = self
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
-        self.navigationItem.rightBarButtonItem = addButton
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(submit))
+        self.navigationItem.rightBarButtonItem = saveButton
         workoutName.delegate = self
         setDefaultTextFieldStyle(workoutName, fitGray)
         
@@ -22,7 +22,7 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
         self.navigationItem.title = "Create Workout"
         workoutType.tintColor = UIColor.gray
         
-        setDefaultButtonStyle(submitButton, fitBlue)
+        setDefaultButtonStyle(addButton, fitBlue)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -37,7 +37,7 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
         dest.delegate = self
     }
 
-    @objc func add() {
+    @IBAction func add(_ sender: Any) {
         super.setEditing(false, animated: true)
         selected = -1
         performSegue(withIdentifier: "createToExercise", sender: self)
@@ -161,14 +161,16 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         if editing {
-            submitButton.isHidden = true
+            addButton.isHidden = true
+            navigationItem.rightBarButtonItem?.isEnabled = false
         }
         else {
-            submitButton.isHidden = false
+            addButton.isHidden = false
+            navigationItem.rightBarButtonItem?.isEnabled = true
         }
     }
     
-    @IBAction func submit(_ sender: Any) {
+    @objc func submit() {
         var valid = true
         
         view.endEditing(true)
@@ -186,5 +188,13 @@ class CreateTableViewController: UITableViewController, UITextFieldDelegate, New
         else {
             showError()
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if tableView.isEditing {
+            return .delete
+        }
+        
+        return .none
     }
 }
